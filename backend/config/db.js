@@ -1,18 +1,15 @@
+require("dotenv").config(); // โหลดตัวแปรจากไฟล์ .env
 const mongoose = require("mongoose");
 
-// โหลดตัวแปรสภาพแวดล้อมจากไฟล์ .env
 const MONGO_URI = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    await mongoose.connect(MONGO_URI);
+    console.log("MongoDB connected successfully");
   } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1); // ออกจากโปรเซสด้วยข้อผิดพลาด
+    console.error("MongoDB connection failed:", error.message);
+    process.exit(1); // ออกจากโปรแกรมเมื่อการเชื่อมต่อล้มเหลว
   }
 };
 
