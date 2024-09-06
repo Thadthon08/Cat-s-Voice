@@ -1,12 +1,70 @@
-<h1>Admin Login</h1>
-<form>
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" />
+<div class="container">
+  <div class="flex">
+    <div class="card">
+      <div class="card-img m-center">
+        <img
+          src="https://www.thevoicefoundation.org/src/asset/img/logo/20231023101205_lg.webp"
+          alt="Logo"
+        />
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-login">
+        <div class="p-field">
+          <input
+            id="username"
+            type="text"
+            pInputText
+            formControlName="username"
+            placeholder="User name"
+            class="p-inputtext p-component full-width"
+          />
+          <div
+            *ngIf="
+              loginForm.get('username')?.invalid &&
+              loginForm.get('username')?.touched
+            "
+            class="p-error"
+          >
+            <small *ngIf="loginForm.get('username')?.errors?.['required']"
+              >User name is required.</small
+            >
+            <small *ngIf="loginForm.get('username')?.errors?.['pattern']"
+              >Invalid username format.</small
+            >
+          </div>
+        </div>
+
+        <div class="p-field">
+          <input
+            id="password"
+            type="password"
+            pInputText
+            formControlName="password"
+            placeholder="Password"
+            class="p-inputtext p-component full-width"
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+            class="p-error"
+          >
+            <small *ngIf="loginForm.get('password')?.errors?.['required']"
+              >Password is required.</small
+            >
+            <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+              >Password must be at least 6 characters long.</small
+            >
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          pButton
+          label="เข้าสู่ระบบ"
+          class="p-button-success full-width"
+        ></button>
+      </form>
+    </div>
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" />
-  </div>
-  <button type="submit">Login</button>
-</form>
+</div>
