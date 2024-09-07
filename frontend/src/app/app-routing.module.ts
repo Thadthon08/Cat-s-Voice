@@ -9,6 +9,7 @@ import { loginGuard } from './login.guard';
 import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
 import { LayoutComponent as AdminLayoutComponent } from './adminPage/components/layout/layout.component';
 import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
+import { RecoveryComponent } from './adminPage/components/recovery/recovery.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'add-data',
         component: AddDataComponent,
+      },
+      {
+        path: 'recovering',
+        component: RecoveryComponent,
       },
     ],
   },
