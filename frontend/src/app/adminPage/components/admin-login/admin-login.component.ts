@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AdminLoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       username: [
         '',
@@ -27,6 +28,7 @@ export class AdminLoginComponent {
       localStorage.setItem('user', JSON.stringify(user));
 
       console.log('Form Submitted!', this.loginForm.value);
+      this.router.navigate(['/admin']);
     } else {
       console.log('Form is not valid');
     }

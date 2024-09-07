@@ -5,11 +5,13 @@ import { AboutComponent } from './page/about/about.component';
 import { adminGuard } from './admin.guard';
 import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
+import { loginGuard } from './login.guard';
 
 const routes: Routes = [
   {
     path: 'admin/login',
     component: AdminLoginComponent,
+    canActivate: [loginGuard],
   },
   {
     path: '',
