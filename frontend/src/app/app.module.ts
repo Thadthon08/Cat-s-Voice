@@ -17,7 +17,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
 import { LayoutComponent } from './adminPage/components/layout/layout.component';
 import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
-
+import { AnimalCardComponent } from './adminPage/components/animal-card/animal-card.component';
+import { RecoveryComponent } from './adminPage/components/recovery/recovery.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FileUploadModule } from 'primeng/fileupload';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,8 @@ import { AddDataComponent } from './adminPage/components/add-data/add-data.compo
     FindhomeComponent,
     LayoutComponent,
     AddDataComponent,
+    AnimalCardComponent,
+    RecoveryComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,9 @@ import { AddDataComponent } from './adminPage/components/add-data/add-data.compo
     CardModule,
     ReactiveFormsModule,
     InputTextModule,
+    DropdownModule,
+    RadioButtonModule,
+    FileUploadModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
