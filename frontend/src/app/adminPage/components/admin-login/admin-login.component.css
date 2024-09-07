@@ -1,4 +1,5 @@
-.container {
+.containe-login {
+  width: 100%;
   font-family: "Roboto", sans-serif;
   background-image: url(https://www.thevoicefoundation.org/src/views/login/images/bg-login.webp);
   background-size: cover;
@@ -28,7 +29,7 @@
   animation-fill-mode: both;
   img {
     width: 56%;
-   }
+  }
 }
 .ui-card-shadow {
   width: 300px;
@@ -45,7 +46,7 @@
 }
 
 .p-error {
-  color: #ffff;
+  color: red;
 }
 
 .full-width {
