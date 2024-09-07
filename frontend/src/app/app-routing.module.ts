@@ -6,6 +6,9 @@ import { adminGuard } from './admin.guard';
 import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { loginGuard } from './login.guard';
+import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
+import { LayoutComponent as AdminLayoutComponent } from './adminPage/components/layout/layout.component';
+import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
 
 const routes: Routes = [
   {
@@ -22,9 +25,18 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: MenubarComponent,
+    component: AdminLayoutComponent,
+    canActivate: [adminGuard],
     children: [
-      { path: '', component: HomeComponent, canActivate: [adminGuard] },
+      { path: '', component: HomeComponent },
+      {
+        path: 'findhome',
+        component: FindhomeComponent,
+      },
+      {
+        path: 'add-data',
+        component: AddDataComponent,
+      },
     ],
   },
 ];
