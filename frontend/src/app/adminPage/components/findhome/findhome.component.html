@@ -1,0 +1,25 @@
+<div class="container my-5">
+  <h2 class="heading mb-5">หาบ้านให้น้อง</h2>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let animal of animals">
+      <div class="card mb-4">
+        <div class="image-container">
+          <img
+            [src]="animal.image"
+            class="card-img-top img-fluid"
+            alt="{{ animal.name }}"
+          />
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ animal.name }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-warning" (click)="navigateToAddData()">
+      เพิ่มข้อมูล
+    </button>
+  </div>
+</div>
