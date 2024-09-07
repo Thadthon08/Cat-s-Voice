@@ -1,4 +1,4 @@
-const Admin = require("../models/Admin");
+const Admin = require("../models/schema.js").Admin;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -52,7 +52,7 @@ exports.loginAdmin = async (req, res) => {
     }
 
     const token = jwt.sign({ admin_id: admin.admin_id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-    res.json({ token });
+    res.json({ token, admin_id: admin.admin_id });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

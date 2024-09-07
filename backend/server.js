@@ -16,8 +16,9 @@ app.use(cors()); // Enable CORS
 
 // เชื่อมต่อเส้นทาง API ของ Animal
 const animalRoutes = require("./routes/animalRoutes");
+const authRoutes = require("./routes/auth");
 app.use("/api/animals", animalRoutes);
-app.use("/api/admin", authenticateJWT, require("./routes/admin"));
+app.use("/api/auth", authRoutes);
 
 
 // Error Handling Middleware
