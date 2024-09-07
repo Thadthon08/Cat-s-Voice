@@ -1,6 +1,6 @@
 .custom-navbar {
   background-color: rgb(247, 200, 85) !important;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 .navbar-light .navbar-nav .nav-link {
   color: #000;
@@ -21,7 +21,7 @@
 }
 
 .btn-donate {
-  background-color: rgba(250, 129, 36, 0.8);
+  background-color: #ec6b08cb;
   color: white;
   border: none;
   padding: 0.375rem 0.75rem;
@@ -42,12 +42,14 @@
 }
 .rd-bottom {
   bottom: -3px;
+  font-weight: 400;
+  color: #ffff;
 }
 .nav-item {
   margin-right: 1.3rem;
 }
 .nav-link {
-  padding: 16px !important;
+  padding: 14px !important;
 }
 .nav-item:hover {
   background-color: rgba(255, 255, 255, 0.8);
