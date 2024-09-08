@@ -22,6 +22,9 @@ import { RecoveryComponent } from './adminPage/components/recovery/recovery.comp
 import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { FileUploadModule } from 'primeng/fileupload';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,8 +49,10 @@ import { FileUploadModule } from 'primeng/fileupload';
     DropdownModule,
     RadioButtonModule,
     FileUploadModule,
+    HttpClientModule,
+    ToastModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
