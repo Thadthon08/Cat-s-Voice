@@ -1,100 +1,12 @@
 <div>
   <app-navbar></app-navbar>
-  <img
-    src="https://www.thevoicefoundation.org/src/asset/img/slides/20231219022313_0.jpg"
-    alt="The Voice Foundation Banner"
-    height="80%"
-    width="100%"
-  />
+  <app-banner src="https://www.thevoicefoundation.org/src/asset/img/slides/20231219022313_0.jpg"></app-banner>
   <div class="box-container">
-    <div class="box-header rounded-pill">
-      <h4 class="header-inbox">หาบ้านให้น้อง</h4>
-    </div>
-    <div class="context-show">
-      พวกเค้ายังรอคอยบ้านหลังสุดท้าย ที่พร้อมจะรักและดูแลเค้าจนหมดอายุขัย
-      รอใครสักคนเข้ามาสร้างโลกใบใหม่ที่สดใสให้กับเค้าอีกครั้ง
-    </div>
-    <div class="box-search">
-        <div class="in-box-search">
-          <div class="for-search">
-            <h3>ประเภทสัตว์</h3>
-            <div class="search-type">
-                <div *ngFor="let animal of animal_type" class="m-3">
-                    <div class="card-select custom-radio-group" (click)="selectRadio(animal.name, $event)">
-                      <img [src]="'https://www.thevoicefoundation.org/src/asset/img/a' + animal.id + '.webp'" />
-                      <h6 class="m-2">{{animal.name}}</h6>
-                      <div>
-                        <input
-                          class="custom-radio"
-                          type="radio"
-                          name="radioDefault"
-                          [id]="animal.name"
-                          [checked]="currentInput === animal.name"
-                          (change)="currentInput = animal.name"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  
-          </div>
-        </div>
-          <div class="for-search">
-            <h3>เพศ</h3>
-            <div class="gender-selection  ">
-              <div class="m-3 sex-select" (click)="selectRadioSex(1, $event)">
-                <img src="https://www.thevoicefoundation.org/src/asset/img/a4.webp" />
-                <h6 class="m-2">เพศผู้</h6>
-                <div class="">
-                  <input
-                    class="custom-radio"
-                    type="radio"
-                    name="radioGender"
-                    id="1"
-                    [checked]="currentSex === 1"
-                    (change)="currentSex = 1"
-                  />
-                </div>
-              </div>
-              <div class="m-3" (click)="selectRadioSex(2, $event)">
-                <img src="https://www.thevoicefoundation.org/src/asset/img/a5.webp" />
-                <h6 class="m-2">เพศเมีย</h6>
-                <div class="">
-                  <input
-                    class="custom-radio"
-                    type="radio"
-                    name="radioGender"
-                    id="2"
-                    [checked]="currentSex === 2"
-                    (change)="currentSex = 2"
-                  />
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-        
-          <div class="search-age-box">
-            <div>เริ่มช่วงอายุ (ปี)</div>
-            <div>
-                <select class="form-select" aria-label="Default select" id="currentAge" [(ngModel)]="currentAge">
-                    <option *ngFor="let age of getAllAge()" [value]="age.id">{{ age.rang_age }}</option>
-                  </select>
-                  
-            </div>
-            <div><button type="button" class="btn  btn-primary " (click)="getAnimals()">ค้นหา</button></div>
-          </div>
-
-          
-       
-      </div>
-      
-      <div class=" card-animals">
-        <div *ngFor="let animal of getAllanimals()">
-            <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240907091619_0.jpg"  height="306" style="cursor: pointer;">
-            <div class="card-box-select">{{animal.name}}</div>
-        </div>
-      </div>
+    <app-header-content-search 
+    header="หาบ้านให้น้อง" 
+    content=" พวกเค้ายังรอคอยบ้านหลังสุดท้าย ที่พร้อมจะรักและดูแลเค้าจนหมดอายุขัย
+    รอใครสักคนเข้ามาสร้างโลกใบใหม่ที่สดใสให้กับเค้าอีกครั้ง">
+  </app-header-content-search>
+   <app-box-saerch></app-box-saerch>
   </div>
 </div>
-<div>1</div>

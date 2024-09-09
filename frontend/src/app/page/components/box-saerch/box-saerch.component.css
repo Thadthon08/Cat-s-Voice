@@ -1,0 +1,105 @@
+.box-container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; /* จัดแนวนอนให้ข้อความอยู่ตรงกลาง */
+    align-items: center; /* จัดแนวแนวตั้งให้ข้อความอยู่กลาง */
+}
+
+
+.search-type , .gender-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: end;
+  text-align: center;
+
+}
+
+  .box-search {
+    display: flex;
+    flex-direction: column; 
+    background-color: #D4F0B5;
+    width: 90%;
+
+    align-items: center; /* จัดกึ่งกลางให้ content ภายใน */
+    margin-bottom: 2em;
+  }
+  
+  .in-box-search {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; /* เว้นระยะห่างระหว่างประเภทสัตว์และเพศ */
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .for-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%; 
+    padding-top: 2rem;
+  }
+  
+  .animal-selection{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+  .search-action {
+    margin-top: 20px;
+  }
+  
+.search-age-box {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 80vh;
+  height: 10vh;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; /* ใช้ align-items แทน align-content */
+}
+
+  
+  .search-type :hover input,
+  .sex-select :hover input {
+    border: 2px solid rgb(128, 196, 255);
+  }
+
+  .form-check-input{
+    color: #000;
+  }
+
+
+.custom-radio {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #8F5F29; 
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
+  
+
+  .custom-radio:checked {
+    background-color:#8F5F29; 
+    border: 3px solid #ffffff ; 
+    box-shadow: 0 0 0 1px #8F5F29; 
+  }
+  
+
+.card-container {
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
