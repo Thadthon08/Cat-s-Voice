@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindHomeComponent } from './find-home.component';
+import { FindHomeComponentU } from './find-home.component';
 
-describe('FindHomeComponent', () => {
-  let component: FindHomeComponent;
-  let fixture: ComponentFixture<FindHomeComponent>;
+describe('FindHomeComponentU', () => {
+  let component: FindHomeComponentU;
+  let fixture: ComponentFixture<FindHomeComponentU>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FindHomeComponent]
+      declarations: [FindHomeComponentU]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FindHomeComponent);
+    fixture = TestBed.createComponent(FindHomeComponentU);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
