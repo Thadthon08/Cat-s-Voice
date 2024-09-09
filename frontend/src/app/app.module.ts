@@ -31,6 +31,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { MissionComponent } from './components/mission/mission.component';
+import { SupportComponent } from './components/support/support.component';
+import { ContactComponent } from './components/contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,10 @@ import { AnimalManagementComponent } from './adminPage/components/animal-managem
     AnimalCardComponent,
     RecoveryComponent,
     AnimalManagementComponent,
+    AboutUsComponent,
+    MissionComponent,
+    SupportComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
