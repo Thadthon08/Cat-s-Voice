@@ -26,8 +26,6 @@
     margin-top: 3vh;
     margin-bottom: 3vh;
     padding: 0;
-  
-
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -40,3 +38,18 @@
     }
   }
   
+  .box {
+    display: flex;
+    justify-content: center;
+  } 
+
+  .box-search {
+    display: flex;
+    flex-direction: column; 
+    background-color: #FF9292;
+    width: 90%;
+    margin-bottom: 2em;
+    align-items: center;
+    padding: 8em;
+    font-size: large;
+  }

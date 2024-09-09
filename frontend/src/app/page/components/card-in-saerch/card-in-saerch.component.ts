@@ -1,20 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FindHomeService } from '../../../services/find-home.service';
+
 @Component({
   selector: 'app-card-in-saerch',
   templateUrl: './card-in-saerch.component.html',
-  styleUrl: './card-in-saerch.component.css'
+  styleUrls: ['./card-in-saerch.component.css']
 })
 export class CardInSaerchComponent implements OnInit {
 
-constructor(private findHomeService:FindHomeService){}
+  animals: any[] = []; // เก็บข้อมูลสัตว์
 
-ngOnInit(): void {
-  
-}
+  constructor(private findHomeService: FindHomeService) {}
 
-getAllanimals(){
-  return this.findHomeService.getAllanimals()
-}
+  @Input() currentType: string = '';
+  @Input() currentSex!: number;
+  @Input() currentAge!: number;
+  @Input() search!: boolean;
 
+  ngOnInit(): void {
+    this.loadAnimals(); 
+  }
+
+  ngOnChanges(): void {
+    this.loadAnimals();
+  }
+
+  loadAnimals() {
+    if (this.search) {
+      console.log('parent to child if', this.currentType, this.currentSex, this.currentAge);
+      } else {
+      this.animals = this.findHomeService.getAllanimals();
+    }
+  }
 }
