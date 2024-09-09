@@ -1,0 +1,14 @@
+<div class="container my-5">
+  <h2 class="heading mb-5">เคสรักษา</h2>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let animal of animals">
+      <app-animal-card [animal]="animal"></app-animal-card>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-warning" (click)="navigateToAddData()">
+      เพิ่มข้อมูล
+    </button>
+  </div>
+</div>

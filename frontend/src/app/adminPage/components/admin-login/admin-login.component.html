@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="containe-login">
   <div class="flex">
     <div class="card">
@@ -10,25 +11,24 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-login">
         <div class="p-field">
           <input
-            id="username"
+            id="email"
             type="text"
             pInputText
-            formControlName="username"
-            placeholder="User name"
+            formControlName="email"
+            placeholder="Email"
             class="p-inputtext p-component full-width"
           />
           <div
             *ngIf="
-              loginForm.get('username')?.invalid &&
-              loginForm.get('username')?.touched
+              loginForm.get('email')?.invalid && loginForm.get('email')?.touched
             "
             class="p-error"
           >
-            <small *ngIf="loginForm.get('username')?.errors?.['required']"
-              >User name is required.</small
+            <small *ngIf="loginForm.get('email')?.errors?.['required']"
+              >Email is required.</small
             >
-            <small *ngIf="loginForm.get('username')?.errors?.['pattern']"
-              >Invalid username format.</small
+            <small *ngIf="loginForm.get('email')?.errors?.['email']"
+              >Invalid email format.</small
             >
           </div>
         </div>

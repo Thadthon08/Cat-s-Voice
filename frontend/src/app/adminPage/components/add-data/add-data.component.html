@@ -1,0 +1,139 @@
+<div class="container my-5">
+  <h2 class="heading mb-5">ข้อมูลสัตว์</h2>
+  <form
+    [formGroup]="animalForm"
+    (ngSubmit)="onSubmit()"
+    class="p-fluid p-formgrid p-grid"
+    style="max-width: 600px; margin: auto"
+  >
+    <div class="row mb-3">
+      <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
+      <div class="col-md-8">
+        <input
+          id="name"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="name"
+          required
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-md-4 col-form-label">เพศ</label>
+      <div class="col-md-8">
+        <p-radioButton
+          name="gender"
+          value="female"
+          formControlName="gender"
+          id="g1"
+          class="mx-2"
+        />
+        <label for="g1"> เพศเมีย </label>
+
+        <p-radioButton
+          name="gender"
+          value="male"
+          formControlName="gender"
+          id="g2"
+          class="mx-2"
+        />
+        <label for="g2"> เพศผู้ </label>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="species" class="col-md-4 col-form-label">สปีชี่ส์</label>
+      <div class="col-md-8">
+        <p-dropdown
+          [options]="speciesOptions"
+          formControlName="species"
+        ></p-dropdown>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="age" class="col-md-4 col-form-label">อายุ</label>
+      <div class="col-md-8">
+        <input
+          id="age"
+          type="number"
+          pInputText
+          class="form-control"
+          formControlName="age"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="color" class="col-md-4 col-form-label">ลักษณะ</label>
+      <div class="col-md-8">
+        <input
+          id="color"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="color"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="personality" class="col-md-4 col-form-label">นิสัย</label>
+      <div class="col-md-8">
+        <input
+          id="personality"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="personality"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="symptoms" class="col-md-4 col-form-label">อาการ/โรค</label>
+      <div class="col-md-8">
+        <input
+          id="symptoms"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="symptoms"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="image" class="col-md-4 col-form-label">รูปภาพ</label>
+      <div class="col-md-8">
+        <input
+          id="image"
+          type="file"
+          pInputText
+          class="form-control"
+          formControlName="image"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6 mt-2 md:mt-0">
+        <button
+          pButton
+          type="button"
+          label="ยกเลิก"
+          class="btn btn-secondary w-100"
+        ></button>
+      </div>
+      <div class="col-md-6 mt-2 md:mt-0">
+        <button
+          pButton
+          type="submit"
+          label="เพิ่มข้อมูล"
+          class="btn btn-org w-100"
+        ></button>
+      </div>
+    </div>
+  </form>
+</div>

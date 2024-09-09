@@ -13,12 +13,23 @@ import { CardModule } from 'primeng/card';
 import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext'; 
 import { DataViewModule } from 'primeng/dataview';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FindHomeComponent } from './page/find-home/find-home.component';
+import { FindHomeComponentU } from './page/find-home/find-home.component';
 import { FormsModule } from '@angular/forms';
 import { ShowFindHomeComponent } from './find-home/show-find-home/show-find-home.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
+import { LayoutComponent } from './adminPage/components/layout/layout.component';
+import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
+import { AnimalCardComponent } from './adminPage/components/animal-card/animal-card.component';
+import { RecoveryComponent } from './adminPage/components/recovery/recovery.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FileUploadModule } from 'primeng/fileupload';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +38,14 @@ import { ShowFindHomeComponent } from './find-home/show-find-home/show-find-home
     AdminLoginComponent,
     MenubarComponent,
     NavbarComponent,
-    FindHomeComponent,
+    FindHomeComponentU,
     ShowFindHomeComponent,
     
+    FindhomeComponent,
+    LayoutComponent,
+    AddDataComponent,
+    AnimalCardComponent,
+    RecoveryComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +57,15 @@ import { ShowFindHomeComponent } from './find-home/show-find-home/show-find-home
     InputTextModule,
     DataViewModule,
     FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    DropdownModule,
+    RadioButtonModule,
+    FileUploadModule,
+    HttpClientModule,
+    ToastModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

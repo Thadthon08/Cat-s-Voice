@@ -46,7 +46,7 @@
   color: #ffff;
 }
 .nav-item {
-  margin-right: 1.3rem;
+  margin-left: 2.5rem;
 }
 .nav-link {
   padding: 14px !important;
@@ -67,6 +67,11 @@
 }
 .r-img {
   height: 1.8rem;
+}
+
+.navbar-toggler {
+  width: 50px;
+  height: 50px;
 }
 @media (max-width: 991.98px) {
   .navbar-nav {
