@@ -14,8 +14,8 @@
                       type="radio"
                       name="radioDefault"
                       [id]="animal.name"
-                      [checked]="currentInput === animal.name"
-                      (change)="currentInput = animal.name"
+                      [checked]="currentType === animal.name"
+                      (change)="currentType = animal.name"
                     />
                   </div>
                 </div>
@@ -66,13 +66,19 @@
                 <option *ngFor="let age of getAllAge()" [value]="age.id">{{ age.rang_age }}</option>
               </select>
         </div>
-        <div><button type="button" class="btn  btn-primary " (click)="getAnimals()">ค้นหา</button></div>
+        <div><button type="button" class="btn  btn-primary " (click)="searchWorking()">ค้นหา</button></div>
       </div>
 
       
    
   </div>
   <div class="card-container">
-  <app-card-in-saerch></app-card-in-saerch>
+  <app-card-in-saerch 
+  [currentType]="currentType"
+  [currentSex]="currentSex"
+  [currentAge]="currentAge"
+  [search]="search">
+ 
+</app-card-in-saerch>
   </div>
 </div>
