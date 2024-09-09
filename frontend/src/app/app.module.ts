@@ -13,6 +13,11 @@ import { CardModule } from 'primeng/card';
 import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataViewModule } from 'primeng/dataview';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FindHomeComponentU } from './page/find-home/find-home.component';
+import { FormsModule } from '@angular/forms';
+import { ShowFindHomeComponent } from './find-home/show-find-home/show-find-home.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
 import { LayoutComponent } from './adminPage/components/layout/layout.component';
@@ -32,6 +37,10 @@ import { MessageService } from 'primeng/api';
     AboutComponent,
     AdminLoginComponent,
     MenubarComponent,
+    NavbarComponent,
+    FindHomeComponentU,
+    ShowFindHomeComponent,
+    
     FindhomeComponent,
     LayoutComponent,
     AddDataComponent,
@@ -44,6 +53,10 @@ import { MessageService } from 'primeng/api';
     BrowserAnimationsModule,
     ButtonModule,
     CardModule,
+    ReactiveFormsModule, 
+    InputTextModule,
+    DataViewModule,
+    FormsModule,
     ReactiveFormsModule,
     InputTextModule,
     DropdownModule,

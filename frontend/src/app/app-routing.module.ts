@@ -6,6 +6,7 @@ import { adminGuard } from './admin.guard';
 import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { loginGuard } from './login.guard';
+import { FindHomeComponentU } from './page/find-home/find-home.component';
 import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
 import { LayoutComponent as AdminLayoutComponent } from './adminPage/components/layout/layout.component';
 import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'find_home', component: FindHomeComponentU },
     ],
   },
   {
