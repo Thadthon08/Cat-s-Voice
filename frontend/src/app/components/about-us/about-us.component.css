@@ -1,0 +1,35 @@
+.color-font {
+  color: rgb(96, 50, 37);
+}
+.bg-light-yellow {
+  background-color: rgb(251, 222, 154);
+}
+.heading {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(96, 50, 37);
+}
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  border-bottom: 4px solid #ffc107;
+}
+
+.heading::before {
+  margin-right: 2.4em;
+}
+
+.heading::after {
+  margin-left: 2.4em;
+}
+
+.color-font {
+  color: rgb(96, 50, 37);
+}
+.bg-light-yellow {
+  background-color: rgb(251, 222, 154);
+}

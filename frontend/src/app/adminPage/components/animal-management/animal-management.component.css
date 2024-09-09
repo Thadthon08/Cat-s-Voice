@@ -16,3 +16,14 @@ p > span {
     color: brown;
   }
 }
+
+.btn-org {
+  background-color: #fa8124;
+  color: white;
+  font-weight: bold;
+  &:hover,
+  &:active {
+    background-color: #ea7922;
+    color: white;
+  }
+}

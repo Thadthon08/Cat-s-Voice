@@ -30,11 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
-import { BannerComponent } from './page/components/banner/banner.component';
-import { BoxSaerchComponent } from './page/components/box-saerch/box-saerch.component';
-import { CardInSaerchComponent } from './page/components/card-in-saerch/card-in-saerch.component';
-import { HeaderContentSearchComponent } from './page/components/header-content-search/header-content-search.component';
-import { FindHomeService } from './services/find-home.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +45,6 @@ import { FindHomeService } from './services/find-home.service';
     AnimalCardComponent,
     RecoveryComponent,
     AnimalManagementComponent,
-    BannerComponent,
-    BoxSaerchComponent,
-    CardInSaerchComponent,
-    HeaderContentSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,19 +20,20 @@
   align-items: center;
   text-align: center;
   font-size: 2rem;
+  color: rgb(96, 50, 37);
 }
 
 .heading::before,
 .heading::after {
   content: "";
   flex: 1;
-  border-bottom: 10px solid rgb(247, 200, 85);
+  border-bottom: 6px solid #ffc107;
 }
 
 .heading::before {
-  margin-right: 0.5em;
+  margin-right: 2.4em;
 }
 
 .heading::after {
-  margin-left: 0.5em;
+  margin-left: 2.4em;
 }
