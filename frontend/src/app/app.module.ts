@@ -30,6 +30,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
+import { BannerComponent } from './page/components/banner/banner.component';
+import { BoxSaerchComponent } from './page/components/box-saerch/box-saerch.component';
+import { CardInSaerchComponent } from './page/components/card-in-saerch/card-in-saerch.component';
+import { HeaderContentSearchComponent } from './page/components/header-content-search/header-content-search.component';
+import { FindHomeService } from './services/find-home.service';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { MissionComponent } from './components/mission/mission.component';
+import { SupportComponent } from './components/support/support.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +54,14 @@ import { AnimalManagementComponent } from './adminPage/components/animal-managem
     AnimalCardComponent,
     RecoveryComponent,
     AnimalManagementComponent,
+    BannerComponent,
+    BoxSaerchComponent,
+    CardInSaerchComponent,
+    HeaderContentSearchComponent,
+    AboutUsComponent,
+    ContactComponent,
+    MissionComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +69,7 @@ import { AnimalManagementComponent } from './adminPage/components/animal-managem
     BrowserAnimationsModule,
     ButtonModule,
     CardModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     InputTextModule,
     DataViewModule,
     FormsModule,
@@ -62,9 +79,9 @@ import { AnimalManagementComponent } from './adminPage/components/animal-managem
     RadioButtonModule,
     FileUploadModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
   ],
-  providers: [provideClientHydration(), MessageService , FindHomeService],
+  providers: [provideClientHydration(), MessageService, FindHomeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
