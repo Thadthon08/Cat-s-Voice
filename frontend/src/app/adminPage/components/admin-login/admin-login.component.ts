@@ -30,7 +30,7 @@ export class AdminLoginComponent {
       const loginData = this.loginForm.value;
 
       this.http
-        .post('http://localhost:5000/api/admin/login', loginData)
+        .post('http://localhost:5000/api/auth/login', loginData)
         .subscribe(
           (response) => {
             console.log('Login successful', response);
