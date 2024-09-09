@@ -2,7 +2,10 @@
   <h2 class="heading mb-5">หาบ้านให้น้อง</h2>
   <div class="row">
     <div class="col-md-3" *ngFor="let animal of animals">
-      <app-animal-card [animal]="animal"></app-animal-card>
+      <app-animal-card
+        [animal]="animal"
+        (click)="onAnimalCardClick(animal.id)"
+      ></app-animal-card>
     </div>
   </div>
 

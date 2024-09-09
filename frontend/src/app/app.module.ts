@@ -30,6 +30,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { MessageService } from 'primeng/api';
     AddDataComponent,
     AnimalCardComponent,
     RecoveryComponent,
+    AnimalManagementComponent,
   ],
   imports: [
     BrowserModule,
