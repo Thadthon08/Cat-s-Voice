@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowFindHomeComponent } from './show-find-home.component';
+import { BoxSaerchComponent } from './box-saerch.component';
 
-describe('ShowFindHomeComponent', () => {
-  let component: ShowFindHomeComponent;
-  let fixture: ComponentFixture<ShowFindHomeComponent>;
+describe('BoxSaerchComponent', () => {
+  let component: BoxSaerchComponent;
+  let fixture: ComponentFixture<BoxSaerchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ShowFindHomeComponent]
+      declarations: [BoxSaerchComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ShowFindHomeComponent);
+    fixture = TestBed.createComponent(BoxSaerchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,10 +14,9 @@ import { AdminLoginComponent } from './adminPage/components/admin-login/admin-lo
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DataViewModule } from 'primeng/dataview';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './page/components/navbar/navbar.component';
 import { FindHomeComponentU } from './page/find-home/find-home.component';
 import { FormsModule } from '@angular/forms';
-import { ShowFindHomeComponent } from './find-home/show-find-home/show-find-home.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
 import { LayoutComponent } from './adminPage/components/layout/layout.component';
@@ -31,10 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { MissionComponent } from './components/mission/mission.component';
-import { SupportComponent } from './components/support/support.component';
-import { ContactComponent } from './components/contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,17 +39,12 @@ import { ContactComponent } from './components/contact/contact.component';
     MenubarComponent,
     NavbarComponent,
     FindHomeComponentU,
-    ShowFindHomeComponent,
     FindhomeComponent,
     LayoutComponent,
     AddDataComponent,
     AnimalCardComponent,
     RecoveryComponent,
     AnimalManagementComponent,
-    AboutUsComponent,
-    MissionComponent,
-    SupportComponent,
-    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,9 +62,9 @@ import { ContactComponent } from './components/contact/contact.component';
     RadioButtonModule,
     FileUploadModule,
     HttpClientModule,
-    ToastModule,
+    ToastModule
   ],
-  providers: [provideClientHydration(), MessageService],
+  providers: [provideClientHydration(), MessageService , FindHomeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
