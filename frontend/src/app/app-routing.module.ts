@@ -11,6 +11,7 @@ import { FindhomeComponent } from './adminPage/components/findhome/findhome.comp
 import { LayoutComponent as AdminLayoutComponent } from './adminPage/components/layout/layout.component';
 import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
 import { RecoveryComponent } from './adminPage/components/recovery/recovery.component';
+import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: 'findhome',
         component: FindhomeComponent,
+      },
+      {
+        path: 'findhome/:id',
+        component: AnimalManagementComponent,
       },
       {
         path: 'add-data',

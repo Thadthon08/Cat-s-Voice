@@ -1,10 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
+interface NavbarItem {
+  id: number;
+  item: string;
+  name: string;
+  routerLink: string;
+}
 @Component({
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
-  styleUrl: './menubar.component.css'
+  styleUrl: './menubar.component.css',
 })
-export class MenubarComponent {
+export class MenubarComponent implements OnInit {
+  navbar: NavbarItem[] = [
+    {
+      id: 1,
+      item: 'findHome',
+      name: 'หาบ้านให้น้อง',
+      routerLink: '/admin/findhome',
+    },
+    {
+      id: 2,
+      item: 'loveProject',
+      name: 'โครงการอุ้มรัก',
+      routerLink: '/admin/#',
+    },
+    {
+      id: 3,
+      item: 'recovering',
+      name: 'เคสรักษา',
+      routerLink: '/admin/recovering',
+    },
+    {
+      id: 4,
+      item: 'activities',
+      name: 'กิจกรรม',
+      routerLink: '/admin/#',
+    },
+  ];
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
