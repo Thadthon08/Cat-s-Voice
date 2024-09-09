@@ -40,7 +40,6 @@ import { MessageService } from 'primeng/api';
     NavbarComponent,
     FindHomeComponentU,
     ShowFindHomeComponent,
-    
     FindhomeComponent,
     LayoutComponent,
     AddDataComponent,

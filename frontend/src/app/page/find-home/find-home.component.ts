@@ -16,7 +16,7 @@ interface Age {
   templateUrl: './find-home.component.html',
   styleUrls: ['./find-home.component.css']
 })
-export class FindHomeComponent implements OnInit {
+export class FindHomeComponentU implements OnInit {
 
   animal_type: Animal_type[] = [
     { id: 1, name: 'สุนัข' },
