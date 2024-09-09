@@ -1,0 +1,45 @@
+.box-header {
+    width: 90%; 
+    height: 4em;
+    background-color: #D4F0B5;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 1em; 
+    padding: 0 1em; 
+    margin-top: 2em;
+}
+
+
+.header-inbox {
+    margin: 0; 
+    font-size: 1.5em; 
+}
+
+.context-show {
+    font-weight: 400;
+    color: #000;
+    font-size: 1.3rem;
+    margin-bottom: 1em;
+    margin-top: 1em;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+  }
+
+
+
+  @media (max-width: 991.98px) {
+    .context-show {
+        font-weight: 300;
+        font-size: 1.0rem;
+        margin-right: 3em;
+        margin-left: 3em;
+    }
+  }
+  
