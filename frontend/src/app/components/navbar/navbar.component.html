@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar p-0">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://www.thevoicefoundation.org/src/asset/img/logo/20231023101205_lg.webp"
+          alt="The Voice Foundation Logo"
+          height="100"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse flex-column align-items-end order-last"
+        id="navbarNav"
+      >
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li *ngFor="let item of navbar" 
+          (click)="setActive(item.item)" 
+          
+          class="nav-item">
+            <a class="nav-link" [ngClass]="getActive(item.item)" [routerLink]="item.routerLink">
+              {{ item.name }}
+            </a>
+          </li>
+        </ul>
+        <div class="collapse navbar-collapse order-first mt-3 p-1 w-60">
+          <div class="language-select me-3">
+            <img
+              src="	https://www.thevoicefoundation.org/src/asset/img/icons/TH-2.jpg"
+              alt="Thai"
+              class="me-2 rounded-5 cousor-pointer language-icon"
+            />
+          </div>
+          <a
+            href="https://www.thevoicefoundation.org/src/../donation"
+            class="btn btn-donate rounded-pill p-0 w-100 fs-5"
+            ><img
+              src="https://www.thevoicefoundation.org/src/asset/img/iconDonate.png"
+              class="m-2 r-img"
+              alt="Donate"
+            />
+            <span class="position-relative rd-bottom">ร่วมบริจาค</span></a
+          >
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  

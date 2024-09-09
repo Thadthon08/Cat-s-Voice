@@ -14,8 +14,11 @@ import { AdminLoginComponent } from './adminPage/components/admin-login/admin-lo
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext'; 
-
-
+import { DataViewModule } from 'primeng/dataview';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FindHomeComponent } from './page/find-home/find-home.component';
+import { FormsModule } from '@angular/forms';
+import { ShowFindHomeComponent } from './find-home/show-find-home/show-find-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,10 @@ import { InputTextModule } from 'primeng/inputtext';
     AboutComponent,
     AdminLoginComponent,
     MenubarComponent,
+    NavbarComponent,
+    FindHomeComponent,
+    ShowFindHomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,9 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     CardModule,
     ReactiveFormsModule, 
-    InputTextModule, 
+    InputTextModule,
+    DataViewModule,
+    FormsModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

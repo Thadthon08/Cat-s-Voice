@@ -1,0 +1,95 @@
+.custom-navbar {
+    background-color: rgb(247, 200, 85) !important;
+    font-size: 1.1rem;
+  }
+  .navbar-light .navbar-nav .nav-link.active {
+    background-color: rgba(250, 129, 36, 0.8);
+    color: white !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    font-weight: 400;
+    color: #000;
+  }
+  
+
+  
+  .container {
+    overflow: hidden;
+  }
+  .language-select img {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
+  
+  .btn-donate {
+    background-color: #ec6b08cb;
+    color: white;
+    border: none;
+    padding: 0.375rem 0.75rem;
+    border-radius: 5px;
+  }
+  
+  .btn-donate:hover {
+    background-color: #ec6c08;
+    color: white;
+  }
+  
+  .language-icon {
+    position: relative;
+    top: 0px;
+  }
+  .w-60 {
+    width: 23%;
+  }
+  .rd-bottom {
+    bottom: -3px;
+    font-weight: 400;
+    color: #ffff;
+  }
+  .nav-item {
+    margin-right: 1.3rem;
+  }
+  .nav-link {
+    padding: 14px !important;
+  }
+  .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    .active:hover {
+      color: black !important;
+      background-color: rgba(250, 129, 36, 0.8) !important;
+    }
+  }
+  .active {
+    background-color: #fa8124cc !important;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+  }
+  .r-img {
+    height: 1.8rem;
+  }
+  @media (max-width: 991.98px) {
+    .navbar-nav {
+      padding-top: 1rem;
+    }
+    .language-select,
+    .btn-donate {
+      margin-top: 1rem;
+    }
+  }
+  
+  @media (max-width: 1400px) {
+    .custom-navbar {
+      font-size: 1rem;
+    }
+    span {
+      font-size: 0.8rem;
+    }
+    .r-img {
+      height: 1.3rem;
+    }
+  }
+  

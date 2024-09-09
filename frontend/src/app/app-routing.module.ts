@@ -6,7 +6,7 @@ import { adminGuard } from './admin.guard';
 import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
 import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { loginGuard } from './login.guard';
-
+import { FindHomeComponent } from './page/find-home/find-home.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -18,6 +18,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'find_home', component: FindHomeComponent },
     ],
   },
   {
