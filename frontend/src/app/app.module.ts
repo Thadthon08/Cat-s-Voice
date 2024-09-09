@@ -39,6 +39,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MissionComponent } from './components/mission/mission.component';
 import { SupportComponent } from './components/support/support.component';
+import { GetDataFromSearchComponent } from './page/components/get-data-from-search/get-data-from-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +63,7 @@ import { SupportComponent } from './components/support/support.component';
     ContactComponent,
     MissionComponent,
     SupportComponent,
+    GetDataFromSearchComponent,
   ],
   imports: [
     BrowserModule,

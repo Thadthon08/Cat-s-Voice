@@ -8,7 +8,7 @@ import { FindHomeService } from '../../../services/find-home.service';
 })
 export class CardInSaerchComponent implements OnInit {
 
-  animals: any[] = []; // เก็บข้อมูลสัตว์
+  animals: any[] = []; 
 
   constructor(private findHomeService: FindHomeService) {}
 
@@ -27,7 +27,7 @@ export class CardInSaerchComponent implements OnInit {
 
   loadAnimals() {
     if (this.search) {
-      console.log('parent to child if', this.currentType, this.currentSex, this.currentAge);
+      this.animals = this.findHomeService.getAnimalType();
       } else {
       this.animals = this.findHomeService.getAllanimals();
     }
