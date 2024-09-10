@@ -1,4 +1,5 @@
 interface Animal {
+    id: number;
     name: string;
     sex: 0 | 1; 
     ageYears: number;

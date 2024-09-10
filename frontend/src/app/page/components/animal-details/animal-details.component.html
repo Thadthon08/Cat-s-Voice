@@ -1,0 +1,34 @@
+<div class="container">
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animal-image">
+    <div class="text-container">
+        <div class="animal-name">เมอซี่</div>
+        <p>เพศ: เพศเมีย</p>
+        <p>อายุ: 2 ปี, 1 เดือน 27 วัน</p>
+        <p>ลักษณะ: พันธุ์ไทยผสม ลายเสือ มีสีดำ ขาว น้ำตาลเข้มผสมกัน ฉลาด เก่ง สวย เท่ห์ และแข็งแรง</p>
+        <p>นิสัย: น่ารัก ขี้เล่น ขี้อ้อน ร่าเริง</p>
+        <p>อาการ/โรค: ถูกชนจนต้องตัดขา เหลือ 3 ขา</p>
+        <div><button type="button" class="btn  btn-primary mt-3" >รับอุปการะ</button></div>
+    </div>
+</div>
+<div class="container2">
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+</div>
+  
+
+  <div class="modal" [ngClass]="{'show-modal': isModalOpen}">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img class="modal-content" [src]="modalImage" alt="Modal Image">
+  </div>
+  

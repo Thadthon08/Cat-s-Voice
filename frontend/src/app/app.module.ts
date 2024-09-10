@@ -39,6 +39,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MissionComponent } from './components/mission/mission.component';
 import { SupportComponent } from './components/support/support.component';
+import { AnimalDetailsComponent } from './page/components/animal-details/animal-details.component';
+import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-animal-details.component';
 import { GetDataFromSearchComponent } from './page/components/get-data-from-search/get-data-from-search.component';
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { GetDataFromSearchComponent } from './page/components/get-data-from-sear
     ContactComponent,
     MissionComponent,
     SupportComponent,
+    AnimalDetailsComponent,
+    ShowAnimalDetailsComponent,
     GetDataFromSearchComponent,
   ],
   imports: [

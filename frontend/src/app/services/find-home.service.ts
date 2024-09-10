@@ -11,6 +11,7 @@ export class FindHomeService {
   
   animals: animal = [
     {
+      id:1,
       name: 'กังฟู',
       sex: 1, // เพศผู้
       ageYears: 3,
@@ -23,6 +24,7 @@ export class FindHomeService {
       conditions: [],
     },
     {
+      id:2,
       name: 'มีนา',
       sex: 0, // เพศเมีย
       ageYears: 1,
@@ -33,6 +35,7 @@ export class FindHomeService {
       conditions: [],
     },
     {
+      id:3,
       name: 'เจ้าทอง',
       sex: 1, // เพศผู้
       ageYears: 5,
@@ -43,6 +46,7 @@ export class FindHomeService {
       conditions: [],
     },
     {
+      id:4,
       name: 'บุญรอด',
       sex: 1, // เพศผู้
       ageYears: 2,
@@ -54,6 +58,7 @@ export class FindHomeService {
       conditions: ['เป็นหวัด'],
     },
     {
+      id:5,
       name: 'มะลิ',
       sex: 0, // เพศเมีย
       ageYears: 7,
@@ -64,6 +69,7 @@ export class FindHomeService {
       conditions: ['ตาบอด'],
     },
     {
+      id:6,
       name: 'ลัคกี้',
       sex: 1, // เพศผู้
       ageYears: 10,
@@ -74,6 +80,7 @@ export class FindHomeService {
       conditions: ['โรคอ้วน'],
     },
     {
+      id:7,
       name: 'ไข่ตุ๋น',
       sex: 0, // เพศเมีย
       ageYears: 1,
@@ -85,6 +92,7 @@ export class FindHomeService {
       conditions: [],
     },
     {
+      id:8,
       name: 'ข้าวต้ม',
       sex: 1, // เพศผู้
       ageYears: 4,
@@ -95,6 +103,7 @@ export class FindHomeService {
       conditions: [],
     },
     {
+      id:9,
       name: 'ซูชิ',
       sex: 0, // เพศเมีย
       ageYears: 2,
@@ -105,6 +114,7 @@ export class FindHomeService {
       conditions: [],
     },
     {
+      id:10,
       name: 'เฉาก๊วย',
       sex: 1, // เพศผู้
       ageYears: 6,

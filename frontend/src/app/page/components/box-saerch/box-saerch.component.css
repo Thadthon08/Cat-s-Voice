@@ -1,8 +1,10 @@
 .box-container {
     display: flex; 
     flex-direction: column;
-    justify-content: center; /* จัดแนวนอนให้ข้อความอยู่ตรงกลาง */
-    align-items: center; /* จัดแนวแนวตั้งให้ข้อความอยู่กลาง */
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -20,15 +22,14 @@
     flex-direction: column; 
     background-color: #D4F0B5;
     width: 90%;
-
-    align-items: center; /* จัดกึ่งกลางให้ content ภายใน */
+    align-items: center;/* จัดกึ่งกลางให้ content ภายใน */
     margin-bottom: 2em;
   }
   
   .in-box-search {
     display: flex;
     flex-direction: row; 
-    justify-content: space-between; /* เว้นระยะห่างระหว่างประเภทสัตว์และเพศ */
+    justify-content: space-between;     
     width: 100%;
     padding: 20px;
   }
@@ -103,3 +104,29 @@
     width: 100%;
     text-align: center;
 }
+
+
+@media (max-width: 700px) {
+  .search-age-box {
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .search-type,
+  .gender-selection,
+  .card-select img,
+  .gender-selection img {
+    font-size: 0.8em;
+    width: 30px;
+    justify-content: center;
+  }
+
+  .in-box-search {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+

@@ -12,7 +12,7 @@ import { LayoutComponent as AdminLayoutComponent } from './adminPage/components/
 import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
 import { RecoveryComponent } from './adminPage/components/recovery/recovery.component';
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
-
+import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-animal-details.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -25,6 +25,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'find_home', component: FindHomeComponentU },
+      { path: 'find_home/:id', component: ShowAnimalDetailsComponent },
     ],
   },
   {
