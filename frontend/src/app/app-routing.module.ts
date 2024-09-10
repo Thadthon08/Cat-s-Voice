@@ -14,6 +14,8 @@ import { RecoveryComponent } from './adminPage/components/recovery/recovery.comp
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
 import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-animal-details.component';
 import { AdopterComponent } from './page/adopter/adopter.component';
+import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.component';
+import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/animals-case-treatment.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -28,6 +30,8 @@ const routes: Routes = [
       { path: 'find_home', component: FindHomeComponentU },
       { path: 'find_home/:id', component: ShowAnimalDetailsComponent },
       { path: 'adopter/:id', component: AdopterComponent },
+      { path: 'case_treatment', component: CaseTreatmentComponent },
+      { path: 'case_treatment/:id', component: AnimalsCaseTreatmentComponent },
     ],
   },
   {

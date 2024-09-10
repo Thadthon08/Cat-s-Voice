@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FindHomeService } from '../../../services/find-home.service';
-import { Router } from '@angular/router';
+import { Router ,NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-card-in-saerch',
   templateUrl: './card-in-saerch.component.html',
@@ -10,7 +11,7 @@ export class CardInSaerchComponent implements OnInit {
 
   animals: any[] = []; 
   animalID!: number;
-
+  currentUrl: string = '';
   constructor(private findHomeService: FindHomeService, private router: Router) {}
 
   @Input() currentType: string = '';
@@ -19,9 +20,23 @@ export class CardInSaerchComponent implements OnInit {
   @Input() search!: boolean;
   @Input() title : string = '';
 
+ 
+  
+
   ngOnInit(): void {
-    this.loadAnimals(); 
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+          this.currentUrl = this.router.url;
+      console.log('Current URL:', this.currentUrl);
+  
+      this.loadAnimals();
+    });
+      this.currentUrl = this.router.url;
+    this.loadAnimals();
   }
+  
+
 
   ngOnChanges(): void {
     this.loadAnimals();
@@ -36,8 +51,10 @@ export class CardInSaerchComponent implements OnInit {
   }
 
   selectAnimal(id: number) {
-    this.router.navigate(['/find_home',id]);
+    this.router.navigate([this.currentUrl, id]);
+    console.log('cur',this.currentUrl)
   }
+  
 
 
 }

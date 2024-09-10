@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FindHomeService } from '../../../services/find-home.service';
 
@@ -8,12 +8,18 @@ import { FindHomeService } from '../../../services/find-home.service';
   styleUrls: ['./animal-details.component.css']
 })
 export class AnimalDetailsComponent implements OnInit {
+
+  @Input() title :string = '';
   animalId: string | null = null;
   animals: any[] = []; 
   isModalOpen = false;
   modalImage = '';
   modalCaption = '';
-  show: boolean = true; 
+  show: boolean = true;
+  
+
+
+
 
   constructor(
     private findHomeService: FindHomeService, 
@@ -26,8 +32,9 @@ export class AnimalDetailsComponent implements OnInit {
     this.animalId = this.route.snapshot.paramMap.get('id');
     this.route.queryParams.subscribe(params => {
       this.show = params['show'] === 'false' ? false : true; 
-      console.log("ID",this.animalId)
+
     });
+
   }
   
   openModal(imageSrc: string, caption: string): void {
