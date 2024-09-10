@@ -46,6 +46,7 @@ import { AdopterFormComponent } from './page/components/adopter-form/adopter-for
 import { GalleryComponent } from './page/components/gallery/gallery.component';
 import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.component';
 import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/animals-case-treatment.component';
+import { AnimalService } from './services/animal.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +96,12 @@ import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/ani
     HttpClientModule,
     ToastModule,
   ],
-  providers: [provideClientHydration(), MessageService, FindHomeService],
+  providers: [
+    provideClientHydration(),
+    MessageService,
+    FindHomeService,
+    AnimalService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
