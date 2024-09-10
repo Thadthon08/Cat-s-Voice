@@ -41,6 +41,7 @@ import { MissionComponent } from './components/mission/mission.component';
 import { SupportComponent } from './components/support/support.component';
 import { AnimalDetailsComponent } from './page/components/animal-details/animal-details.component';
 import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-animal-details.component';
+import { GetDataFromSearchComponent } from './page/components/get-data-from-search/get-data-from-search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-anim
     SupportComponent,
     AnimalDetailsComponent,
     ShowAnimalDetailsComponent,
+    GetDataFromSearchComponent,
   ],
   imports: [
     BrowserModule,

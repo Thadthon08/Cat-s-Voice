@@ -28,7 +28,7 @@ export class CardInSaerchComponent implements OnInit {
 
   loadAnimals() {
     if (this.search) {
-      console.log('parent to child if', this.currentType, this.currentSex, this.currentAge);
+      this.animals = this.findHomeService.getAnimalType();
       } else {
       this.animals = this.findHomeService.getAllanimals();
     }

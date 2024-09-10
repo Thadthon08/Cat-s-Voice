@@ -8,7 +8,7 @@
     justify-items: center;
     margin: auto;
     text-align: center;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .card-animals > div {
@@ -66,7 +66,7 @@
     justify-content: center;
   } 
 
-  .box-search {
+  .box-alert {
     display: flex;
     flex-direction: column; 
     background-color: #FF9292;
@@ -75,4 +75,10 @@
     align-items: center;
     padding: 8em;
     font-size: large;
+    transition: width 3s; /* ยังคงใช้ transition เหมือนเดิม */
+    transition-delay: 1s;
+  }
+  
+  .box-alert:hover { /* เมื่อ hover เมาส์ไปที่ element */
+    width: 50%; /* เปลี่ยนความกว้างเป็น 50% */
   }
