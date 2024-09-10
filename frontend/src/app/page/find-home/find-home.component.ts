@@ -1,9 +1,4 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { FindHomeService } from '../../services/find-home.service';
-
-
-
-
 
 @Component({
   selector: 'app-find-home',
