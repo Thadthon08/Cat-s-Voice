@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const AutoIncrement = require('mongoose-sequence')(mongoose);
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 // Admin Schema
 const AdminSchema = new mongoose.Schema({
@@ -11,7 +11,7 @@ const AdminSchema = new mongoose.Schema({
   last_login: { type: Date },
 });
 
-AdminSchema.plugin(AutoIncrement, { inc_field: 'admin_id' });
+AdminSchema.plugin(AutoIncrement, { inc_field: "admin_id" });
 
 const Admin = mongoose.model("Admin", AdminSchema);
 
@@ -25,27 +25,27 @@ const AnimalSpecies = mongoose.model("AnimalSpecies", AnimalSpeciesSchema);
 
 // Animal Schema
 const AnimalSchema = new mongoose.Schema({
-  animal_id: { type: Number, required: true, unique: true },
   name: { type: String, required: true },
-  species_id: {
+  species: {
     type: mongoose.Schema.Types.Number,
     ref: "AnimalSpecies",
     required: true,
   },
-  age: { type: Number },
-  gender: { type: String, enum: ["Male", "Female", "Unknown"], required: true },
+  age: { type: Number, required: true },
+  gender: {
+    type: String,
+    enum: ["Male", "Female", "Unknown"],
+    required: true,
+  },
   size: {
     type: String,
     enum: ["Small", "Medium", "Large", "Extra Large"],
-    required: true,
+    required: false,
   },
-  color: { type: String },
-  weight: { type: mongoose.Types.Decimal128 },
-  health_status: { type: String },
-  vaccination_status: { type: String },
-  personality: { type: String },
-  arrival_date: { type: Date },
-  image_url: { type: String },
+  color: { type: String, required: false },
+  personality: { type: String, required: false },
+  symptoms: { type: String, required: false },
+  image_url: { type: String, required: false },
   status: {
     type: String,
     enum: ["available", "adopted", "pending", "unavailable"],
@@ -59,6 +59,8 @@ const AnimalSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
 });
+
+AnimalSchema.plugin(AutoIncrement, { inc_field: "animal_id" });
 
 const Animal = mongoose.model("Animal", AnimalSchema);
 
@@ -112,7 +114,7 @@ const DonationSchema = new mongoose.Schema({
   donor_email: { type: String, required: true },
   donor_phone: { type: String, required: true },
   donation_date: { type: Date, required: true },
-  donation_slip : { type: String },
+  donation_slip: { type: String },
   additional_message: { type: String },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },

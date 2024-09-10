@@ -23,8 +23,8 @@ exports.getAnimalById = async (req, res) => {
 
 // POST - สร้างข้อมูลสัตว์ใหม่
 exports.createAnimal = async (req, res) => {
-  const animal = new Animal(req.body);
   try {
+    const animal = new Animal(req.body);
     const newAnimal = await animal.save();
     res.status(201).json(newAnimal);
   } catch (error) {
