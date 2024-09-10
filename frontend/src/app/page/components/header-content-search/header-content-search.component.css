@@ -21,6 +21,8 @@
     font-size: 1.3rem;
     margin-bottom: 1em;
     margin-top: 1em;
+    margin-right: 3em;
+    margin-left: 3em;
   }
 
   .box {
@@ -37,8 +39,7 @@
     .context-show {
         font-weight: 300;
         font-size: 1.0rem;
-        margin-right: 3em;
-        margin-left: 3em;
+       
     }
   }
   

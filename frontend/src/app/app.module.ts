@@ -44,6 +44,8 @@ import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-anim
 import { AdopterComponent } from './page/adopter/adopter.component';
 import { AdopterFormComponent } from './page/components/adopter-form/adopter-form.component';
 import { GalleryComponent } from './page/components/gallery/gallery.component';
+import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.component';
+import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/animals-case-treatment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,8 @@ import { GalleryComponent } from './page/components/gallery/gallery.component';
     AdopterFormComponent,
     AdopterComponent,
     GalleryComponent,
-
+    CaseTreatmentComponent,
+    AnimalsCaseTreatmentComponent,
   ],
   imports: [
     BrowserModule,

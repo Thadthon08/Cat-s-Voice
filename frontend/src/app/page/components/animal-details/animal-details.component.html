@@ -7,13 +7,34 @@
         <p>ลักษณะ: พันธุ์ไทยผสม ลายเสือ มีสีดำ ขาว น้ำตาลเข้มผสมกัน ฉลาด เก่ง สวย เท่ห์ และแข็งแรง</p>
         <p>นิสัย: น่ารัก ขี้เล่น ขี้อ้อน ร่าเริง</p>
         <p>อาการ/โรค: ถูกชนจนต้องตัดขา เหลือ 3 ขา</p>
-
-        <button *ngIf="show" (click)="Click()" type="button" class="btn  btn-primary mt-3" >รับอุปการะ</button>
-        <p class="animal-name" *ngIf="!show">จำนวนคำขอการอุปการะ : 0</p>
-        <div >
         
-    </div>
-    </div>
+
+        <div>
+        <div [ngSwitch]="title">
+            <div *ngSwitchCase="'เคสรักษา'"> 
+                <div class="box-btn">
+                <a
+                href="#"
+                class="btn btn-donate rounded-pill p-0 "
+                ><img
+                src="https://www.thevoicefoundation.org/src/asset/img/iconDonate.png"
+                class="m-2 r-img"
+                alt="Donate"
+                />
+                <span class="position-relative rd-bottom">กดบริจาค</span></a
+            >
+                </div>
+            </div>
+        
+            <div *ngSwitchDefault>
+            <button *ngIf="show" (click)="Click()" type="button" class="btn btn-primary rounded-pill  mt-3">รับอุปการะ</button>
+            <p class="animal-name" *ngIf="!show">จำนวนคำขอการอุปการะ : 0</p>
+            </div>
+        </div>
+</div>  
 </div>
+
+
+
 
   

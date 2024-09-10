@@ -16,9 +16,9 @@ interface NavbarItem {
 })
 export class NavbarComponent implements OnInit {
   navbar: NavbarItem[] = [
-    { id: 1, item: 'home', name: 'หน้าหลัก', routerLink: '/about' },
+    { id: 1, item: 'home', name: 'หน้าหลัก', routerLink: '#' },
     { id: 2, item: 'about', name: 'เกี่ยวกับเรา', routerLink: '/about' },
-    { id: 3, item: 'case', name: 'เคสรักษา', routerLink: '#' },
+    { id: 3, item: 'case', name: 'เคสรักษา', routerLink: '/case_treatment' },
     { id: 4, item: 'findHome', name: 'หาบ้านให้น้อง', routerLink: '/find_home' },
     { id: 5, item: 'loveProject', name: 'โครงการอุ้มรัก', routerLink: '/project' },
     { id: 6, item: 'neuterProject', name: 'โครงการทำหมัน', routerLink: '#' },
