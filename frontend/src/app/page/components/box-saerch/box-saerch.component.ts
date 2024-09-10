@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FindHomeService } from '../../../services/find-home.service';
 @Component({
   selector: 'app-box-saerch',
@@ -6,10 +6,17 @@ import { FindHomeService } from '../../../services/find-home.service';
   styleUrls: ['./box-saerch.component.css']
 })
 export class BoxSaerchComponent implements OnInit{
+
+  @Input() color:string ='';
+  @Input() title:string = '';//เอาไว้ค้นหา
+  
   currentType!: string ;
   currentSex!: number ;
   currentAge: number = 1;
-  search!: boolean ; 
+  search!: boolean ;
+  
+
+  
 
   constructor(private findHomeService:FindHomeService) {}
 

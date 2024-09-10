@@ -1,0 +1,113 @@
+<div class="container my-5">
+    
+    <form
+      [formGroup]="adopterForm"
+      (ngSubmit)="onSubmit()"
+      class="p-fluid p-formgrid p-grid"
+      style="max-width: 600px; margin: auto"
+    >
+      <div class="row mb-3">
+        <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
+        <div class="col-md-8">
+          <input
+            id="name"
+            type="text"
+            pInputText
+            class="form-control"
+            formControlName="name"
+            required
+          />
+        </div>
+      </div>
+      
+  
+      <div class="row mb-3">
+        <label for="salary" class="col-md-4 col-form-label">เงินเดือน</label>
+        <div class="col-md-8">
+          <input
+            id="salary"
+            type="number"
+            pInputText
+            class="form-control"
+            formControlName="salary"
+          />
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <label for="phone" class="col-md-4 col-form-label">เบอร์โทร</label>
+        <div class="col-md-8">
+          <input
+            id="phone"
+            type="text"
+            pInputText
+            class="form-control"
+            formControlName="phone"
+          />
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <label for="email" class="col-md-4 col-form-label">อีเมล</label>
+        <div class="col-md-8">
+          <input
+            id="email"
+            type="text"
+            pInputText
+            class="form-control"
+            formControlName="email"
+          />
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <label for="reason" class="col-md-4 col-form-label">เหตุผลการรับอุปการะ</label>
+        <div class="col-md-8">
+          <input
+            id="reason"
+            type="text"
+            pInputText
+            class="form-control"
+            formControlName="reason"
+          />
+        </div>
+      </div>
+  
+
+  
+      <div class="row mt-5">
+        <div class="col-md-6 mt-2 md:mt-0">
+          <button
+            pButton
+            type="button"
+            label="ยกเลิก"
+            class="btn btn-secondary w-100"
+            (click)="Cancel()"
+          ></button>
+        </div>
+        <div class="col-md-6 mt-2 md:mt-0">
+          <button
+            pButton
+            type="submit"
+            label="บันทึก"
+            class="btn btn-org w-100"
+          ></button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+
+
+   <div class="modal fade" [ngClass]="{'show-modal': isModalOpen}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+            <span class="close" aria-hidden="true" (click)="closeModal()">&times;</span>
+        <div class="modal-body">
+          ขอบคุณที่แสดงความสนใจในการอุปการะสัตว์เลี้ยงกับเรา เราจะติดต่อกลับไปเพื่อแจ้งข้อมูลเพิ่มเติมและขั้นตอนถัดไปในเร็วๆ นี้ครับ
+        </div>
+
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+  

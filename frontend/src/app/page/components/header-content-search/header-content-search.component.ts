@@ -9,4 +9,5 @@ import { Component , Input } from '@angular/core';
 export class HeaderContentSearchComponent {
   @Input() header: string = '';
   @Input() content: string = ''; 
+  @Input() color: string = ''; 
 }

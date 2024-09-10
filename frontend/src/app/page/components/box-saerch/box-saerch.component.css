@@ -20,9 +20,9 @@
   .box-search {
     display: flex;
     flex-direction: column; 
-    background-color: #D4F0B5;
+    /* background-color: #D4F0B5; */
     width: 90%;
-    align-items: center;/* จัดกึ่งกลางให้ content ภายใน */
+    align-items: center;
     margin-bottom: 2em;
   }
   
@@ -113,6 +113,10 @@
     border-radius: 0;
   }
 
+  .box-search{
+    flex-direction: column;
+  }
+
   .search-type,
   .gender-selection,
   .card-select img,
@@ -125,6 +129,7 @@
   .in-box-search {
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 }
 
