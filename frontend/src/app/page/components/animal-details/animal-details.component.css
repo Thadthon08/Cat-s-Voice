@@ -43,113 +43,30 @@
     border-color:  #ec6c08;
 }
 
+@media screen and (max-width: 700px) {
 
-.container2 {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    width: 100%;
-    padding: 10px;
-    gap: 5px; 
-  }
-  
-  .animals-image {
-    padding-bottom: 50px;
-    width: 200px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .animals-image:hover {
-    transform: scale(1.1); 
-  }
-  
+ .container {
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .text-container p {
+        margin: 5px 0;
+        font-size: 14px; 
+    }
 
-  .modal {
-    display: none;
-    position: fixed; 
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); 
-  }
-  
-  .show-modal {
-    display: block;
-  }
-  
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 40%;
-    max-width: 700px;
-    animation: zoom 0.6s;
-  }
-  
-  @keyframes zoom {
-    from {transform: scale(0);}
-    to {transform: scale(1);}
-  }
-  
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  #caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-  }
-  
+    .animal-image {
+        width: 200px; 
+    }
+}
 
 
-@media (max-width: 700px) {
-    .modal-content {
-      width: 100%;
+@media (min-width: 701px) and (max-width: 1400px)  {
+    .animal-image {
+        width: 100%;
+        height: auto; 
     }
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .container2 {
-      grid-template-columns: repeat(2, 1fr); 
-    }
+   
   }
-  
-  @media (min-width: 701px) and (max-width: 1400px) {
-    .modal-content {
-      width: 100%;
-    }
-    .container {
-      flex-direction: row;
-    }
-    .container2 {
-      grid-template-columns: repeat(4, 1fr); 
-    }
-  }
+
   

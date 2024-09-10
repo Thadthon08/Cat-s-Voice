@@ -41,7 +41,9 @@ import { MissionComponent } from './components/mission/mission.component';
 import { SupportComponent } from './components/support/support.component';
 import { AnimalDetailsComponent } from './page/components/animal-details/animal-details.component';
 import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-animal-details.component';
-import { GetDataFromSearchComponent } from './page/components/get-data-from-search/get-data-from-search.component';
+import { AdopterComponent } from './page/adopter/adopter.component';
+import { AdopterFormComponent } from './page/components/adopter-form/adopter-form.component';
+import { GalleryComponent } from './page/components/gallery/gallery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +69,10 @@ import { GetDataFromSearchComponent } from './page/components/get-data-from-sear
     SupportComponent,
     AnimalDetailsComponent,
     ShowAnimalDetailsComponent,
-    GetDataFromSearchComponent,
+    AdopterFormComponent,
+    AdopterComponent,
+    GalleryComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+.heading {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  border-bottom: 10px solid rgb(247, 200, 85);
+}
+
+.heading::before {
+  margin-right: 0.5em;
+}
+
+.heading::after {
+  margin-left: 0.5em;
+}
+
+@media (min-width: 701px) and (max-width: 1400px)  {
+    .container > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+  }
+
+
+  

@@ -1,5 +1,5 @@
 <div class="box-container">
-<div class="box-search">
+<div class="box-search" [style.background-color]="color">
     <div class="in-box-search">
       <div class="for-search">
         <h3>ประเภทสัตว์</h3>
@@ -25,7 +25,7 @@
     </div>
       <div class="for-search">
         <h3>เพศ</h3>
-        <div class="gender-selection  ">
+        <div class="gender-selection">
           <div class="m-3 sex-select" (click)="selectRadioSex(1, $event)">
             <img src="https://www.thevoicefoundation.org/src/asset/img/a4.webp" />
             <h6 class="m-2">เพศผู้</h6>
@@ -77,8 +77,9 @@
   [currentType]="currentType"
   [currentSex]="currentSex"
   [currentAge]="currentAge"
-  [search]="search">
- 
+  [search]="search"
+  [title]="title">
+  
 </app-card-in-saerch>
   </div>
 </div>

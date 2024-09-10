@@ -1,0 +1,21 @@
+<div class="container2">
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+
+    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
+</div>
+  
+
+  <div class="modal" [ngClass]="{'show-modal': isModalOpen}">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img class="modal-content" [src]="modalImage" alt="Modal Image">
+  </div>

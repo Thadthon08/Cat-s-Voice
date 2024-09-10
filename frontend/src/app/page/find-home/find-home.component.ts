@@ -5,9 +5,13 @@ import { Component, Injectable, OnInit } from '@angular/core';
   templateUrl: './find-home.component.html',
   styleUrls: ['./find-home.component.css']
 })
-export class FindHomeComponentU {
+export class FindHomeComponentU implements OnInit {
 
 
+constructor(){}
+ngOnInit(): void {
+  
+}
 
     
 }

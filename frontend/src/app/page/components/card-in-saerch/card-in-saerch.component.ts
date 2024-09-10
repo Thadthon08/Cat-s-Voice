@@ -17,6 +17,7 @@ export class CardInSaerchComponent implements OnInit {
   @Input() currentSex!: number;
   @Input() currentAge!: number;
   @Input() search!: boolean;
+  @Input() title : string = '';
 
   ngOnInit(): void {
     this.loadAnimals(); 
