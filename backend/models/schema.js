@@ -18,7 +18,7 @@ const Admin = mongoose.model("Admin", AdminSchema);
 // Animal Species Schema
 const AnimalSpeciesSchema = new mongoose.Schema({
   species_id: { type: Number, required: true, unique: true },
-  species_name: { type: String, required: true },
+  species_name: { type: String, enum: ["Dog","Cat"], required: true },
 });
 
 const AnimalSpecies = mongoose.model("AnimalSpecies", AnimalSpeciesSchema);
