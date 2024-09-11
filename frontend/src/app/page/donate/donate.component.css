@@ -1,0 +1,115 @@
+.heading {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  border-bottom: 10px solid rgb(247, 200, 85);
+}
+
+.heading::before {
+  margin-right: 0.5em;
+}
+
+.heading::after {
+  margin-left: 0.5em;
+}
+
+@media (min-width: 701px) and (max-width: 1400px)  {
+    .container > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+  }
+
+
+  .p-field {
+    margin-bottom: 1rem;
+  }
+  .p-button {
+    width: 100%;
+  }
+  .btn-org {
+    background-color: rgb(65, 87, 255);
+    color: white;
+    font-weight: bold;
+  }
+  .btn-org:hover,
+  .btn-org:active {
+    background-color: rgb(52, 71, 210);
+    color: white;
+  }
+  
+.container {
+
+    height: 100%;
+    width: 100%;
+}
+/* Base styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Fade in effect for modal */
+  .show-modal {
+    display: block;
+    opacity: 1;
+  }
+  
+
+  .modal-dialog {
+    transition: transform 0.3s ease;
+    transform: translateY(-50px);
+  }
+  
+
+  .show-modal .modal-dialog {
+    transform: translateY(0);
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+
+  .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 0;
+    display: flex;
+    justify-content: end;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .show-modal {
+    display: block; 
+  }
+  
+
