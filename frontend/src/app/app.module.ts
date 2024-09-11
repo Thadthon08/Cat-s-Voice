@@ -47,6 +47,7 @@ import { GalleryComponent } from './page/components/gallery/gallery.component';
 import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.component';
 import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/animals-case-treatment.component';
 import { AnimalService } from './services/animal.service';
+import { DonateComponent } from './page/donate/donate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +78,7 @@ import { AnimalService } from './services/animal.service';
     GalleryComponent,
     CaseTreatmentComponent,
     AnimalsCaseTreatmentComponent,
+    DonateComponent,
   ],
   imports: [
     BrowserModule,
