@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css'],
-  providers: [MessageService], // Provide MessageService
+  providers: [MessageService],
 })
-export class AdminLoginComponent {
+export class AdminLoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private http: HttpClient,
-    private messageService: MessageService // Inject MessageService
+    private authService: AuthService,
+    private messageService: MessageService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -25,40 +25,45 @@ export class AdminLoginComponent {
     });
   }
 
+  ngOnInit() {}
+
   onSubmit() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
 
-      this.http
-        .post('http://localhost:5000/api/auth/login', loginData)
-        .subscribe(
-          (response) => {
-            console.log('Login successful', response);
+      this.authService.login(loginData).subscribe(
+        (response) => {
+          console.log('Login successful', response);
 
-            const user = {
-              email: loginData.email,
-              role: 'admin',
-            };
-            localStorage.setItem('user', JSON.stringify(user));
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Login Successful',
+            detail: 'You have logged in successfully!',
+          });
 
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Login Successful',
-              detail: 'You have logged in successfully!',
-            });
+          this.router.navigate(['/admin']);
+        },
+        (error) => {
+          console.error('Login failed', error);
 
-            this.router.navigate(['/admin']);
-          },
-          (error) => {
-            console.error('Login failed', error);
-
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Login Failed',
-              detail: 'Invalid credentials. Please try again.',
-            });
+          let errorMessage = 'Invalid credentials. Please try again.';
+          if (error.status === 401) {
+            errorMessage =
+              'Unauthorized access. Please check your credentials.';
+          } else if (error.status === 0) {
+            errorMessage =
+              'Network error. Please check your internet connection.';
+          } else if (error.status >= 500) {
+            errorMessage = 'Server error. Please try again later.';
           }
-        );
+
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Login Failed',
+            detail: errorMessage,
+          });
+        }
+      );
     } else {
       this.messageService.add({
         severity: 'warn',
