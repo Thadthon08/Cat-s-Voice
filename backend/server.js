@@ -17,6 +17,7 @@ app.use(express.json());
 // Middleware for JSON parsing
 app.use(cors()); // Enable CORS
 
+app.use("/uploads", express.static("uploads"));
 // เชื่อมต่อเส้นทาง API ของ Animal
 app.use("/api/animals", animalRoutes);
 app.use("/api/auth", authRoutes);

@@ -123,9 +123,8 @@
         <input
           id="image"
           type="file"
-          pInputText
+          (change)="onImageUpload($event)"
           class="form-control"
-          formControlName="image"
         />
       </div>
     </div>

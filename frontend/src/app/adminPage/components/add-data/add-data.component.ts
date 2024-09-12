@@ -14,6 +14,7 @@ export class AddDataComponent {
     { label: 'แมว', value: 1 },
     { label: 'หมา', value: 2 },
   ];
+  selectedFile: File | null = null;
 
   constructor(private fb: FormBuilder, private animalService: AnimalService) {
     this.animalForm = this.fb.group({
@@ -27,15 +28,21 @@ export class AddDataComponent {
       symptoms: [''],
       status: ['available'],
       added_by_admin_id: [1],
-      image: [null],
     });
   }
 
   onSubmit() {
     if (this.animalForm.valid) {
-      console.log('Form Submitted!', this.animalForm.value);
+      const formData: FormData = new FormData();
+      Object.keys(this.animalForm.controls).forEach((key) => {
+        formData.append(key, this.animalForm.get(key)?.value);
+      });
 
-      this.animalService.addAnimal(this.animalForm.value).subscribe(
+      if (this.selectedFile) {
+        formData.append('image', this.selectedFile, this.selectedFile.name);
+      }
+
+      this.animalService.addAnimal(formData).subscribe(
         (response) => {
           console.log('Animal added successfully', response);
         },
@@ -49,9 +56,9 @@ export class AddDataComponent {
   }
 
   onImageUpload(event: any) {
-    const file = event.files[0];
+    const file = event.target.files[0];
     if (file) {
-      this.animalForm.patchValue({ image: file });
+      this.selectedFile = file;
       console.log('Uploaded file:', file);
     }
   }

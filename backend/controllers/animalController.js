@@ -1,4 +1,5 @@
 const Animal = require("../models/schema.js").Animal;
+const upload = require("../middlewares/uploadImage");
 
 // GET - ดึงข้อมูลสัตว์ทั้งหมด
 exports.getAllAnimals = async (req, res) => {
@@ -42,6 +43,45 @@ exports.updateAnimal = async (req, res) => {
     res.status(200).json(animal);
   } catch (error) {
     res.status(400).json({ message: error.message });
+  }
+};
+
+exports.uploadAnimalImage = async (req, res) => {
+  try {
+    const {
+      name,
+      species,
+      age,
+      gender,
+      size,
+      color,
+      personality,
+      symptoms,
+      status,
+      added_by_admin_id,
+    } = req.body;
+
+    // สร้าง animal ใหม่พร้อม URL ของรูปภาพ
+    const animal = new Animal({
+      name,
+      species,
+      age,
+      gender,
+      size,
+      color,
+      personality,
+      symptoms,
+      status,
+      added_by_admin_id,
+      image_url: req.file ? `/uploads/${req.file.filename}` : undefined, // เก็บ URL รูปภาพ
+    });
+
+    await animal.save();
+    res.status(201).json({ message: "Animal added successfully", animal });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Failed to add animal", error: error.message });
   }
 };
 
