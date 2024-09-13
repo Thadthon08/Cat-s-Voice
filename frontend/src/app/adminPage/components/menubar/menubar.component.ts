@@ -5,6 +5,7 @@ interface NavbarItem {
   item: string;
   name: string;
   routerLink: string;
+  queryParams?: object;
 }
 @Component({
   selector: 'app-menubar',
@@ -18,6 +19,7 @@ export class MenubarComponent implements OnInit {
       item: 'findHome',
       name: 'หาบ้านให้น้อง',
       routerLink: '/admin/findhome',
+      queryParams: { status: 'available' },
     },
     {
       id: 2,
