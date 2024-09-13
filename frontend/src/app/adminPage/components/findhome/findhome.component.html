@@ -4,7 +4,7 @@
     <div class="col-md-3" *ngFor="let animal of animals">
       <app-animal-card
         [animal]="animal"
-        (click)="onAnimalCardClick(animal.id)"
+        (click)="onAnimalCardClick(animal._id)"
       ></app-animal-card>
     </div>
   </div>

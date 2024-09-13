@@ -4,7 +4,10 @@ const upload = require("../middlewares/uploadImage");
 // GET - ดึงข้อมูลสัตว์ทั้งหมด
 exports.getAllAnimals = async (req, res) => {
   try {
-    const animals = await Animal.find();
+    const status = req.query.status;
+    const query = status ? { status: status } : {};
+
+    const animals = await Animal.find(query);
     res.status(200).json(animals);
   } catch (error) {
     res.status(500).json({ message: error.message });
