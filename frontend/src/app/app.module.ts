@@ -56,6 +56,7 @@ import { NewsService } from './services/news.service';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
+import { HealthRecordService } from './services/healthrecord.service';
 
 @NgModule({
   declarations: [
@@ -122,6 +123,7 @@ import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal
     FindHomeService,
     AnimalService,
     NewsService,
+    HealthRecordService,
   ],
   bootstrap: [AppComponent],
 })

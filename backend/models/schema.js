@@ -65,16 +65,16 @@ const Animal = mongoose.model("Animal", AnimalSchema);
 
 // Health Records Schema
 const HealthRecordSchema = new mongoose.Schema({
-  record_id: { type: Number, required: true, unique: true },
   animal_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Animal",
     required: true,
+    unique: true,
   },
   checkup_date: { type: Date, required: true },
   diagnosis: { type: String, default: "none" },
-  treatment: { type: String },
-  notes: { type: String },
+  treatment: { type: String, default: "" },
+  notes: { type: String, default: "" },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },
 });
