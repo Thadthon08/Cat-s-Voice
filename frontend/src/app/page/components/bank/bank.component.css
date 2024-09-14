@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+   
+}
+
+.box {
+    border: 5px solid transparent; 
+    background-color: #e1e1e1;
+    width: 100%;
+    max-width: 1500px; 
+    border-radius: 25px;
+    padding: 3%;
+}
+
+.bank-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.bank-info p {
+    letter-spacing: 1px;
+    line-height: 1.2; 
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px; 
+}
+
+.bank-group {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .bank-group {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
+    }
+}

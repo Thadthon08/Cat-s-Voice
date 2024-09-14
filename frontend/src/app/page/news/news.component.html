@@ -4,7 +4,7 @@
 <h2 class="heading m-5">อุปการะ</h2>
 
 <div class="card-news">
-    <div *ngFor="let new of news" (click)="selectAnimal(new.id)"> 
+    <div *ngFor="let new of news" (click)="selectNews(new.id)"> 
         <img [src]="new.image" class="show-news"> 
       <div class="card-box-select fonst-card">{{new.title}}</div>
       <div class="read">อ่านต่อ</div>

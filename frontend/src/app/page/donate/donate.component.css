@@ -9,7 +9,7 @@
 .heading::after {
   content: "";
   flex: 1;
-  border-bottom: 10px solid rgb(247, 200, 85);
+  border-bottom: 3px solid rgb(247, 200, 85);
 }
 
 .heading::before {
@@ -51,7 +51,7 @@
     height: 100%;
     width: 100%;
 }
-/* Base styles for the modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -65,7 +65,7 @@
     transition: opacity 0.3s ease;
   }
   
-  /* Fade in effect for modal */
+ 
   .show-modal {
     display: block;
     opacity: 1;
