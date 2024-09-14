@@ -26,6 +26,21 @@
                 </div>
             </div>
         
+            <div *ngSwitchCase="'โครงการอุ้มรัก'"> 
+                <div class="box-btn">
+                <a
+                href="/donate"
+                class="btn btn-donate rounded-pill p-0 "
+                ><img
+                src="https://www.thevoicefoundation.org/src/asset/img/iconDonate.png"
+                class="m-2 r-img"
+                alt="Donate"
+                />
+                <span class="position-relative rd-bottom">กดบริจาค</span></a
+            >
+                </div>
+            </div>
+
             <div *ngSwitchDefault>
             <button *ngIf="show" (click)="Click()" type="button" class="btn btn-primary rounded-pill  mt-3">รับอุปการะ</button>
             <p class="animal-name" *ngIf="!show">จำนวนคำขอการอุปการะ : 0</p>

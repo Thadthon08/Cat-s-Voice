@@ -48,6 +48,8 @@ import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.com
 import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/animals-case-treatment.component';
 import { AnimalService } from './services/animal.service';
 import { DonateComponent } from './page/donate/donate.component';
+import { AumrakComponent } from './page/aumrak/aumrak.component';
+import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +81,8 @@ import { DonateComponent } from './page/donate/donate.component';
     CaseTreatmentComponent,
     AnimalsCaseTreatmentComponent,
     DonateComponent,
+    AumrakComponent,
+    AumrakDetailsComponent,
   ],
   imports: [
     BrowserModule,
