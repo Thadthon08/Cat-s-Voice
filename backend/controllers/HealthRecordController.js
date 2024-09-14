@@ -1,28 +1,28 @@
 const HealthRecord = require("../models/schema.js").HealthRecord;
 
-//Post
+// Post
 exports.createHealthRecord = async (req, res) => {
-  try {
-    const healthRecord = new HealthRecord({
-      animalId: req.body.animalId,
-      veterinarianName: req.body.veterinarianName,
-      veterinarySpecialization: req.body.veterinarySpecialization,
-      diagnosis: req.body.diagnosis,
-      treatmentPlan: req.body.treatmentPlan,
-      medications: req.body.medications,
-      nextAppointment: req.body.nextAppointment,
-      notes: req.body.notes,
-    });
-
-    const newHealthRecord = await healthRecord.save();
-    res.status(201).json(newHealthRecord);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
+    try {
+      const healthRecord = new HealthRecord({
+        record_id: req.body.record_id,          // Required
+        animal_id: req.body.animal_id,          // Required, must match an existing Animal document
+        checkup_date: req.body.checkup_date,    // Required
+        diagnosis: req.body.diagnosis,
+        treatment: req.body.treatment,
+        notes: req.body.notes,
+        created_at: new Date(),                 // Default to current date, optional in request
+        updated_at: new Date()                  // Default to current date, optional in request
+      });
+  
+      const newHealthRecord = await healthRecord.save();
+      res.status(201).json(newHealthRecord);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  };
 
 //Get
-exports.getHealthRecords = async (req, res) => {
+exports.getAllHealthRecords = async (req, res) => {
   try {
     const healthRecords = await HealthRecord.find();
     res.json(healthRecords);
