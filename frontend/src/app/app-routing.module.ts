@@ -21,7 +21,8 @@ import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
-
+import { NewsComponent } from './page/news/news.component';
+import { NewsDetailsComponent } from './page/news-details/news-details.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -41,7 +42,9 @@ const routes: Routes = [
       { path: 'donate', component: DonateComponent },
       { path: 'shelter', component: AumrakComponent },
       { path: 'shelter/:id', component: AumrakDetailsComponent },
-      { path: 'spayed', component: SterilizationProgramComponent },
+      { path: 'spayed' , component : SterilizationProgramComponent },
+      { path: 'news' , component : NewsComponent },
+      { path: 'news/:id' , component : NewsDetailsComponent },
     ],
   },
   {

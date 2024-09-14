@@ -1,0 +1,166 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+}
+
+.news-image {
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+}
+
+.text-container {
+    max-width: 400px;
+    padding-left: 20px;
+}
+
+.news-name {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text-container p {
+    margin: 5px 0;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  border-bottom: 10px solid rgb(247, 200, 85);
+}
+
+.heading::before {
+  margin-right: 0.5em;
+}
+
+.heading::after {
+  margin-left: 0.5em;
+}
+
+
+
+.container2 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    padding: 10px;
+    gap: 5px; 
+  }
+  
+  .animals-image {
+    padding-bottom: 50px;
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .animals-image:hover {
+    transform: scale(1.1); 
+  }
+  
+
+  .modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); 
+  }
+  
+  .show-modal {
+    display: block;
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 40%;
+    max-width: 700px;
+    animation: zoom 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+
+
+@media (max-width: 700px) {
+    .modal-content {
+      width: 100%;
+    }
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .container2 {
+      grid-template-columns: repeat(2, 1fr); 
+    }
+  }
+  
+  @media (min-width: 701px) and (max-width: 1400px) {
+    .modal-content {
+      width: 100%;
+    }
+    .container {
+      flex-direction: row;
+    }
+    .container2 {
+      grid-template-columns: repeat(4, 1fr); 
+    }
+  }
+  

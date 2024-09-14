@@ -1,0 +1,14 @@
+<div> 
+<app-navbar></app-navbar>
+<app-banner src="https://www.thevoicefoundation.org/src/asset/img/slides/20231219024131_0.jpg"></app-banner>
+<h2 class="heading m-5">อุปการะ</h2>
+
+<div class="card-news">
+    <div *ngFor="let new of news" (click)="selectAnimal(new.id)"> 
+        <img [src]="new.image" class="show-news"> 
+      <div class="card-box-select fonst-card">{{new.title}}</div>
+      <div class="read">อ่านต่อ</div>
+    </div>
+  </div>
+
+</div>

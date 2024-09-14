@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
     { id: 4, item: 'findHome', name: 'หาบ้านให้น้อง', routerLink: '/find_home' },
     { id: 5, item: 'loveProject', name: 'โครงการอุ้มรัก', routerLink: '/shelter' },
     { id: 6, item: 'aumruk', name: 'โครงการทำหมัน', routerLink: '/spayed' },
-    { id: 7, item: 'activities', name: 'กิจกรรม', routerLink: '#' },
+    { id: 7, item: 'news', name: 'กิจกรรม', routerLink: '/news' },
   ];
 
   currentChoice: string = 'home';

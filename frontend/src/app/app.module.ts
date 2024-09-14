@@ -51,6 +51,9 @@ import { DonateComponent } from './page/donate/donate.component';
 import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
+import { NewsComponent } from './page/news/news.component';
+import { NewsService } from './services/news.service';
+import { NewsDetailsComponent } from './page/news-details/news-details.component';
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
 import { HealthRecordService } from './services/healthrecord.service';
@@ -89,6 +92,9 @@ import { HealthRecordService } from './services/healthrecord.service';
     AumrakComponent,
     AumrakDetailsComponent,
     SterilizationProgramComponent,
+    NewsComponent,
+    NewsDetailsComponent,
+  
     EditAnimalComponent,
     FormEditAnimalComponent,
   ],
@@ -116,6 +122,7 @@ import { HealthRecordService } from './services/healthrecord.service';
     MessageService,
     FindHomeService,
     AnimalService,
+    NewsService,
     HealthRecordService,
   ],
   bootstrap: [AppComponent],
