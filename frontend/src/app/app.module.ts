@@ -50,6 +50,8 @@ import { AnimalService } from './services/animal.service';
 import { DonateComponent } from './page/donate/donate.component';
 import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
+import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +85,8 @@ import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.com
     DonateComponent,
     AumrakComponent,
     AumrakDetailsComponent,
+    SterilizationProgramComponent,
+  
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,8 @@ import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/ani
 import { DonateComponent } from './page/donate/donate.component';
 import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
+import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
+
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -38,6 +40,7 @@ const routes: Routes = [
       { path: 'donate', component: DonateComponent },
       { path: 'shelter', component: AumrakComponent },
       { path: 'shelter/:id', component: AumrakDetailsComponent },
+      { path: 'spayed' , component : SterilizationProgramComponent }
     ],
   },
   {

@@ -3,7 +3,7 @@
     <div class="box-header rounded-pill"  [style.background-color]="color">
     <h4 class="header-inbox" [style.color]="fontColor">{{header}}</h4>
   </div>
-  <div class="context-show">
-    {{content}}
+  <div class="context-show" >
+    <div [innerHTML]="content"></div>
   </div>
 </div>
