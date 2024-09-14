@@ -35,7 +35,6 @@ export class EditAnimalComponent implements OnInit {
       size: [''],
       color: [''],
       personality: [''],
-      symptoms: [''],
       status: ['available'],
       image_url: [''],
     });

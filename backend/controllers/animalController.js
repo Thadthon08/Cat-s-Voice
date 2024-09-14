@@ -8,18 +8,17 @@ exports.getAllAnimals = async (req, res) => {
   try {
     const status = req.query.status;
     const query = status ? { status: status } : {};
-    // ดึงข้อมูลสัตว์ตามเงื่อนไขที่กำหนด (เช่น status)
+
     const animals = await Animal.find(query);
-    // ใช้ Promise.all เพื่อดึงข้อมูล HealthRecord ของสัตว์แต่ละตัวพร้อมกัน
+
     const animalInfoWithDiagnosis = await Promise.all(
       animals.map(async (animal) => {
-        // ดึงข้อมูลการวินิจฉัยล่าสุดที่เกี่ยวข้องกับสัตว์แต่ละตัว
         const healthRecord = await HealthRecord.findOne({
           animal_id: animal._id,
         }).sort({ checkup_date: -1 });
 
-        // สร้างวัตถุข้อมูลสัตว์รวมกับการวินิจฉัยล่าสุด
         return {
+          _id: animal._id,
           name: animal.name,
           gender: animal.gender,
           age: animal.age,
@@ -27,7 +26,7 @@ exports.getAllAnimals = async (req, res) => {
           personality: animal.personality,
           status: animal.status,
           image_url: animal.image_url,
-          diagnosis: healthRecord ? healthRecord.diagnosis : "none", // ถ้าไม่มีข้อมูลให้แสดง "none"
+          diagnosis: healthRecord ? healthRecord.diagnosis : "none",
         };
       })
     );
