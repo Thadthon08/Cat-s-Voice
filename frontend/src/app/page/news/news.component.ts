@@ -28,7 +28,7 @@ export class NewsComponent implements OnInit{
 
   }
 
-  selectAnimal(id: number) {
+  selectNews(id: number) {
     this.router.navigate(['/news', id]);
   }
   

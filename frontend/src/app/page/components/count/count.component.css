@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    flex-wrap: wrap; /*  อนุญาตให้ wrap  */
+    justify-content: center;
+    gap: 50px; 
+    height: auto;
+}
+
+.icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-info {
+    font-size: x-large;
+}
+
+.icon-info2 {
+    margin-top: 2px;
+    font-size: xx-large;
+  
+}
+
+.icon-img {
+    width: 120px;
+    height: 120px;
+}
+
+.icon-img2 {
+    width: 80px;
+    height: 120px;
+}
+
+.vl {
+    border-left: 3px solid #fa8124;
+    height: 220px;
+    
+  }
+
+
+
+  @media (min-width: 0px) and (max-width: 1400px)  {
+    .icon-group > img {
+        height: 10vh;
+        width: 10vh;
+    }
+
+    .icon-img2  {
+        height: 10vh !important; 
+        width: 8vh !important;
+    }
+  }
+

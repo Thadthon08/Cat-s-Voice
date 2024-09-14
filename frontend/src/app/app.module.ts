@@ -57,6 +57,10 @@ import { NewsDetailsComponent } from './page/news-details/news-details.component
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
 import { HealthRecordService } from './services/healthrecord.service';
+import { CarouselComponent } from './page/components/carousel/carousel.component';
+import { BankComponent } from './page/components/bank/bank.component';
+import { CountComponent } from './page/components/count/count.component';
+
 
 @NgModule({
   declarations: [
@@ -94,9 +98,12 @@ import { HealthRecordService } from './services/healthrecord.service';
     SterilizationProgramComponent,
     NewsComponent,
     NewsDetailsComponent,
-  
     EditAnimalComponent,
     FormEditAnimalComponent,
+    CarouselComponent,
+    BankComponent,
+    CountComponent,
+
   ],
   imports: [
     BrowserModule,
