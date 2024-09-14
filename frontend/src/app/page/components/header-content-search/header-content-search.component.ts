@@ -10,4 +10,5 @@ export class HeaderContentSearchComponent {
   @Input() header: string = '';
   @Input() content: string = ''; 
   @Input() color: string = ''; 
+  @Input() fontColor: string = ''; 
 }

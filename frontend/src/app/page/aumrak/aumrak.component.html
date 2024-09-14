@@ -1,0 +1,47 @@
+<div>
+    <app-navbar></app-navbar>
+    <app-banner src="https://www.thevoicefoundation.org/src/asset/img/slides/20231219115033_0.jpg"></app-banner>
+    <div class="box-container">
+      <app-header-content-search 
+      header="โครงการอุ้มรัก" 
+      color="#2caced"
+      fontColor="white"
+      content="โครงการที่อยากจะชวนคุณมาอุ้มบุญเจ้าสี่ขาให้เค้าได้มีคนดูเเลระหว่างรอรักแท้หรือบ้านหลังสุดท้าย เด็กๆสี่ขาในโครงการอุ้มรัก คือเคสที่รักษาหายแล้วแต่ยังไม่ได้บ้าน เพื่อต่อยอดให้เราได้ดูเเลเค้าระหว่างรอรักแท้ คุณสามารถสนับสนุน “โครงการอุ้มรัก” ได้ โดยการสมทบทุนค่าใช้จ่ายเพียงเดือนละ 600 บาท/ตัว/เดือน">
+    </app-header-content-search>
+    </div>
+
+    <div class="row my-5 d-flex justify-content-center align-items-center">
+        <div class="col-auto fs-5">
+          <button
+            pButton
+            type="submit"
+            label="กดรับเป็นคุณพ่อคุณแม่รายเดือน"
+            class="btn btn-org rounded-pill px-4 py-2 fs-5 fw-400"
+           
+          ></button>
+        </div>
+      </div>
+
+  <div *ngIf="animals.length > 0; else noAnimals">
+    <div class="card-animals">
+      <div *ngFor="let animal of animals" (click)="selectAnimal(animal.id)"> 
+        <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240907091619_0.jpg" class="show-animal">
+        <div class="card-box-select">{{animal.name}}</div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noAnimals>
+    <div class="box">
+      <div class="box-search">
+        <div> 
+          <img src="https://cdn-icons-png.flaticon.com/128/158/158398.png" width="100">
+          ขออภัยไม่มีข้อมูลสัตว์ที่คุณกำลังหาในขณะนี้
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  </div>
+  
+  

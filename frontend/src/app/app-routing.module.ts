@@ -17,6 +17,8 @@ import { AdopterComponent } from './page/adopter/adopter.component';
 import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.component';
 import { AnimalsCaseTreatmentComponent } from './page/animals-case-treatment/animals-case-treatment.component';
 import { DonateComponent } from './page/donate/donate.component';
+import { AumrakComponent } from './page/aumrak/aumrak.component';
+import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -34,6 +36,8 @@ const routes: Routes = [
       { path: 'case_treatment', component: CaseTreatmentComponent },
       { path: 'case_treatment/:id', component: AnimalsCaseTreatmentComponent },
       { path: 'donate', component: DonateComponent },
+      { path: 'shelter', component: AumrakComponent },
+      { path: 'shelter/:id', component: AumrakDetailsComponent },
     ],
   },
   {
