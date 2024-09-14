@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
     { id: 3, item: 'case', name: 'เคสรักษา', routerLink: '/case_treatment' },
     { id: 4, item: 'findHome', name: 'หาบ้านให้น้อง', routerLink: '/find_home' },
     { id: 5, item: 'loveProject', name: 'โครงการอุ้มรัก', routerLink: '/shelter' },
-    { id: 6, item: 'aumruk', name: 'โครงการทำหมัน', routerLink: '#' },
+    { id: 6, item: 'aumruk', name: 'โครงการทำหมัน', routerLink: '/spayed' },
     { id: 7, item: 'activities', name: 'กิจกรรม', routerLink: '#' },
   ];
 
@@ -54,4 +54,6 @@ export class NavbarComponent implements OnInit {
   hasMenuItem(itemName: string): boolean {
     return this.navbar.some((item) => item.item === itemName);
   }
+
+
 }

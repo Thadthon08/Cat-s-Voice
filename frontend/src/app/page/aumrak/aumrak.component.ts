@@ -12,16 +12,8 @@ export class AumrakComponent {
   animals: any[] = []; 
   animalID!: number;
   currentUrl: string = '';
-  constructor(private findHomeService: FindHomeService, private router: Router) {}
-
-  @Input() currentType: string = '';
-  @Input() currentSex!: number;
-  @Input() currentAge!: number;
-  @Input() search!: boolean;
-  @Input() title : string = '';
-
- 
   
+  constructor(private findHomeService: FindHomeService, private router: Router) {}
 
   ngOnInit(): void {
     this.router.events.pipe(
@@ -43,11 +35,9 @@ export class AumrakComponent {
   }
 
   loadAnimals() {
-    if (this.search) {
-      this.animals = this.findHomeService.getAnimalType();
-      } else {
+
       this.animals = this.findHomeService.getAllanimals();
-    }
+ 
   }
 
   selectAnimal(id: number) {
@@ -56,4 +46,8 @@ export class AumrakComponent {
   }
   
 
+  Click(): void {
+    this.router.navigate(['/donate']);
+  }
+  
 }
