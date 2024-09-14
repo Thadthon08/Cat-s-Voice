@@ -23,6 +23,8 @@ import { SterilizationProgramComponent } from './page/sterilization-program/ster
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { NewsComponent } from './page/news/news.component';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
+import { RecoveryManagementComponent } from './adminPage/components/recovery-management/recovery-management.component';
+import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit-recovery.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -33,7 +35,6 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'find_home', component: FindHomeComponentU },
       { path: 'find_home/:id', component: ShowAnimalDetailsComponent },
@@ -43,9 +44,9 @@ const routes: Routes = [
       { path: 'donate', component: DonateComponent },
       { path: 'shelter', component: AumrakComponent },
       { path: 'shelter/:id', component: AumrakDetailsComponent },
-      { path: 'spayed' , component : SterilizationProgramComponent },
-      { path: 'news' , component : NewsComponent },
-      { path: 'news/:id' , component : NewsDetailsComponent },
+      { path: 'spayed', component: SterilizationProgramComponent },
+      { path: 'news', component: NewsComponent },
+      { path: 'news/:id', component: NewsDetailsComponent },
     ],
   },
   {
@@ -53,7 +54,7 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     canActivate: [adminGuard],
     children: [
-      { path: '', component: HomeComponent },
+      { path: '', component: FindhomeComponent },
       {
         path: 'findhome',
         component: FindhomeComponent,
@@ -73,6 +74,14 @@ const routes: Routes = [
       {
         path: 'recovering',
         component: RecoveryComponent,
+      },
+      {
+        path: 'recovering/:id',
+        component: RecoveryManagementComponent,
+      },
+      {
+        path: 'recovering/edit/:id',
+        component: EditRecoveryComponent,
       },
     ],
   },

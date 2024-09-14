@@ -1,0 +1,177 @@
+<div class="container my-5">
+  <h2 class="heading mb-5 container">หาบ้านให้น้อง</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <app-form-edit-recovery
+        [data]="animalForm.value"
+      ></app-form-edit-recovery>
+    </div>
+    <div class="col-md-5">
+      <form
+        [formGroup]="animalForm"
+        (ngSubmit)="onSubmit()"
+        class="p-fluid p-formgrid p-grid"
+        style="max-width: 100%; margin: auto"
+      >
+        <div class="row mb-3">
+          <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
+          <div class="col-md-8">
+            <input
+              id="name"
+              type="text"
+              pInputText
+              class="form-control"
+              formControlName="name"
+              required
+              aria-label="Name"
+              readonly
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-md-4 col-form-label">เพศ</label>
+          <div class="col-md-8">
+            <p-radioButton
+              name="gender"
+              value="Female"
+              formControlName="gender"
+              inputId="g1"
+              class="mx-2"
+            ></p-radioButton>
+            <label for="g1"> เพศเมีย </label>
+
+            <p-radioButton
+              name="gender"
+              value="Male"
+              formControlName="gender"
+              inputId="g2"
+              class="mx-2"
+            ></p-radioButton>
+            <label for="g2"> เพศผู้ </label>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="species" class="col-md-4 col-form-label">สปีชี่ส์</label>
+          <div class="col-md-8">
+            <p-dropdown
+              [options]="speciesOptions"
+              formControlName="species"
+              id="species"
+              placeholder="Select species"
+            ></p-dropdown>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="age" class="col-md-4 col-form-label">อายุ</label>
+          <div class="col-md-8">
+            <input
+              id="age"
+              type="number"
+              pInputText
+              class="form-control"
+              formControlName="age"
+              aria-label="Age"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="size" class="col-md-4 col-form-label">ขนาด</label>
+          <div class="col-md-8">
+            <p-dropdown
+              [options]="sizeOptions"
+              formControlName="size"
+              id="size"
+              placeholder="Select size"
+            ></p-dropdown>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="diagnosis" class="col-md-4 col-form-label"
+            >อาการ/โรค</label
+          >
+          <div class="col-md-8">
+            <input
+              id="diagnosis"
+              type="text"
+              pInputText
+              class="form-control"
+              formControlName="diagnosis"
+              aria-label="Diagnosis"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="treatment" class="col-md-4 col-form-label"
+            >การรักษา</label
+          >
+          <div class="col-md-8">
+            <textarea
+              id="treatment"
+              pInputTextarea
+              class="form-control"
+              formControlName="treatment"
+              rows="3"
+              aria-label="Treatment"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="notes" class="col-md-4 col-form-label">หมายเหตุ</label>
+          <div class="col-md-8">
+            <textarea
+              id="notes"
+              pInputTextarea
+              class="form-control"
+              formControlName="notes"
+              rows="3"
+              aria-label="Notes"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="checkup_date" class="col-md-4 col-form-label"
+            >วันที่ทำการตรวจ</label
+          >
+          <div class="col-md-8">
+            <input
+              id="checkup_date"
+              type="date"
+              pInputText
+              class="form-control"
+              formControlName="checkup_date"
+              aria-label="Checkup Date"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-md-6 mt-2 md:mt-0">
+            <button
+              pButton
+              type="button"
+              label="ยกเลิก"
+              class="btn btn-secondary w-100"
+              (click)="cancel()"
+            ></button>
+          </div>
+          <div class="col-md-6 mt-2 md:mt-0">
+            <button
+              pButton
+              type="submit"
+              label="เพิ่มข้อมูล"
+              class="btn btn-org w-100"
+            ></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -13,4 +13,8 @@ export class HealthRecordService {
   getHealthRecords(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  getHealthRecordById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
 }

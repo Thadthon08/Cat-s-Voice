@@ -60,6 +60,9 @@ import { HealthRecordService } from './services/healthrecord.service';
 import { CarouselComponent } from './page/components/carousel/carousel.component';
 import { BankComponent } from './page/components/bank/bank.component';
 import { CountComponent } from './page/components/count/count.component';
+import { RecoveryManagementComponent } from './adminPage/components/recovery-management/recovery-management.component';
+import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit-recovery.component';
+import { FormEditRecoveryComponent } from './adminPage/components/form-edit-recovery/form-edit-recovery.component';
 
 
 @NgModule({
@@ -103,6 +106,9 @@ import { CountComponent } from './page/components/count/count.component';
     CarouselComponent,
     BankComponent,
     CountComponent,
+    RecoveryManagementComponent,
+    EditRecoveryComponent,
+    FormEditRecoveryComponent,
 
   ],
   imports: [

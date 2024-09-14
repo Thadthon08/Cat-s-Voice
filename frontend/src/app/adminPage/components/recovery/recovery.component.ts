@@ -13,10 +13,9 @@ export class RecoveryComponent implements OnInit {
   constructor(
     private router: Router,
     private healthRecordService: HealthRecordService
-  ) {} // inject service
+  ) {}
 
   ngOnInit(): void {
-    // เรียกข้อมูลเมื่อ component โหลดขึ้น
     this.getAnimals();
   }
 
@@ -25,6 +24,7 @@ export class RecoveryComponent implements OnInit {
       (data) => {
         this.animals = data.map((record: any) => {
           return {
+            id: record._id,
             name: record.animal_id.name,
             image_url: record.animal_id.image_url,
           };
@@ -38,5 +38,9 @@ export class RecoveryComponent implements OnInit {
 
   navigateToAddData(): void {
     this.router.navigate(['/admin/add-data']);
+  }
+
+  onAnimalCardClick(id: string): void {
+    this.router.navigate(['/admin/recovering', id]);
   }
 }

@@ -49,10 +49,14 @@ exports.getAllHealthRecords = async (req, res) => {
 //Get by id
 exports.getHealthRecordById = async (req, res) => {
   try {
-    const healthRecord = await HealthRecord.findById(req.params.id);
+    const healthRecordId = req.params.id;
+    const healthRecord = await HealthRecord.findById(healthRecordId).populate(
+      "animal_id"
+    );
 
-    if (!healthRecord)
+    if (!healthRecord) {
       return res.status(404).json({ message: "Health record not found" });
+    }
 
     res.json(healthRecord);
   } catch (error) {
