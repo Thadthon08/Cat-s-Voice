@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'donate', component: DonateComponent },
       { path: 'shelter', component: AumrakComponent },
       { path: 'shelter/:id', component: AumrakDetailsComponent },
-      { path: 'spayed' , component : SterilizationProgramComponent }
+      { path: 'spayed', component: SterilizationProgramComponent },
     ],
   },
   {
