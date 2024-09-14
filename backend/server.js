@@ -5,6 +5,7 @@ const authenticateJWT = require("./middleware/authenticateJWT");
 const animalRoutes = require("./routes/animalRoutes");
 const authRoutes = require("./routes/auth");
 const animalSpeciesRoutes = require("./routes/speciesRoute");
+const healthRecordRoutes = require("./routes/HealthRecord");
 require("dotenv").config();
 
 const app = express();
@@ -22,6 +23,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/api/animals", animalRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/species", animalSpeciesRoutes);
+app.use("/api/HealthRecord", healthRecordRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
