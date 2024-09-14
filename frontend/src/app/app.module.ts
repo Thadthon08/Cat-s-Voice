@@ -54,6 +54,8 @@ import { SterilizationProgramComponent } from './page/sterilization-program/ster
 import { NewsComponent } from './page/news/news.component';
 import { NewsService } from './services/news.service';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
+import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
+import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { NewsDetailsComponent } from './page/news-details/news-details.component
     NewsComponent,
     NewsDetailsComponent,
   
+    EditAnimalComponent,
+    FormEditAnimalComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +114,7 @@ import { NewsDetailsComponent } from './page/news-details/news-details.component
     FileUploadModule,
     HttpClientModule,
     ToastModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),

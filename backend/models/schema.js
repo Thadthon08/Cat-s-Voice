@@ -18,7 +18,7 @@ const Admin = mongoose.model("Admin", AdminSchema);
 // Animal Species Schema
 const AnimalSpeciesSchema = new mongoose.Schema({
   species_id: { type: Number, required: true, unique: true },
-  species_name: { type: String, enum: ["Dog","Cat"], required: true },
+  species_name: { type: String, enum: ["Dog", "Cat"], required: true },
 });
 
 const AnimalSpecies = mongoose.model("AnimalSpecies", AnimalSpeciesSchema);
@@ -39,12 +39,11 @@ const AnimalSchema = new mongoose.Schema({
   },
   size: {
     type: String,
-    enum: ["Small", "Medium", "Large", "Extra Large"],
+    enum: ["Small", "Medium", "Large"],
     required: false,
   },
   color: { type: String, required: false },
   personality: { type: String, required: false },
-  symptoms: { type: String, required: false },
   image_url: { type: String, required: false },
   status: {
     type: String,
@@ -68,12 +67,12 @@ const Animal = mongoose.model("Animal", AnimalSchema);
 const HealthRecordSchema = new mongoose.Schema({
   record_id: { type: Number, required: true, unique: true },
   animal_id: {
-    type: mongoose.Schema.Types.Number,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Animal",
     required: true,
   },
   checkup_date: { type: Date, required: true },
-  diagnosis: { type: String },
+  diagnosis: { type: String, default: "none" },
   treatment: { type: String },
   notes: { type: String },
   created_at: { type: Date, default: Date.now },

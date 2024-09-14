@@ -1,14 +1,37 @@
 const Animal = require("../models/schema.js").Animal;
 const upload = require("../middlewares/uploadImage");
+const HealthRecord = require("../models/schema.js").HealthRecord;
 
 // GET - ดึงข้อมูลสัตว์ทั้งหมด
+
 exports.getAllAnimals = async (req, res) => {
   try {
     const status = req.query.status;
     const query = status ? { status: status } : {};
 
     const animals = await Animal.find(query);
-    res.status(200).json(animals);
+
+    const animalInfoWithDiagnosis = await Promise.all(
+      animals.map(async (animal) => {
+        const healthRecord = await HealthRecord.findOne({
+          animal_id: animal._id,
+        }).sort({ checkup_date: -1 });
+
+        return {
+          _id: animal._id,
+          name: animal.name,
+          gender: animal.gender,
+          age: animal.age,
+          color: animal.color,
+          personality: animal.personality,
+          status: animal.status,
+          image_url: animal.image_url,
+          diagnosis: healthRecord ? healthRecord.diagnosis : "none",
+        };
+      })
+    );
+
+    res.status(200).json(animalInfoWithDiagnosis);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

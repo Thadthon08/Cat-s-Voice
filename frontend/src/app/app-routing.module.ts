@@ -20,6 +20,7 @@ import { DonateComponent } from './page/donate/donate.component';
 import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
+import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { NewsComponent } from './page/news/news.component';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
 const routes: Routes = [
@@ -63,6 +64,10 @@ const routes: Routes = [
       {
         path: 'add-data',
         component: AddDataComponent,
+      },
+      {
+        path: 'edit-data/:id',
+        component: EditAnimalComponent,
       },
       {
         path: 'recovering',
