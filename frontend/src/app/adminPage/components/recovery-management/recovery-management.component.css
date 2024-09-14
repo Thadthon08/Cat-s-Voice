@@ -1,0 +1,29 @@
+.heading {
+  background-color: rgb(251, 222, 154);
+  color: rgb(96, 50, 37);
+  font-weight: 500;
+  font-size: 24px;
+}
+.color-font {
+  color: rgb(96, 50, 37);
+}
+
+p > span {
+  font-weight: 600;
+  &.status {
+    font-size: 18px;
+    margin-left: 8px;
+    color: brown;
+  }
+}
+
+.btn-org {
+  background-color: #fa8124;
+  color: white;
+  font-weight: bold;
+  &:hover,
+  &:active {
+    background-color: #ea7922;
+    color: white;
+  }
+}

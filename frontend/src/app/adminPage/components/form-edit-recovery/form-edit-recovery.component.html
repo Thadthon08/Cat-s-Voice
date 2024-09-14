@@ -5,7 +5,7 @@
       [src]="animalForm.get('image_url')?.value"
       alt="Animal Image"
       class="img-fluid rounded shadow"
-      style="max-width: 100%; max-height: 400px"
+      style="max-width: 100%; height: 400px"
     />
   </div>
 
@@ -38,22 +38,23 @@
         {{ animalForm.get("size")?.value }}
       </div>
     </div>
+
     <div class="row mb-2">
-      <div class="col-5 fw-bold">Color:</div>
+      <div class="col-5 fw-bold">Diagnosis:</div>
       <div class="col-7">
-        {{ animalForm.get("color")?.value }}
+        {{ animalForm.get("diagnosis")?.value }}
       </div>
     </div>
     <div class="row mb-2">
-      <div class="col-5 fw-bold">Personality:</div>
+      <div class="col-5 fw-bold">Treatment:</div>
       <div class="col-7">
-        {{ animalForm.get("personality")?.value }}
+        {{ animalForm.get("treatment")?.value }}
       </div>
     </div>
     <div class="row mb-2">
-      <div class="col-5 fw-bold">Status:</div>
+      <div class="col-5 fw-bold">Checkup date:</div>
       <div class="col-7">
-        {{ animalForm.get("status")?.value }}
+        {{ animalForm.get("checkup_date")?.value }}
       </div>
     </div>
   </div>
