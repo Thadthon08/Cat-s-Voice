@@ -1,0 +1,45 @@
+.heading {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  border-bottom: 10px solid rgb(247, 200, 85);
+}
+
+.heading::before {
+  margin-right: 0.5em;
+}
+
+.heading::after {
+  margin-left: 0.5em;
+}
+
+.color-font {
+  color: rgb(96, 50, 37);
+}
+
+p > span {
+  font-weight: 600;
+  &.status {
+    font-size: 18px;
+    margin-left: 8px;
+    color: brown;
+  }
+}
+
+.btn-org {
+  background-color: #fa8124;
+  color: white;
+  font-weight: bold;
+  &:hover,
+  &:active {
+    background-color: #ea7922;
+    color: white;
+  }
+}

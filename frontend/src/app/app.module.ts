@@ -51,6 +51,8 @@ import { DonateComponent } from './page/donate/donate.component';
 import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
+import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
+import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,8 @@ import { SterilizationProgramComponent } from './page/sterilization-program/ster
     AumrakComponent,
     AumrakDetailsComponent,
     SterilizationProgramComponent,
-  
+    EditAnimalComponent,
+    FormEditAnimalComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,6 +108,7 @@ import { SterilizationProgramComponent } from './page/sterilization-program/ster
     FileUploadModule,
     HttpClientModule,
     ToastModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
