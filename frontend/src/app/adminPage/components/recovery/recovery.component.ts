@@ -1,58 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HealthRecordService } from '../../../services/healthrecord.service';
 
 @Component({
   selector: 'app-recovery',
   templateUrl: './recovery.component.html',
-  styleUrl: './recovery.component.css',
+  styleUrls: ['./recovery.component.css'],
 })
-export class RecoveryComponent {
-  constructor(private router: Router) {}
+export class RecoveryComponent implements OnInit {
+  animals: any[] = []; // ตัวแปรสำหรับเก็บข้อมูลสัตว์
 
-  animals = [
-    {
-      name: 'แคชเชียร์',
-      image:
-        'https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg',
-    },
-    {
-      name: 'กาฟีล',
-      image:
-        'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg',
-    },
-    {
-      name: 'rainy',
-      image:
-        'https://cdn.pixabay.com/photo/2015/11/10/20/10/dog-1037702_1280.jpg',
-    },
-    {
-      name: 'Emerald',
-      image:
-        'https://cdn.pixabay.com/photo/2017/08/07/12/27/cat-2603300_1280.jpg',
-    },
-    {
-      name: 'Diamond',
-      image:
-        'https://cdn.pixabay.com/photo/2018/05/17/14/12/dog-3408667_1280.jpg',
-    },
-    {
-      name: 'Could',
-      image:
-        'https://cdn.pixabay.com/photo/2022/01/18/07/38/cat-6946505_1280.jpg',
-    },
-    {
-      name: 'Rain',
-      image:
-        'https://cdn.pixabay.com/photo/2018/10/30/11/34/golden-retriever-puppy-3783500_960_720.jpg',
-    },
-    {
-      name: 'flower',
-      image:
-        'https://cdn.pixabay.com/photo/2018/02/21/05/17/cat-3169476_1280.jpg',
-    },
-  ];
+  constructor(
+    private router: Router,
+    private healthRecordService: HealthRecordService
+  ) {} // inject service
 
-  navigateToAddData() {
+  ngOnInit(): void {
+    // เรียกข้อมูลเมื่อ component โหลดขึ้น
+    this.getAnimals();
+  }
+
+  getAnimals(): void {
+    this.healthRecordService.getHealthRecords().subscribe(
+      (data) => {
+        this.animals = data.map((record: any) => {
+          return {
+            name: record.animal_id.name,
+            image_url: record.animal_id.image_url,
+          };
+        });
+      },
+      (error) => {
+        console.error('Error fetching health records:', error);
+      }
+    );
+  }
+
+  navigateToAddData(): void {
     this.router.navigate(['/admin/add-data']);
   }
 }

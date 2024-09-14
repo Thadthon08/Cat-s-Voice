@@ -53,6 +53,7 @@ import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.com
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
+import { HealthRecordService } from './services/healthrecord.service';
 
 @NgModule({
   declarations: [
@@ -115,6 +116,7 @@ import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal
     MessageService,
     FindHomeService,
     AnimalService,
+    HealthRecordService,
   ],
   bootstrap: [AppComponent],
 })
