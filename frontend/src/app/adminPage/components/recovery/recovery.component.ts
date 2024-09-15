@@ -24,7 +24,7 @@ export class RecoveryComponent implements OnInit {
       (data) => {
         this.animals = data.map((record: any) => {
           return {
-            id: record._id,
+            _id: record._id,
             name: record.animal_id.name,
             image_url: record.animal_id.image_url,
           };
@@ -37,7 +37,7 @@ export class RecoveryComponent implements OnInit {
   }
 
   navigateToAddData(): void {
-    this.router.navigate(['/admin/add-data']);
+    this.router.navigate(['/admin/recovering/add-data']);
   }
 
   onAnimalCardClick(id: string): void {

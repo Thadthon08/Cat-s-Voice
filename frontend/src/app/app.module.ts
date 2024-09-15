@@ -63,7 +63,7 @@ import { CountComponent } from './page/components/count/count.component';
 import { RecoveryManagementComponent } from './adminPage/components/recovery-management/recovery-management.component';
 import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit-recovery.component';
 import { FormEditRecoveryComponent } from './adminPage/components/form-edit-recovery/form-edit-recovery.component';
-
+import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-data/recovery-add-data.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +109,7 @@ import { FormEditRecoveryComponent } from './adminPage/components/form-edit-reco
     RecoveryManagementComponent,
     EditRecoveryComponent,
     FormEditRecoveryComponent,
-
+    RecoveryAddDataComponent,
   ],
   imports: [
     BrowserModule,

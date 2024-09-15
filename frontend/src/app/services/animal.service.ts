@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Animal } from '../interface/IAnimal';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ export class AnimalService {
 
   constructor(private http: HttpClient) {}
 
-  addAnimal(animalData: FormData): Observable<any> {
-    return this.http.post(`${this.baseUrl}/upload`, animalData);
+  addAnimal(data: FormData): Observable<any> {
+    return this.http.post(this.baseUrl, data);
   }
 
   getAnimals(status?: string): Observable<any> {

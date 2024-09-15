@@ -1,6 +1,7 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnimalService } from '../../../services/animal.service';
+import { SpeciesService } from '../../../services/species.service'; // Import the service
 
 @Injectable()
 @Component({
@@ -8,15 +9,17 @@ import { AnimalService } from '../../../services/animal.service';
   templateUrl: './add-data.component.html',
   styleUrls: ['./add-data.component.css'],
 })
-export class AddDataComponent {
+export class AddDataComponent implements OnInit {
   animalForm: FormGroup;
-  speciesOptions = [
-    { label: 'แมว', value: 1 },
-    { label: 'หมา', value: 2 },
-  ];
+  speciesOptions: any[] = [];
   selectedFile: File | null = null;
+  image_url: string = '';
 
-  constructor(private fb: FormBuilder, private animalService: AnimalService) {
+  constructor(
+    private fb: FormBuilder,
+    private animalService: AnimalService,
+    private speciesService: SpeciesService
+  ) {
     this.animalForm = this.fb.group({
       name: ['', Validators.required],
       gender: ['', Validators.required],
@@ -28,30 +31,35 @@ export class AddDataComponent {
       symptoms: [''],
       status: ['available'],
       added_by_admin_id: [1],
+      image_url: [''],
     });
+  }
+
+  ngOnInit(): void {
+    this.loadSpeciesOptions();
+  }
+
+  loadSpeciesOptions() {
+    this.speciesService.getSpecies().subscribe(
+      (response) => {
+        this.speciesOptions = response.map((species: any) => ({
+          label: species.species_name,
+          value: species.species_id,
+        }));
+      },
+      (error) => {
+        console.error('Error fetching species options:', error);
+      }
+    );
   }
 
   onSubmit() {
     if (this.animalForm.valid) {
-      const formData: FormData = new FormData();
-      Object.keys(this.animalForm.controls).forEach((key) => {
-        formData.append(key, this.animalForm.get(key)?.value);
+      this.animalForm.patchValue({ image_url: this.image_url });
+
+      this.animalService.addAnimal(this.animalForm.value).subscribe((res) => {
+        console.log('Response:', res);
       });
-
-      if (this.selectedFile) {
-        formData.append('image', this.selectedFile, this.selectedFile.name);
-      }
-
-      this.animalService.addAnimal(formData).subscribe(
-        (response) => {
-          console.log('Animal added successfully', response);
-        },
-        (error) => {
-          console.error('Error adding animal', error);
-        }
-      );
-    } else {
-      console.log('Form is not valid');
     }
   }
 
@@ -59,7 +67,14 @@ export class AddDataComponent {
     const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      console.log('Uploaded file:', file);
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.image_url = reader.result as string;
+        console.log('Base64 image:', this.image_url);
+      };
+
+      reader.readAsDataURL(file);
     }
   }
 }

@@ -35,6 +35,6 @@ export class AnimalManagementComponent implements OnInit {
     );
   }
   navigateToEditData() {
-    this.router.navigate(['/admin/edit-data/', this.animalId]);
+    this.router.navigate(['/admin/findhome/edit-data/', this.animalId]);
   }
 }
