@@ -1,11 +1,17 @@
 <p-toast position="top-right"></p-toast>
-<div class="container my-5">
-  <h2 class="heading mb-5">ข้อมูลสัตว์</h2>
+<div class="container p-5">
+  <h2
+    class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom"
+    [@fadeIn]
+  >
+    ข้อมูลสัตว์
+  </h2>
   <form
     [formGroup]="animalForm"
     (ngSubmit)="onSubmit()"
-    class="p-fluid p-formgrid p-grid"
+    class="p-fluid p-formgrid p-grid bg-white rounded-1 shadow-custom p-4"
     style="max-width: 600px; margin: auto"
+    [@zoomIn]
   >
     <div class="row mb-3">
       <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
@@ -161,7 +167,10 @@
           type="button"
           label="ยกเลิก"
           class="btn btn-secondary w-100"
-          (click)="animalForm.reset()"
+          [@buttonHover]="buttonState"
+          (mouseenter)="onMouseEnter()"
+          (mouseleave)="onMouseLeave()"
+          (click)="cancel()"
         ></button>
       </div>
       <div class="col-md-6 mt-2 md:mt-0">
@@ -170,6 +179,9 @@
           type="submit"
           label="เพิ่มข้อมูล"
           class="btn btn-org w-100"
+          [@buttonHover]="buttonState"
+          (mouseenter)="onMouseEnter()"
+          (mouseleave)="onMouseLeave()"
           [disabled]="animalForm.invalid"
         ></button>
       </div>

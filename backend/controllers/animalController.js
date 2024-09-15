@@ -48,16 +48,52 @@ exports.getAnimalById = async (req, res) => {
   }
 };
 
+exports.getAnimalsWithoutHealthRecord = async (req, res) => {
+  try {
+    const animals = await Animal.find();
+
+    const animalsWithoutHealthRecord = await Promise.all(
+      animals.map(async (animal) => {
+        const healthRecord = await HealthRecord.findOne({
+          animal_id: animal._id,
+        });
+
+        if (!healthRecord) {
+          return {
+            _id: animal._id,
+            name: animal.name,
+            gender: animal.gender,
+            age: animal.age,
+            color: animal.color,
+            personality: animal.personality,
+            status: animal.status,
+            image_url: animal.image_url,
+          };
+        } else {
+          return null;
+        }
+      })
+    );
+
+    const filteredAnimals = animalsWithoutHealthRecord.filter(
+      (animal) => animal !== null
+    );
+
+    res.status(200).json(filteredAnimals);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // POST - สร้างข้อมูลสัตว์ใหม่
 exports.createAnimal = async (req, res) => {
   try {
     const animal = new Animal(req.body);
-    console.log(animal);
 
     const newAnimal = await animal.save();
     res.status(201).json(newAnimal);
   } catch (error) {
-    res.status(400).json({ message: error.message, data: req.body });
+    res.status(400).json({ message: error.message });
   }
 };
 

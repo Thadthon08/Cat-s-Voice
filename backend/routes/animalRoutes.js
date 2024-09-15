@@ -6,6 +6,7 @@ const animalController = require("../controllers/animalController");
 
 // เส้นทาง API สำหรับการจัดการข้อมูลสัตว์
 router.get("/", animalController.getAllAnimals);
+router.get("/without", animalController.getAnimalsWithoutHealthRecord);
 router.get("/:id", animalController.getAnimalById);
 router.post("/", animalController.createAnimal);
 router.put("/:id", animalController.updateAnimal);

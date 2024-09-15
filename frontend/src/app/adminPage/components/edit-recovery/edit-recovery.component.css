@@ -20,7 +20,7 @@
   margin-left: 0.5em;
 }
 
-.color-font {
+.text-brown {
   color: rgb(96, 50, 37);
 }
 
@@ -43,3 +43,9 @@ p > span {
     color: white;
   }
 }
+
+.shadow-custom {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+

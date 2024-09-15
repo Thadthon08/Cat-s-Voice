@@ -1,55 +1,54 @@
 <div class="container d-flex flex-column align-items-center gap-2">
-  <div class="mb-4 col-12 d-flex">
+  <div class="image-container bg-white shadow-custom p-1 rounded-0">
     <img
       *ngIf="animalForm.get('image_url')?.value"
       [src]="animalForm.get('image_url')?.value"
       alt="Animal Image"
-      class="img-fluid rounded shadow"
-      style="max-width: 100%; height: 400px"
+      class="img-fluid rounded-0 mx-auto d-block image-frame"
     />
   </div>
 
-  <div class="col-12">
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Name:</div>
-      <div class="col-7">
-        {{ animalForm.get("name")?.value }}
+  <div class="col-12 bg-white p-4 mt-3 shadow-custom text-brown">
+    <div class="d-flex flex-column gap-2">
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold me-2">Name:</span>
+        <span class="text-dark">
+          {{ animalForm.get("name")?.value }}
+        </span>
       </div>
-    </div>
-
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Age:</div>
-      <div class="col-7">{{ animalForm.get("age")?.value }}</div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Size:</div>
-      <div class="col-7">
-        {{ animalForm.get("size")?.value }}
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-brown me-2">Age:</span>
+        <span class="text-dark">{{ animalForm.get("age")?.value }}</span>
       </div>
-    </div>
-
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Diagnosis:</div>
-      <div class="col-7">
-        {{ animalForm.get("diagnosis")?.value }}
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-brown me-2">Size:</span>
+        <span class="text-dark">
+          {{ animalForm.get("size")?.value }}
+        </span>
       </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Treatment:</div>
-      <div class="col-7">
-        {{ animalForm.get("treatment")?.value }}
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-brown me-2">Diagnosis:</span>
+        <span class="text-dark">
+          {{ animalForm.get("diagnosis")?.value }}
+        </span>
       </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Note:</div>
-      <div class="col-7">
-        {{ animalForm.get("notes")?.value }}
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-brown me-2">Treatment:</span>
+        <span class="text-dark">
+          {{ animalForm.get("treatment")?.value }}
+        </span>
       </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Checkup date:</div>
-      <div class="col-7">
-        {{ animalForm.get("checkup_date")?.value }}
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-brown me-2">Note:</span>
+        <span class="text-dark">
+          {{ animalForm.get("notes")?.value }}
+        </span>
+      </div>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-brown me-2">Checkup date:</span>
+        <span class="text-dark">
+          {{ animalForm.get("checkup_date")?.value }}
+        </span>
       </div>
     </div>
   </div>

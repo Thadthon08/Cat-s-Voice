@@ -1,0 +1,9 @@
+.admin-layout {
+  background-color: rgb(251, 222, 154);
+  color: rgb(96, 50, 37);
+  min-height: auto;
+}
+
+.admin-content {
+  min-height: 100vh;
+}

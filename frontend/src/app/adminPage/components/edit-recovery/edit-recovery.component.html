@@ -1,6 +1,8 @@
 <p-toast position="top-right"></p-toast>
-<div class="container my-5">
-  <h2 class="heading mb-5 container">หาบ้านให้น้อง</h2>
+<div class="container p-5">
+  <h2 class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom">
+    เคสรักษา
+  </h2>
   <div class="row justify-content-center">
     <div class="col-md-7">
       <app-form-edit-recovery
@@ -8,139 +10,141 @@
       ></app-form-edit-recovery>
     </div>
     <div class="col-md-5">
-      <form
-        [formGroup]="animalForm"
-        (ngSubmit)="onSubmit()"
-        class="p-fluid p-formgrid p-grid"
-        style="max-width: 100%; margin: auto"
-      >
-        <div class="row mb-3">
-          <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
-          <div class="col-md-8">
-            <input
-              id="name"
-              type="text"
-              pInputText
-              class="form-control"
-              formControlName="name"
-              required
-              aria-label="Name"
-              readonly
-            />
+      <div class="bg-white p-4 rounded-1 shadow-custom">
+        <form
+          [formGroup]="animalForm"
+          (ngSubmit)="onSubmit()"
+          class="p-fluid p-formgrid p-grid"
+          style="max-width: 100%; margin: auto"
+        >
+          <div class="row mb-3">
+            <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
+            <div class="col-md-8">
+              <input
+                id="name"
+                type="text"
+                pInputText
+                class="form-control"
+                formControlName="name"
+                required
+                aria-label="Name"
+                readonly
+              />
+            </div>
           </div>
-        </div>
 
-        <div class="row mb-3">
-          <label for="age" class="col-md-4 col-form-label">อายุ</label>
-          <div class="col-md-8">
-            <input
-              id="age"
-              type="number"
-              pInputText
-              class="form-control"
-              formControlName="age"
-              aria-label="Age"
-              readonly
-            />
+          <div class="row mb-3">
+            <label for="age" class="col-md-4 col-form-label">อายุ</label>
+            <div class="col-md-8">
+              <input
+                id="age"
+                type="number"
+                pInputText
+                class="form-control"
+                formControlName="age"
+                aria-label="Age"
+                readonly
+              />
+            </div>
           </div>
-        </div>
 
-        <div class="row mb-3">
-          <label for="size" class="col-md-4 col-form-label">ขนาด</label>
-          <div class="col-md-8">
-            <input
-              id="age"
-              type="text"
-              pInputText
-              class="form-control"
-              formControlName="size"
-              readonly
-            />
+          <div class="row mb-3">
+            <label for="size" class="col-md-4 col-form-label">ขนาด</label>
+            <div class="col-md-8">
+              <input
+                id="age"
+                type="text"
+                pInputText
+                class="form-control"
+                formControlName="size"
+                readonly
+              />
+            </div>
           </div>
-        </div>
 
-        <div class="row mb-3">
-          <label for="diagnosis" class="col-md-4 col-form-label"
-            >อาการ/โรค</label
-          >
-          <div class="col-md-8">
-            <input
-              id="diagnosis"
-              type="text"
-              pInputText
-              class="form-control"
-              formControlName="diagnosis"
-              aria-label="Diagnosis"
-            />
+          <div class="row mb-3">
+            <label for="diagnosis" class="col-md-4 col-form-label"
+              >อาการ/โรค</label
+            >
+            <div class="col-md-8">
+              <input
+                id="diagnosis"
+                type="text"
+                pInputText
+                class="form-control"
+                formControlName="diagnosis"
+                aria-label="Diagnosis"
+              />
+            </div>
           </div>
-        </div>
 
-        <div class="row mb-3">
-          <label for="treatment" class="col-md-4 col-form-label"
-            >การรักษา</label
-          >
-          <div class="col-md-8">
-            <textarea
-              id="treatment"
-              pInputTextarea
-              class="form-control"
-              formControlName="treatment"
-              rows="3"
-              aria-label="Treatment"
-            ></textarea>
+          <div class="row mb-3">
+            <label for="treatment" class="col-md-4 col-form-label"
+              >การรักษา</label
+            >
+            <div class="col-md-8">
+              <textarea
+                id="treatment"
+                pInputTextarea
+                class="form-control"
+                formControlName="treatment"
+                rows="3"
+                aria-label="Treatment"
+              ></textarea>
+            </div>
           </div>
-        </div>
 
-        <div class="row mb-3">
-          <label for="notes" class="col-md-4 col-form-label">หมายเหตุ</label>
-          <div class="col-md-8">
-            <textarea
-              id="notes"
-              pInputTextarea
-              class="form-control"
-              formControlName="notes"
-              rows="3"
-              aria-label="Notes"
-            ></textarea>
+          <div class="row mb-3">
+            <label for="notes" class="col-md-4 col-form-label">หมายเหตุ</label>
+            <div class="col-md-8">
+              <textarea
+                id="notes"
+                pInputTextarea
+                class="form-control"
+                formControlName="notes"
+                rows="3"
+                aria-label="Notes"
+              ></textarea>
+            </div>
           </div>
-        </div>
 
-        <div class="row mb-3">
-          <label for="checkup_date" class="col-md-4 col-form-label"
-            >วันที่ทำการตรวจ</label
-          >
-          <div class="col-md-8">
-            <input
-              id="checkup_date"
-              type="date"
-              pInputText
-              class="form-control"
-              formControlName="checkup_date"
-              aria-label="Checkup Date"
-            />
+          <div class="row mb-3">
+            <label for="checkup_date" class="col-md-4 col-form-label"
+              >วันที่ทำการตรวจ</label
+            >
+            <div class="col-md-8">
+              <input
+                id="checkup_date"
+                type="date"
+                pInputText
+                class="form-control"
+                formControlName="checkup_date"
+                aria-label="Checkup Date"
+              />
+            </div>
           </div>
-        </div>
 
-        <div class="row mt-5">
-          <div class="col-md-6 mt-2 md:mt-0">
-            <button
-              pButton
-              type="button"
-              label="ยกเลิก"
-              class="btn btn-secondary w-100"
-              (click)="cancel()"
-            ></button>
+          <div class="row mt-5">
+            <div class="col-md-6 mt-2 md:mt-0">
+              <button
+                pButton
+                type="button"
+                label="ยกเลิก"
+                class="btn btn-secondary w-100"
+                (click)="cancel()"
+              ></button>
+            </div>
+            <div class="col-md-6 mt-2 md:mt-0">
+              <button
+                pButton
+                type="submit"
+                label="เพิ่มข้อมูล"
+                class="btn btn-org w-100"
+              ></button>
+            </div>
           </div>
-          <div class="col-md-6 mt-2 md:mt-0">
-            <button
-              pButton
-              type="submit"
-              label="เพิ่มข้อมูล"
-              class="btn btn-org w-100"
-            ></button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -25,6 +25,10 @@ export class AnimalService {
     return this.http.get(this.baseUrl, { params });
   }
 
+  getAnimalsWithoutHealthRecord(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/without`);
+  }
+
   getAnimalById(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }

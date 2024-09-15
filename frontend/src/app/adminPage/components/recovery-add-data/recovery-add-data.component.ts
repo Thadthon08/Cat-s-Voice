@@ -4,25 +4,50 @@ import { AnimalService } from '../../../services/animal.service';
 import { HealthRecordService } from '../../../services/healthrecord.service';
 import { MessageService } from 'primeng/api';
 import { Location } from '@angular/common';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-recovery-add-data',
   templateUrl: './recovery-add-data.component.html',
   styleUrls: ['./recovery-add-data.component.css'],
   providers: [MessageService],
+  animations: [
+    trigger('fadeIn', [
+      state('void', style({ opacity: 0, transform: 'translateY(-20px)' })),
+      state('*', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition(':enter', animate('800ms ease-out')),
+    ]),
+    trigger('buttonHover', [
+      state('default', style({ transform: 'scale(1)' })),
+      state('hover', style({ transform: 'scale(1.05)' })),
+      transition('default <=> hover', animate('300ms ease-in-out')),
+    ]),
+    trigger('zoomIn', [
+      state('void', style({ transform: 'scale(0.5)', opacity: 0 })),
+      state('*', style({ transform: 'scale(1)', opacity: 1 })),
+      transition(':enter', animate('800ms ease-out')),
+    ]),
+  ],
 })
 export class RecoveryAddDataComponent implements OnInit {
   animalForm: FormGroup;
   animals: any[] = [];
   selectedFile: File | null = null;
   imageBase64: string = '';
+  buttonState: string = 'default';
 
   constructor(
     private fb: FormBuilder,
     private animalService: AnimalService,
     private healthRecordService: HealthRecordService,
     private messageService: MessageService,
-    private location: Location,
+    private location: Location
   ) {
     this.animalForm = this.fb.group({
       animal_id: ['', Validators.required],
@@ -38,7 +63,7 @@ export class RecoveryAddDataComponent implements OnInit {
   }
 
   loadAnimals() {
-    this.animalService.getAnimals().subscribe(
+    this.animalService.getAnimalsWithoutHealthRecord().subscribe(
       (response) => {
         this.animals = response.map((animal: any) => ({
           name: animal.name,
@@ -82,5 +107,16 @@ export class RecoveryAddDataComponent implements OnInit {
         }
       );
     }
+  }
+  onMouseEnter() {
+    this.buttonState = 'hover';
+  }
+
+  onMouseLeave() {
+    this.buttonState = 'default';
+  }
+
+  onCancel() {
+    this.location.back();
   }
 }

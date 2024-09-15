@@ -4,6 +4,13 @@ import { AnimalService } from '../../../services/animal.service';
 import { SpeciesService } from '../../../services/species.service';
 import { MessageService } from 'primeng/api';
 import { Location } from '@angular/common';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 
 @Injectable()
 @Component({
@@ -11,12 +18,30 @@ import { Location } from '@angular/common';
   templateUrl: './add-data.component.html',
   styleUrls: ['./add-data.component.css'],
   providers: [MessageService],
+  animations: [
+    trigger('fadeIn', [
+      state('void', style({ opacity: 0, transform: 'translateY(-20px)' })),
+      state('*', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition(':enter', animate('800ms ease-out')),
+    ]),
+    trigger('buttonHover', [
+      state('default', style({ transform: 'scale(1)' })),
+      state('hover', style({ transform: 'scale(1.05)' })),
+      transition('default <=> hover', animate('300ms ease-in-out')),
+    ]),
+    trigger('zoomIn', [
+      state('void', style({ transform: 'scale(0.5)', opacity: 0 })),
+      state('*', style({ transform: 'scale(1)', opacity: 1 })),
+      transition(':enter', animate('800ms ease-out')),
+    ]),
+  ],
 })
 export class AddDataComponent implements OnInit {
   animalForm: FormGroup;
   speciesOptions: any[] = [];
   selectedFile: File | null = null;
   image_url: string = '';
+  buttonState: string = 'default';
 
   constructor(
     private fb: FormBuilder,
@@ -101,5 +126,16 @@ export class AddDataComponent implements OnInit {
 
       reader.readAsDataURL(file);
     }
+  }
+  onMouseEnter() {
+    this.buttonState = 'hover';
+  }
+
+  onMouseLeave() {
+    this.buttonState = 'default';
+  }
+
+  cancel() {
+    this.location.back();
   }
 }

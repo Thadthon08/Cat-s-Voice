@@ -1,6 +1,8 @@
-<div class="container my-5">
-  <h2 class="heading mb-5">หาบ้านให้น้อง</h2>
-  <div class="row">
+<div class="container p-5">
+  <h2 class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom">
+    หาบ้านให้น้อง
+  </h2>
+  <div class="row p-4">
     <div class="col-md-3" *ngFor="let animal of animals">
       <app-animal-card
         [animal]="animal"
@@ -10,7 +12,7 @@
   </div>
 
   <div class="text-center mt-4">
-    <button class="btn btn-warning" (click)="navigateToAddData()">
+    <button class="btn btn-warning shadow-lg" (click)="navigateToAddData()">
       เพิ่มข้อมูล
     </button>
   </div>

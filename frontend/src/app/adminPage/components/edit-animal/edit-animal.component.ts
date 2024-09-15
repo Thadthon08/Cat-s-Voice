@@ -135,4 +135,7 @@ export class EditAnimalComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+  onCancel() {
+    this.location.back();
+  }
 }

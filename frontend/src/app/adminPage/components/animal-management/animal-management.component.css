@@ -1,10 +1,9 @@
 .heading {
-  background-color: rgb(212, 240, 181);
   color: rgb(96, 50, 37);
   font-weight: 500;
   font-size: 24px;
 }
-.color-font {
+.text-brown {
   color: rgb(96, 50, 37);
 }
 
@@ -26,4 +25,22 @@ p > span {
     background-color: #ea7922;
     color: white;
   }
+}
+
+.shadow-custom {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.image-container {
+  padding: 5px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.image-frame {
+  border-radius: 5px;
+  width: 100%;
+  display: block;
 }

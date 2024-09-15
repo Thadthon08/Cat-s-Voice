@@ -1,4 +1,10 @@
-<div class="card mb-4">
+<div
+  class="card mb-4 shadow-lg"
+  [@pulse]="animationState"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  @bounceIn
+>
   <div class="image-container">
     <img
       [src]="animal.image_url"
