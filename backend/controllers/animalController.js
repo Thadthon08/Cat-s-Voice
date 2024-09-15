@@ -4,12 +4,51 @@ const HealthRecord = require("../models/schema.js").HealthRecord;
 
 // GET - ดึงข้อมูลสัตว์ทั้งหมด
 
+// exports.getAllAnimals = async (req, res) => {
+//   try {
+//     const status = req.query.status;
+//     const query = status ? { status: status } : {};
+
+//     const animals = await Animal.find(query);
+
+//     const animalInfoWithDiagnosis = await Promise.all(
+//       animals.map(async (animal) => {
+//         const healthRecord = await HealthRecord.findOne({
+//           animal_id: animal._id,
+//         }).sort({ checkup_date: -1 });
+
+//         return {
+//           _id: animal._id,
+//           name: animal.name,
+//           gender: animal.gender,
+//           age: animal.age,
+//           color: animal.color,
+//           personality: animal.personality,
+//           status: animal.status,
+//           image_url: animal.image_url,
+//           diagnosis: healthRecord ? healthRecord.diagnosis : "none",
+//         };
+//       })
+//     );
+
+//     res.status(200).json(animalInfoWithDiagnosis);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 exports.getAllAnimals = async (req, res) => {
   try {
     const status = req.query.status;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
     const query = status ? { status: status } : {};
 
-    const animals = await Animal.find(query);
+    const skip = (page - 1) * limit;
+
+    const animals = await Animal.find(query).skip(skip).limit(limit);
+
+    const totalRecords = await Animal.countDocuments(query);
 
     const animalInfoWithDiagnosis = await Promise.all(
       animals.map(async (animal) => {
@@ -31,7 +70,12 @@ exports.getAllAnimals = async (req, res) => {
       })
     );
 
-    res.status(200).json(animalInfoWithDiagnosis);
+    res.status(200).json({
+      totalRecords,
+      currentPage: page,
+      totalPages: Math.ceil(totalRecords / limit),
+      animals: animalInfoWithDiagnosis,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

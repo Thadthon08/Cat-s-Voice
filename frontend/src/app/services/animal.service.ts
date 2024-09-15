@@ -15,14 +15,30 @@ export class AnimalService {
     return this.http.post(this.baseUrl, data);
   }
 
-  getAnimals(status?: string): Observable<any> {
-    let params = new HttpParams();
+  // getAnimals(status?: string): Observable<any> {
+  //   let params = new HttpParams();
+
+  //   if (status) {
+  //     params = params.set('status', status);
+  //   }
+
+  //   return this.http.get(this.baseUrl, { params });
+  // }
+
+  getAnimals(
+    status?: string,
+    limit: number = 10,
+    page: number = 1
+  ): Observable<any> {
+    let params = new HttpParams()
+      .set('limit', limit.toString())
+      .set('page', page.toString());
 
     if (status) {
       params = params.set('status', status);
     }
 
-    return this.http.get(this.baseUrl, { params });
+    return this.http.get<any>(this.baseUrl, { params });
   }
 
   getAnimalsWithoutHealthRecord(): Observable<any> {

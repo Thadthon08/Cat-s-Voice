@@ -11,6 +11,13 @@
     </div>
   </div>
 
+  <p-paginator
+    [rows]="rows"
+    [totalRecords]="totalRecords"
+    [rowsPerPageOptions]="[8, 16, 24]"
+    (onPageChange)="paginate($event)"
+  ></p-paginator>
+
   <div class="text-center mt-4">
     <button class="btn btn-warning shadow-lg" (click)="navigateToAddData()">
       เพิ่มข้อมูล

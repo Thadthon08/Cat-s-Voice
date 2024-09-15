@@ -10,6 +10,9 @@ import { AnimalService } from '../../../services/animal.service';
 export class FindhomeComponent implements OnInit {
   animals: any[] = [];
   status: string | null = null;
+  rows = 8; 
+  totalRecords = 0; 
+  currentPage = 1; 
 
   constructor(
     private router: Router,
@@ -24,15 +27,25 @@ export class FindhomeComponent implements OnInit {
     });
   }
 
-  loadAnimals() {
-    this.animalService.getAnimals(this.status ?? undefined).subscribe(
-      (data) => {
-        this.animals = data;
-      },
-      (error) => {
-        console.error('Error fetching animals:', error);
-      }
-    );
+  loadAnimals(page: number = 1, rows: number = this.rows) {
+    this.animalService
+      .getAnimals(this.status ?? undefined, rows, page)
+      .subscribe(
+        (data) => {
+          this.animals = data.animals;
+          this.totalRecords = data.totalRecords;
+          this.currentPage = data.currentPage;
+          this.rows = rows; 
+        },
+        (error) => {
+          console.error('Error fetching animals:', error);
+        }
+      );
+  }
+
+  paginate(event: any) {
+    this.currentPage = event.page + 1; 
+    this.loadAnimals(this.currentPage, event.rows); 
   }
 
   navigateToAddData() {
