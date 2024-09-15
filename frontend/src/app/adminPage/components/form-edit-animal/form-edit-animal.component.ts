@@ -24,7 +24,6 @@ export class FormEditAnimalComponent implements OnChanges {
       size: [''],
       color: [''],
       personality: [''],
-      symptoms: [''],
       status: ['available'],
       image_url: [''],
     });

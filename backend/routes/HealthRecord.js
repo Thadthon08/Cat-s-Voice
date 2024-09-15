@@ -7,6 +7,7 @@ const HealthRecordController = require("../controllers/HealthRecordController");
 router.get('/', HealthRecordController.getAllHealthRecords);
 router.get('/:id', HealthRecordController.getHealthRecordById);
 router.post('/', HealthRecordController.createHealthRecord);
+router.put("/:id", HealthRecordController.updateHealthRecord);
 router.delete('/:id', HealthRecordController.deleteHealthRecord);
 
 module.exports = router;

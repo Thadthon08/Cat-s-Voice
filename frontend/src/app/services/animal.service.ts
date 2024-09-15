@@ -32,4 +32,8 @@ export class AnimalService {
   editAnimalById(id: string, data: FormData): Observable<any> {
     return this.http.put(`${this.baseUrl}/${id}`, data);
   }
+
+  delAnimalById(id: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }

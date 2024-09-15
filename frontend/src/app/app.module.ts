@@ -28,7 +28,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
 import { BannerComponent } from './page/components/banner/banner.component';
 import { BoxSaerchComponent } from './page/components/box-saerch/box-saerch.component';
@@ -64,6 +64,7 @@ import { RecoveryManagementComponent } from './adminPage/components/recovery-man
 import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit-recovery.component';
 import { FormEditRecoveryComponent } from './adminPage/components/form-edit-recovery/form-edit-recovery.component';
 import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-data/recovery-add-data.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -129,6 +130,7 @@ import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-da
     HttpClientModule,
     ToastModule,
     ReactiveFormsModule,
+    ConfirmDialogModule,
   ],
   providers: [
     provideClientHydration(),
@@ -137,6 +139,7 @@ import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-da
     AnimalService,
     NewsService,
     HealthRecordService,
+    ConfirmationService,
   ],
   bootstrap: [AppComponent],
 })

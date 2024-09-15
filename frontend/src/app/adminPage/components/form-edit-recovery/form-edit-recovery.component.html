@@ -16,18 +16,7 @@
         {{ animalForm.get("name")?.value }}
       </div>
     </div>
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Gender:</div>
-      <div class="col-7">
-        {{ animalForm.get("gender")?.value }}
-      </div>
-    </div>
-    <div class="row mb-2">
-      <div class="col-5 fw-bold">Species:</div>
-      <div class="col-7">
-        {{ animalForm.get("species")?.value }}
-      </div>
-    </div>
+
     <div class="row mb-2">
       <div class="col-5 fw-bold">Age:</div>
       <div class="col-7">{{ animalForm.get("age")?.value }}</div>
@@ -49,6 +38,12 @@
       <div class="col-5 fw-bold">Treatment:</div>
       <div class="col-7">
         {{ animalForm.get("treatment")?.value }}
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-5 fw-bold">Note:</div>
+      <div class="col-7">
+        {{ animalForm.get("notes")?.value }}
       </div>
     </div>
     <div class="row mb-2">

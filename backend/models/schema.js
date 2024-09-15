@@ -60,6 +60,15 @@ const AnimalSchema = new mongoose.Schema({
 });
 
 AnimalSchema.plugin(AutoIncrement, { inc_field: "animal_id" });
+AnimalSchema.pre("findOneAndDelete", async function (next) {
+  try {
+    const animalId = this.getQuery()._id;
+    await HealthRecord.deleteMany({ animal_id: animalId }); // ลบเอกสาร HealthRecord ที่เชื่อมกับ animal_id
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 const Animal = mongoose.model("Animal", AnimalSchema);
 
@@ -85,7 +94,7 @@ const HealthRecord = mongoose.model("HealthRecord", HealthRecordSchema);
 const AdoptionSchema = new mongoose.Schema({
   adoption_id: { type: Number, required: true, unique: true },
   animal_id: {
-    type: mongoose.Schema.Types.Number,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Animal",
     required: true,
   },
