@@ -28,4 +28,8 @@ export class AnimalService {
   getAnimalById(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+
+  editAnimalById(id: string, data: FormData): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, data);
+  }
 }

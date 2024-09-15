@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column align-items-center gap-4">
+<div class="container d-flex flex-column align-items-center">
   <div class="mb-4 col-12 d-flex justify-content-center">
     <img
       *ngIf="animalForm.get('image_url')?.value"
@@ -10,38 +10,40 @@
   </div>
 
   <div class="col-12">
-    <div class="d-flex flex-column gap-2">
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Name:</span
-        ><span>{{ animalForm.get("name")?.value }}</span>
+    <div class="d-flex flex-column gap-2 p-3">
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Name:</span>
+        <span class="text-dark">{{ animalForm.get("name")?.value }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Gender:</span
-        ><span>{{ animalForm.get("gender")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Gender:</span>
+        <span class="text-dark">{{ animalForm.get("gender")?.value }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Species:</span
-        ><span>{{ animalForm.get("species")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Species:</span>
+        <span class="text-dark">{{ animalForm.get("species")?.value }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Age:</span
-        ><span>{{ animalForm.get("age")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Age:</span>
+        <span class="text-dark">{{ animalForm.get("age")?.value }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Size:</span
-        ><span>{{ animalForm.get("size")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Size:</span>
+        <span class="text-dark">{{ animalForm.get("size")?.value }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Color:</span
-        ><span>{{ animalForm.get("color")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Color:</span>
+        <span class="text-dark">{{ animalForm.get("color")?.value }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Personality:</span
-        ><span>{{ animalForm.get("personality")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Personality:</span>
+        <span class="text-dark">{{
+          animalForm.get("personality")?.value
+        }}</span>
       </div>
-      <div class="d-flex">
-        <span class="fw-bold text-secondary me-2">Status:</span
-        ><span>{{ animalForm.get("status")?.value }}</span>
+      <div class="d-flex align-items-center mb-1">
+        <span class="fw-bold text-secondary me-2">Status:</span>
+        <span class="text-success">{{ animalForm.get("status")?.value }}</span>
       </div>
     </div>
   </div>
