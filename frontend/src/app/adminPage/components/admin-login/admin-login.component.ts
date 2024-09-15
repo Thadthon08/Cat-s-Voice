@@ -40,8 +40,9 @@ export class AdminLoginComponent implements OnInit {
             summary: 'Login Successful',
             detail: 'You have logged in successfully!',
           });
-
-          this.router.navigate(['/admin']);
+          setTimeout(() => {
+            this.router.navigate(['/admin']);
+          }, 1000);
         },
         (error) => {
           console.error('Login failed', error);

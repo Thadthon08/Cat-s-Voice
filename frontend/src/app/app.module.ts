@@ -65,6 +65,7 @@ import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit
 import { FormEditRecoveryComponent } from './adminPage/components/form-edit-recovery/form-edit-recovery.component';
 import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-data/recovery-add-data.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ToastModule,
     ReactiveFormsModule,
     ConfirmDialogModule,
+    PaginatorModule,
   ],
   providers: [
     provideClientHydration(),
