@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FindHomeService } from '../../../services/find-home.service';
 import { Router ,NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AnimalService } from '../../../services/animal.service';
+
 @Component({
   selector: 'app-card-in-saerch',
   templateUrl: './card-in-saerch.component.html',
@@ -12,7 +13,10 @@ export class CardInSaerchComponent implements OnInit {
   animals: any[] = []; 
   animalID!: number;
   currentUrl: string = '';
-  constructor(private findHomeService: FindHomeService, private router: Router) {}
+  constructor(    
+              private animalService: AnimalService,
+              private router: Router
+  ) {}
 
   @Input() currentType: string = '';
   @Input() currentSex!: number;
@@ -28,12 +32,10 @@ export class CardInSaerchComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
           this.currentUrl = this.router.url;
-      console.log('Current URL:', this.currentUrl);
-  
-      this.loadAnimals();
+          this.loadAnimals();
     });
       this.currentUrl = this.router.url;
-    this.loadAnimals();
+      this.loadAnimals();
   }
   
 
@@ -43,16 +45,26 @@ export class CardInSaerchComponent implements OnInit {
   }
 
   loadAnimals() {
-    if (this.search) {
-      this.animals = this.findHomeService.getAnimalType();
-      } else {
-      this.animals = this.findHomeService.getAllanimals();
-    }
+    this.animalService.getAnimals().subscribe(
+      (data) => {
+        this.animals = data;
+      },
+      (error) => {
+        console.error('Error fetching animals:', error);
+      }
+    );
+
+    // if (this.search) {
+    //   this.animals = this.findHomeService.getAnimalType();
+    //   } else {
+    //   this.animals = this.findHomeService.getAllanimals();
+    // }
   }
 
   selectAnimal(id: number) {
+     console.log('cur',this.currentUrl,'/',id)
     this.router.navigate([this.currentUrl, id]);
-    console.log('cur',this.currentUrl)
+   
   }
   
 

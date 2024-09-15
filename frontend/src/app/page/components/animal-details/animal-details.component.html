@@ -1,12 +1,13 @@
 <div class="container">
-    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animal-image">
+    <img [src]="animalData.image_url" class="animal-image" (click)="openModal(animalData.image_url, 'Caption for Image 1')">
     <div class="text-container">
-        <div class="animal-name">เมอซี่</div>
-        <p>เพศ: เพศเมีย</p>
-        <p>อายุ: 2 ปี, 1 เดือน 27 วัน</p>
-        <p>ลักษณะ: พันธุ์ไทยผสม ลายเสือ มีสีดำ ขาว น้ำตาลเข้มผสมกัน ฉลาด เก่ง สวย เท่ห์ และแข็งแรง</p>
-        <p>นิสัย: น่ารัก ขี้เล่น ขี้อ้อน ร่าเริง</p>
-        <p>อาการ/โรค: ถูกชนจนต้องตัดขา เหลือ 3 ขา</p>
+        <div class="animal-name">{{animalData.name}}</div>
+        <p>Gender: <span>{{animalData.gender}}</span></p>
+        <p>Age: <span>{{animalData.age}}</span></p>
+        <p>Size: <span>{{animalData.size}} </span></p>
+        <p>Color: <span>{{animalData.color}} </span></p>
+        <p>Personality: <span>{{animalData.personality}}</span></p>
+        <!-- <p>อาการ/โรค: ถูกชนจนต้องตัดขา เหลือ 3 ขา</p> -->
         
 
         <div>
@@ -49,6 +50,10 @@
 </div>  
 </div>
 
+<div class="modal" [ngClass]="{'show-modal': isModalOpen}">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img class="modal-content" [src]="modalImage" alt="Modal Image">
+  </div>
 
 
 
