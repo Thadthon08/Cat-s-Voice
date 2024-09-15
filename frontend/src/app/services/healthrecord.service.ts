@@ -10,6 +10,10 @@ export class HealthRecordService {
 
   constructor(private http: HttpClient) {}
 
+  addHealthRecord(data: FormData): Observable<any> {
+    return this.http.post(this.apiUrl, data);
+  }
+
   getHealthRecords(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
