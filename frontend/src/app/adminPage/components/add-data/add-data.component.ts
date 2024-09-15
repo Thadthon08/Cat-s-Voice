@@ -1,13 +1,16 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnimalService } from '../../../services/animal.service';
-import { SpeciesService } from '../../../services/species.service'; // Import the service
+import { SpeciesService } from '../../../services/species.service';
+import { MessageService } from 'primeng/api';
+import { Location } from '@angular/common';
 
 @Injectable()
 @Component({
   selector: 'app-add-data',
   templateUrl: './add-data.component.html',
   styleUrls: ['./add-data.component.css'],
+  providers: [MessageService],
 })
 export class AddDataComponent implements OnInit {
   animalForm: FormGroup;
@@ -18,7 +21,9 @@ export class AddDataComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private animalService: AnimalService,
-    private speciesService: SpeciesService
+    private speciesService: SpeciesService,
+    private messageService: MessageService,
+    private location: Location
   ) {
     this.animalForm = this.fb.group({
       name: ['', Validators.required],
@@ -57,9 +62,29 @@ export class AddDataComponent implements OnInit {
     if (this.animalForm.valid) {
       this.animalForm.patchValue({ image_url: this.image_url });
 
-      this.animalService.addAnimal(this.animalForm.value).subscribe((res) => {
-        console.log('Response:', res);
-      });
+      this.animalService.addAnimal(this.animalForm.value).subscribe(
+        (res) => {
+          console.log('Response:', res);
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Animal data added successfully!',
+            life: 3000,
+          });
+          setTimeout(() => {
+            this.location.back();
+          }, 3000);
+        },
+        (error) => {
+          console.error('Error adding animal', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to add animal data.',
+            life: 3000,
+          });
+        }
+      );
     }
   }
 

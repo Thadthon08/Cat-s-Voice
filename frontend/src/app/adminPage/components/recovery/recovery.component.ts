@@ -8,7 +8,7 @@ import { HealthRecordService } from '../../../services/healthrecord.service';
   styleUrls: ['./recovery.component.css'],
 })
 export class RecoveryComponent implements OnInit {
-  animals: any[] = []; // ตัวแปรสำหรับเก็บข้อมูลสัตว์
+  animals: any[] = [];
 
   constructor(
     private router: Router,

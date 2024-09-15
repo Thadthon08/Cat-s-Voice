@@ -21,4 +21,12 @@ export class HealthRecordService {
   getHealthRecordById(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
+
+  editHealthRecordById(id: string, data: FormData): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, data);
+  }
+
+  deleteHealthRecordById(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

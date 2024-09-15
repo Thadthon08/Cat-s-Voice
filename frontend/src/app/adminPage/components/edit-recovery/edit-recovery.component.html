@@ -1,3 +1,4 @@
+<p-toast position="top-right"></p-toast>
 <div class="container my-5">
   <h2 class="heading mb-5 container">หาบ้านให้น้อง</h2>
   <div class="row justify-content-center">
@@ -28,40 +29,6 @@
             />
           </div>
         </div>
-        <div class="row mb-3">
-          <label class="col-md-4 col-form-label">เพศ</label>
-          <div class="col-md-8">
-            <p-radioButton
-              name="gender"
-              value="Female"
-              formControlName="gender"
-              inputId="g1"
-              class="mx-2"
-            ></p-radioButton>
-            <label for="g1"> เพศเมีย </label>
-
-            <p-radioButton
-              name="gender"
-              value="Male"
-              formControlName="gender"
-              inputId="g2"
-              class="mx-2"
-            ></p-radioButton>
-            <label for="g2"> เพศผู้ </label>
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <label for="species" class="col-md-4 col-form-label">สปีชี่ส์</label>
-          <div class="col-md-8">
-            <p-dropdown
-              [options]="speciesOptions"
-              formControlName="species"
-              id="species"
-              placeholder="Select species"
-            ></p-dropdown>
-          </div>
-        </div>
 
         <div class="row mb-3">
           <label for="age" class="col-md-4 col-form-label">อายุ</label>
@@ -81,12 +48,14 @@
         <div class="row mb-3">
           <label for="size" class="col-md-4 col-form-label">ขนาด</label>
           <div class="col-md-8">
-            <p-dropdown
-              [options]="sizeOptions"
+            <input
+              id="age"
+              type="text"
+              pInputText
+              class="form-control"
               formControlName="size"
-              id="size"
-              placeholder="Select size"
-            ></p-dropdown>
+              readonly
+            />
           </div>
         </div>
 

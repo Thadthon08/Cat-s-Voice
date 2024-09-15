@@ -13,7 +13,8 @@ const app = express();
 connectDB();
 
 // ใช้ middleware สำหรับแปลงข้อมูล JSON
-app.use(express.json());
+app.use(express.json({ limit: "10mb" })); // เพิ่มขนาด limit
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 // Middleware for JSON parsing
 app.use(cors()); // Enable CORS

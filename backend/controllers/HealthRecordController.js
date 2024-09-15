@@ -64,6 +64,29 @@ exports.getHealthRecordById = async (req, res) => {
   }
 };
 
+//Put
+exports.updateHealthRecord = async (req, res) => {
+  try {
+    const healthRecordId = req.params.id;
+    const healthRecord = await HealthRecord.findById(healthRecordId);
+
+    if (!healthRecord) {
+      return res.status(404).json({ message: "Health record not found" });
+    }
+
+    healthRecord.checkup_date =
+      req.body.checkup_date || healthRecord.checkup_date;
+    healthRecord.diagnosis = req.body.diagnosis || healthRecord.diagnosis;
+    healthRecord.treatment = req.body.treatment || healthRecord.treatment;
+    healthRecord.notes = req.body.notes || healthRecord.notes;
+
+    const updatedHealthRecord = await healthRecord.save();
+    res.json(updatedHealthRecord);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 //Delete
 exports.deleteHealthRecord = async (req, res) => {
   try {

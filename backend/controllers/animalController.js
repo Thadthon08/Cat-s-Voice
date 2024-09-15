@@ -116,9 +116,11 @@ exports.uploadAnimalImage = async (req, res) => {
 // DELETE - ลบข้อมูลสัตว์
 exports.deleteAnimal = async (req, res) => {
   try {
-    const animal = await Animal.findByIdAndDelete(req.params.id);
+    const animal = await Animal.findOneAndDelete({ _id: req.params.id });
     if (!animal) return res.status(404).json({ message: "Animal not found" });
-    res.status(200).json({ message: "Animal deleted successfully" });
+    res
+      .status(200)
+      .json({ message: "Animal and related records deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
