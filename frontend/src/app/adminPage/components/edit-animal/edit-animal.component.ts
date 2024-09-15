@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnimalService } from '../../../services/animal.service';
+import { SpeciesService } from '../../../services/species.service'; // Import the SpeciesService
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,10 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class EditAnimalComponent implements OnInit {
   animalId: string | null = null;
   animalForm: FormGroup;
-  speciesOptions = [
-    { label: 'แมว', value: 1 },
-    { label: 'หมา', value: 2 },
-  ];
+  speciesOptions: any[] = []; // Initialize as an empty array to be filled with data from the service
 
   sizeOptions = [
     { label: 'เล็ก', value: 'Small' },
@@ -25,6 +23,7 @@ export class EditAnimalComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private animalService: AnimalService,
+    private speciesService: SpeciesService, // Inject the SpeciesService
     private fb: FormBuilder
   ) {
     this.animalForm = this.fb.group({
@@ -49,6 +48,22 @@ export class EditAnimalComponent implements OnInit {
     if (this.animalId) {
       this.loadAnimalData(this.animalId);
     }
+    this.loadSpeciesOptions(); // Load species options when component initializes
+  }
+
+  loadSpeciesOptions() {
+    this.speciesService.getSpecies().subscribe(
+      (response) => {
+        this.speciesOptions = response.map((species: any) => ({
+          label: species.species_name, // Display name of the species
+          value: species.species_id, // ObjectId or unique ID for the species
+        }));
+        console.log('Species options loaded:', this.speciesOptions); // ตรวจสอบข้อมูลที่ดึงมา
+      },
+      (error) => {
+        console.error('Error fetching species options:', error);
+      }
+    );
   }
 
   loadAnimalData(id: string) {
@@ -63,7 +78,20 @@ export class EditAnimalComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Form Submitted', this.animalForm.value);
+    if (this.animalForm.valid && this.animalId) {
+      this.animalService
+        .editAnimalById(this.animalId, this.animalForm.value)
+        .subscribe(
+          (response) => {
+            console.log('Animal updated successfully:', response);
+          },
+          (error) => {
+            console.error('Error updating animal:', error);
+          }
+        );
+    } else {
+      console.error('Form is not valid or Animal ID is missing');
+    }
   }
 
   onFormChange() {
@@ -71,7 +99,6 @@ export class EditAnimalComponent implements OnInit {
   }
 
   onImageUpload(event: any) {
-    // จัดการอัปโหลดไฟล์ที่นี่
     console.log('Image uploaded:', event.target.files[0]);
   }
 }
