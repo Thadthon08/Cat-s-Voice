@@ -36,7 +36,7 @@ export class FindhomeComponent implements OnInit {
   }
 
   navigateToAddData() {
-    this.router.navigate(['/admin/add-data']);
+    this.router.navigate(['/admin/findhome/add-data']);
   }
 
   onAnimalCardClick(id: number) {

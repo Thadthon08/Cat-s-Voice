@@ -52,10 +52,12 @@ exports.getAnimalById = async (req, res) => {
 exports.createAnimal = async (req, res) => {
   try {
     const animal = new Animal(req.body);
+    console.log(animal);
+
     const newAnimal = await animal.save();
     res.status(201).json(newAnimal);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: error.message, data: req.body });
   }
 };
 

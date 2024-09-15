@@ -17,8 +17,17 @@
           formControlName="name"
           required
         />
+        <div
+          *ngIf="
+            animalForm.get('name')?.invalid && animalForm.get('name')?.touched
+          "
+          class="text-danger"
+        >
+          ชื่อต้องไม่เว้นว่าง
+        </div>
       </div>
     </div>
+
     <div class="row mb-3">
       <label class="col-md-4 col-form-label">เพศ</label>
       <div class="col-md-8">
@@ -28,7 +37,7 @@
           formControlName="gender"
           id="g1"
           class="mx-2"
-        />
+        ></p-radioButton>
         <label for="g1"> เพศเมีย </label>
 
         <p-radioButton
@@ -37,7 +46,7 @@
           formControlName="gender"
           id="g2"
           class="mx-2"
-        />
+        ></p-radioButton>
         <label for="g2"> เพศผู้ </label>
       </div>
     </div>
@@ -48,7 +57,17 @@
         <p-dropdown
           [options]="speciesOptions"
           formControlName="species"
+          placeholder="เลือกสปีชี่ส์"
         ></p-dropdown>
+        <div
+          *ngIf="
+            animalForm.get('species')?.invalid &&
+            animalForm.get('species')?.touched
+          "
+          class="text-danger"
+        >
+          โปรดเลือกสปีชี่ส์
+        </div>
       </div>
     </div>
 
@@ -62,6 +81,14 @@
           class="form-control"
           formControlName="age"
         />
+        <div
+          *ngIf="
+            animalForm.get('age')?.invalid && animalForm.get('age')?.touched
+          "
+          class="text-danger"
+        >
+          อายุต้องไม่เว้นว่างและเป็นตัวเลข
+        </div>
       </div>
     </div>
 
@@ -81,13 +108,23 @@
     <div class="row mb-3">
       <label for="size" class="col-md-4 col-form-label">ขนาด</label>
       <div class="col-md-8">
-        <input
-          id="size"
-          type="text"
-          pInputText
-          class="form-control"
+        <p-dropdown
+          [options]="[
+            { label: 'Small', value: 'Small' },
+            { label: 'Medium', value: 'Medium' },
+            { label: 'Large', value: 'Large' }
+          ]"
           formControlName="size"
-        />
+          placeholder="เลือกขนาด"
+        ></p-dropdown>
+        <div
+          *ngIf="
+            animalForm.get('size')?.invalid && animalForm.get('size')?.touched
+          "
+          class="text-danger"
+        >
+          โปรดเลือกขนาด
+        </div>
       </div>
     </div>
 
@@ -100,19 +137,6 @@
           pInputText
           class="form-control"
           formControlName="personality"
-        />
-      </div>
-    </div>
-
-    <div class="row mb-3">
-      <label for="symptoms" class="col-md-4 col-form-label">อาการ/โรค</label>
-      <div class="col-md-8">
-        <input
-          id="symptoms"
-          type="text"
-          pInputText
-          class="form-control"
-          formControlName="symptoms"
         />
       </div>
     </div>
@@ -136,6 +160,7 @@
           type="button"
           label="ยกเลิก"
           class="btn btn-secondary w-100"
+          (click)="animalForm.reset()"
         ></button>
       </div>
       <div class="col-md-6 mt-2 md:mt-0">
@@ -144,6 +169,7 @@
           type="submit"
           label="เพิ่มข้อมูล"
           class="btn btn-org w-100"
+          [disabled]="animalForm.invalid"
         ></button>
       </div>
     </div>

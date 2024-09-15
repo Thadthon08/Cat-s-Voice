@@ -25,6 +25,7 @@ import { NewsComponent } from './page/news/news.component';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
 import { RecoveryManagementComponent } from './adminPage/components/recovery-management/recovery-management.component';
 import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit-recovery.component';
+import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-data/recovery-add-data.component';
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -56,24 +57,28 @@ const routes: Routes = [
     children: [
       { path: '', component: FindhomeComponent },
       {
-        path: 'findhome',
-        component: FindhomeComponent,
+        path: 'findhome/add-data',
+        component: AddDataComponent,
+      },
+      {
+        path: 'findhome/edit-data/:id',
+        component: EditAnimalComponent,
       },
       {
         path: 'findhome/:id',
         component: AnimalManagementComponent,
       },
       {
-        path: 'add-data',
-        component: AddDataComponent,
-      },
-      {
-        path: 'edit-data/:id',
-        component: EditAnimalComponent,
+        path: 'findhome',
+        component: FindhomeComponent,
       },
       {
         path: 'recovering',
         component: RecoveryComponent,
+      },
+      {
+        path: 'recovering/add-data',
+        component: RecoveryAddDataComponent,
       },
       {
         path: 'recovering/:id',
@@ -84,6 +89,11 @@ const routes: Routes = [
         component: EditRecoveryComponent,
       },
     ],
+  },
+
+  {
+    path: '**',
+    redirectTo: '/',
   },
 ];
 

@@ -1,0 +1,106 @@
+<div class="container my-5">
+  <h2 class="heading mb-5">เคสรักษา</h2>
+  <form
+    [formGroup]="animalForm"
+    (ngSubmit)="onSubmit()"
+    class="p-fluid p-formgrid p-grid"
+    style="max-width: 600px; margin: auto"
+  >
+    <div class="row mb-3">
+      <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
+      <div class="col-md-8">
+        <input
+          id="name"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="name"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="diagnosis" class="col-md-4 col-form-label">อาการ/โรค</label>
+      <div class="col-md-8">
+        <input
+          id="diagnosis"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="diagnosis"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="treatment" class="col-md-4 col-form-label">การรักษา</label>
+      <div class="col-md-8">
+        <input
+          id="treatment"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="treatment"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="notes" class="col-md-4 col-form-label">หมายเหตุ</label>
+      <div class="col-md-8">
+        <input
+          id="notes"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="notes"
+        />
+      </div>
+    </div>
+
+    <!-- เพิ่มปฏิทินสำหรับเลือกวัน -->
+    <div class="row mb-3">
+      <label for="checkupDate" class="col-md-4 col-form-label">วันที่</label>
+      <div class="col-md-8">
+        <input
+          id="checkupDate"
+          type="date"
+          class="form-control"
+          formControlName="checkup_date"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="image" class="col-md-4 col-form-label">รูปภาพ</label>
+      <div class="col-md-8">
+        <input
+          id="image"
+          type="file"
+          (change)="onImageUpload($event)"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6 mt-2 md:mt-0">
+        <button
+          pButton
+          type="button"
+          label="ยกเลิก"
+          class="btn btn-secondary w-100"
+        ></button>
+      </div>
+      <div class="col-md-6 mt-2 md:mt-0">
+        <button
+          pButton
+          type="submit"
+          label="เพิ่มข้อมูล"
+          class="btn btn-org w-100"
+        ></button>
+      </div>
+    </div>
+  </form>
+</div>
