@@ -3,15 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './page/home/home.component';
 import { AboutComponent } from './page/about/about.component';
 import { adminGuard } from './admin.guard';
-import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
-import { MenubarComponent } from './adminPage/components/menubar/menubar.component';
 import { loginGuard } from './login.guard';
 import { FindHomeComponentU } from './page/find-home/find-home.component';
-import { FindhomeComponent } from './adminPage/components/findhome/findhome.component';
-import { LayoutComponent as AdminLayoutComponent } from './adminPage/components/layout/layout.component';
-import { AddDataComponent } from './adminPage/components/add-data/add-data.component';
-import { RecoveryComponent } from './adminPage/components/recovery/recovery.component';
-import { AnimalManagementComponent } from './adminPage/components/animal-management/animal-management.component';
 import { ShowAnimalDetailsComponent } from './page/show-animal-details/show-animal-details.component';
 import { AdopterComponent } from './page/adopter/adopter.component';
 import { CaseTreatmentComponent } from './page/case-treatment/case-treatment.component';
@@ -20,12 +13,10 @@ import { DonateComponent } from './page/donate/donate.component';
 import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
-import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { NewsComponent } from './page/news/news.component';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
-import { RecoveryManagementComponent } from './adminPage/components/recovery-management/recovery-management.component';
-import { EditRecoveryComponent } from './adminPage/components/edit-recovery/edit-recovery.component';
-import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-data/recovery-add-data.component';
+import { AdminLoginComponent } from './adminPage/components/admin-login/admin-login.component';
+
 const routes: Routes = [
   {
     path: 'admin/login',
@@ -52,45 +43,10 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminLayoutComponent,
+    loadChildren: () =>
+      import('./adminPage/admin.module').then((m) => m.AdminModule),
     canActivate: [adminGuard],
-    children: [
-      { path: '', component: FindhomeComponent },
-      {
-        path: 'findhome/add-data',
-        component: AddDataComponent,
-      },
-      {
-        path: 'findhome/edit-data/:id',
-        component: EditAnimalComponent,
-      },
-      {
-        path: 'findhome/:id',
-        component: AnimalManagementComponent,
-      },
-      {
-        path: 'findhome',
-        component: FindhomeComponent,
-      },
-      {
-        path: 'recovering',
-        component: RecoveryComponent,
-      },
-      {
-        path: 'recovering/add-data',
-        component: RecoveryAddDataComponent,
-      },
-      {
-        path: 'recovering/:id',
-        component: RecoveryManagementComponent,
-      },
-      {
-        path: 'recovering/edit/:id',
-        component: EditRecoveryComponent,
-      },
-    ],
   },
-
   {
     path: '**',
     redirectTo: '/',
@@ -98,7 +54,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)], // This is correct
+  exports: [RouterModule], // Also correct
 })
 export class AppRoutingModule {}

@@ -8,7 +8,6 @@ export class loginGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(): boolean | UrlTree {
-    // Check if 'localStorage' is available in the current environment
     if (typeof window !== 'undefined' && localStorage) {
       const user = localStorage.getItem('user');
 
