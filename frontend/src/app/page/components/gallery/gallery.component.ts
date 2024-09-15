@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , ViewChild  } from '@angular/core';
 import { FindHomeService } from '../../../services/find-home.service';
 import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',

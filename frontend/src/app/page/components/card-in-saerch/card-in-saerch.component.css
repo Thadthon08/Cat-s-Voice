@@ -20,7 +20,7 @@
 }
 
 .show-animal {
-  width: auto !important;
+  width: 306px !important;
   height: 306px !important;
   cursor: pointer;
 }

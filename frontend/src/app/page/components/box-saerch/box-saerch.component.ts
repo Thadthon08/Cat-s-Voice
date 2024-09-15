@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FindHomeService } from '../../../services/find-home.service';
+
+
 @Component({
   selector: 'app-box-saerch',
   templateUrl: './box-saerch.component.html',
