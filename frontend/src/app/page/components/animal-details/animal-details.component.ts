@@ -14,7 +14,7 @@ export class AnimalDetailsComponent implements OnInit {
   animalId: string | null = null;
   animalData: any = {}; 
   show: boolean = true;
-
+  treatment : string | undefined = '';
 
   isModalOpen = false;
   modalImage = '';
@@ -32,6 +32,7 @@ export class AnimalDetailsComponent implements OnInit {
     this.animalId = this.route.snapshot.paramMap.get('id');
     this.route.queryParams.subscribe(params => {
       this.show = params['show'] === 'false' ? false : true; 
+      this.treatment = params['treatment']
     });
     this.loadAnimal();
 
@@ -59,7 +60,6 @@ export class AnimalDetailsComponent implements OnInit {
   openModal(imageSrc: string, caption: string): void {
     this.isModalOpen = true;
     this.modalImage = imageSrc;
-    console.log(this.modalImage)
     this.modalCaption = caption;
   }
   closeModal(): void {
