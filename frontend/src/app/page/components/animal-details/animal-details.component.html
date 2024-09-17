@@ -7,7 +7,7 @@
         <p>Size: <span>{{animalData.size}} </span></p>
         <p>Color: <span>{{animalData.color}} </span></p>
         <p>Personality: <span>{{animalData.personality}}</span></p>
-        <!-- <p>อาการ/โรค: ถูกชนจนต้องตัดขา เหลือ 3 ขา</p> -->
+        <p>อาการ/โรค: <span>{{treatment}}</span></p>
         
 
         <div>
@@ -43,7 +43,7 @@
             </div>
 
             <div *ngSwitchDefault>
-            <button *ngIf="show" (click)="Click()" type="button" class="btn btn-primary rounded-pill  mt-3">รับอุปการะ</button>
+            <button *ngIf="show" (click)="Click()" type="button" class="btn btn-primary   rounded-pill  mt-3 ">รับอุปการะ</button>
             <p class="animal-name" *ngIf="!show">จำนวนคำขอการอุปการะ : 0</p>
             </div>
         </div>

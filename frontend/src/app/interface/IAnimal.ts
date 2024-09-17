@@ -10,4 +10,5 @@ export interface Animal {
   image_url?: string;
   status: string;
   added_by_admin_id: number;
+  animal_id : number;
 }

@@ -67,6 +67,7 @@ import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-da
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PaginatorModule } from 'primeng/paginator';
 import { ActivityComponent } from './adminPage/components/activity/activity.component';
+import { CardInSearchTreatComponent } from './page/components/card-in-search-treat/card-in-search-treat.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import { ActivityComponent } from './adminPage/components/activity/activity.comp
     FormEditRecoveryComponent,
     RecoveryAddDataComponent,
     ActivityComponent,
+    CardInSearchTreatComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ const animalRoutes = require("./routes/animalRoutes");
 const authRoutes = require("./routes/auth");
 const animalSpeciesRoutes = require("./routes/speciesRoute");
 const healthRecordRoutes = require("./routes/HealthRecord");
-const adoptionRoutes = require("./routes/adoptionRoute");
+const adopterRouter = require('./routes/adoptionRoute');
 require("dotenv").config();
 
 const app = express();
@@ -26,8 +26,8 @@ app.use("/api/animals", animalRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/species", animalSpeciesRoutes);
 app.use("/api/HealthRecord", healthRecordRoutes);
-app.use("/api/adoption", adoptionRoutes);
-
+// เชื่อมต่อเส้นทาง API ของ Adopter
+app.use("/api/adoption", adopterRouter);
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
