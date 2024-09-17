@@ -68,7 +68,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PaginatorModule } from 'primeng/paginator';
 import { ActivityComponent } from './adminPage/components/activity/activity.component';
 import { CardInSearchTreatComponent } from './page/components/card-in-search-treat/card-in-search-treat.component';
-
+import { TelDirective } from './tel.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,6 +116,7 @@ import { CardInSearchTreatComponent } from './page/components/card-in-search-tre
     RecoveryAddDataComponent,
     ActivityComponent,
     CardInSearchTreatComponent,
+    TelDirective,
   ],
   imports: [
     BrowserModule,
