@@ -76,6 +76,7 @@ import { ActivityService } from './services/activity.service';
 import { ActivityAddDataComponent  } from './adminPage/components/add-data-activity/add-data-activity.component';
 import { ActivityCardComponent } from './adminPage/components/activity-card/activity-card.component';
 
+import { DonationService } from './services/donation.service';
 @NgModule({
   declarations: [
     AppComponent,
