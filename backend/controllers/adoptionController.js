@@ -1,4 +1,5 @@
 const Adoption = require("../models/schema.js").Adoption;
+const mongoose = require('mongoose');
 
 // Create a new adoption record
 exports.createAdoption = async (req, res) => {
@@ -38,7 +39,30 @@ exports.getAllAdoptions = async (req, res) => {
 exports.getAdoptionById = async (req, res) => {
   try {
     const { id } = req.params;
-    const adoption = await Adoption.findOne({ adoption_id: id });
+    const adoption = await Adoption.findById(req.params.id);
+
+    if (!adoption) {
+      return res.status(404).json({ message: 'Adoption record not found' });
+    }
+
+    res.status(200).json(adoption);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getAdoptionByAnimalId = async (req, res) => {
+  try {
+    const { animal_id } = req.params; // ดึง animal_id จาก req.params
+    // ตรวจสอบว่า animal_id เป็น ObjectId ที่ถูกต้องหรือไม่
+    if (!mongoose.Types.ObjectId.isValid(animal_id)) {
+      return res.status(400).json({ message: 'Invalid animal_id format' });
+    }
+
+    // ค้นหา adoption โดยใช้ animal_id
+    const adoption = await Adoption.findOne({ 
+      animal_id: new mongoose.Types.ObjectId(animal_id)
+    });
 
     if (!adoption) {
       return res.status(404).json({ message: 'Adoption record not found' });

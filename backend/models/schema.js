@@ -92,11 +92,10 @@ const HealthRecord = mongoose.model("HealthRecord", HealthRecordSchema);
 
 // Adoption Schema
 const AdoptionSchema = new mongoose.Schema({
-  adoption_id: { type: Number, required: true, unique: true },
   animal_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Animal",
-    required: true,
+    required: true, 
   },
   adopter_name: { type: String, required: true },
   adopter_email: { type: String, required: true },
