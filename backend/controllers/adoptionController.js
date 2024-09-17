@@ -3,10 +3,9 @@ const Adoption = require("../models/schema.js").Adoption;
 // Create a new adoption record
 exports.createAdoption = async (req, res) => {
   try {
-    const { adoption_id, animal_id, adopter_name, adopter_email, adopter_phone, adopter_salary, adoption_reason, adoption_date, status } = req.body;
+    const {animal_id, adopter_name, adopter_email, adopter_phone, adopter_salary, adoption_reason, adoption_date, status } = req.body;
 
     const newAdoption = new Adoption({
-      adoption_id,
       animal_id,
       adopter_name,
       adopter_email,

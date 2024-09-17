@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { AdopterService } from '../../../services/adopter.service';
 @Component({
   selector: 'app-adopter-form',
   templateUrl: './adopter-form.component.html',
@@ -13,29 +14,60 @@ export class AdopterFormComponent implements OnInit{
   isModalOpen = false;
   modalImage = '';
   modalCaption = '';
+  adopterForm: FormGroup;
 
-adopterForm: FormGroup;
-
-
-  constructor(private fb: FormBuilder ,private router:Router ,private route: ActivatedRoute) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private animalService: AdopterService
+  ) {
     this.adopterForm = this.fb.group({
-      name: ['', Validators.required],
-      salary: [null, Validators.required],
-      phone: ['', [Validators.required,Validators.pattern('[0-9]{10}')]],
-      email: ['',[Validators.required,Validators.email]],
-      reason: ['', Validators.required],
-
+      animal_id: [''],
+      adopter_name: ['', Validators.required],
+      adopter_email: ['', [Validators.required, Validators.email]],  
+      adopter_phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      adopter_salary: [null, Validators.required],
+      adoption_reason: [''],
+      status: ['pending'],
     });
   }
+  
+  ngOnInit(): void {
+    // ดึง animalId จาก param ของ URL
+    this.animalId = this.route.snapshot.paramMap.get('id');
+  
+    // ตั้งค่า animal_id ในฟอร์มหลังจากได้รับ animalId
+    if (this.animalId) {
+      this.adopterForm.patchValue({
+        animal_id: this.animalId
+      });
+    }
+  }
+
+
+
 
   onSubmit() {
-
     if (this.adopterForm.valid) {
-      console.log('Form Submitted!', this.adopterForm.value);
+      const formData = this.adopterForm.value; // รับค่าจากฟอร์ม
+      console.log('Form Data:', formData); // แสดงข้อมูลที่ส่ง
+      
+      this.animalService.addAdopter(formData).subscribe(
+        (response) => {
+          console.log('Adopter added successfully', response);
+        },
+        (error) => {
+          console.error('Error adding adopter', error);
+        }
+      );
+      this.isModalOpen = true;
     } else {
-      console.log('Form is not valid', this.adopterForm.value);
+      console.log('Form is not valid');
+      console.log(this.adopterForm.controls);
     }
-    this.isModalOpen = true;
+    
+    
   }
 
 
@@ -43,9 +75,6 @@ adopterForm: FormGroup;
     this.router.navigate(['/find_home']);
   }
 
-  ngOnInit(): void {
-    this.animalId = this.route.snapshot.paramMap.get('id');
-  }
 
 
   closeModal(): void {

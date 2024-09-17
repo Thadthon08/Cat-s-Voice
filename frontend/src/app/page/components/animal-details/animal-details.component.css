@@ -8,9 +8,8 @@
 }
 
 .animal-image {
-    max-width: 400px;
-    min-width: 200px;
-    height: auto;
+    width: 300px;
+    height: 300px;
     cursor: pointer;
 }
 
@@ -45,7 +44,7 @@
     background-color:  rgba(250, 129, 36, 0.8);
     border-color: rgba(250, 129, 36, 0.8);
     padding: 0.375rem 0.75rem;
-    width: 40%;
+    width: fit-content;
 }
 
 .btn-primary:hover{
@@ -87,7 +86,7 @@
     border: none;
     padding: 0.375rem 0.75rem;
     border-radius: 5px;
-    width: 40%;
+    width: 150px;
     font-size: 16px; 
   }
   
@@ -202,6 +201,10 @@
     }
     .container2 {
       grid-template-columns: repeat(2, 1fr); 
+    }
+    .btn-donate
+    {
+      width: 100px;
     }
   }
   

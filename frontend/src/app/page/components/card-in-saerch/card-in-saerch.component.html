@@ -1,12 +1,24 @@
 <div >
-  <div *ngIf="animals.length > 0; else noAnimals">
+  <!-- <div *ngIf="animals.length > 0; else noAnimals">
     <div class="card-animals">
       <div *ngFor="let animal of animals" (click)="selectAnimal(animal._id)"> 
         <img [src]="animal.image_url" class="show-animal">
         <div class="card-box-select">{{animal.name}}</div>
       </div>
     </div>
+  </div> -->
+
+
+  <div *ngIf="animals.length > 0; else noAnimals">
+    <div class="card-animals">
+      <div *ngFor="let animal of animals" (click)="selectAnimal(animal.animal_id._id)"> 
+        <img [src]="animal.animal_id.image_url" class="show-animal">
+        <div class="card-box-select">{{animal.animal_id.name}}</div>
+      </div>
+    </div>
   </div>
+
+
   <ng-template #noAnimals>
     <div class="box">
       <div class="box-search">

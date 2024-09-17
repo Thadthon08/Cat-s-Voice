@@ -92,7 +92,6 @@ const HealthRecord = mongoose.model("HealthRecord", HealthRecordSchema);
 
 // Adoption Schema
 const AdoptionSchema = new mongoose.Schema({
-  adoption_id: { type: Number, required: true, unique: true },
   animal_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Animal",
@@ -103,7 +102,7 @@ const AdoptionSchema = new mongoose.Schema({
   adopter_phone: { type: String, required: true },
   adopter_salary: { type: Number },
   adoption_reason: { type: String },
-  adoption_date: { type: Date, required: true },
+  adoption_date: { type: Date, default: Date.now },
   status: {
     type: String,
     enum: ["completed", "pending", "cancelled"],
@@ -113,7 +112,10 @@ const AdoptionSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
+AdminSchema.plugin(AutoIncrement, { inc_field: "adoption_id" });
+
 const Adoption = mongoose.model("Adoption", AdoptionSchema);
+
 
 // Donation Schema
 const DonationSchema = new mongoose.Schema({
