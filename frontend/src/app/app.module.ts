@@ -66,6 +66,7 @@ import { FormEditRecoveryComponent } from './adminPage/components/form-edit-reco
 import { RecoveryAddDataComponent } from './adminPage/components/recovery-add-data/recovery-add-data.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { PaginatorModule } from 'primeng/paginator';
+import { ActivityComponent } from './adminPage/components/activity/activity.component';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { PaginatorModule } from 'primeng/paginator';
     EditRecoveryComponent,
     FormEditRecoveryComponent,
     RecoveryAddDataComponent,
+    ActivityComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,8 @@ import { EditAnimalComponent } from './components/edit-animal/edit-animal.compon
 import { RecoveryManagementComponent } from './components/recovery-management/recovery-management.component';
 import { EditRecoveryComponent } from './components/edit-recovery/edit-recovery.component';
 import { RecoveryAddDataComponent } from './components/recovery-add-data/recovery-add-data.component';
+import { ActivityComponent } from './components/activity/activity.component';
+
 
 const adminRoutes: Routes = [
   {
@@ -29,11 +31,13 @@ const adminRoutes: Routes = [
       { path: 'recovering/add-data', component: RecoveryAddDataComponent },
       { path: 'recovering/:id', component: RecoveryManagementComponent },
       { path: 'recovering/edit/:id', component: EditRecoveryComponent },
+      { path: 'even', component: ActivityComponent},
     ],
   },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(adminRoutes)],
+
 })
 export class AdminModule {}
