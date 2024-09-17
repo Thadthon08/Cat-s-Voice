@@ -37,7 +37,7 @@ export class MenubarComponent implements OnInit {
       id: 4,
       item: 'activities',
       name: 'กิจกรรม',
-      routerLink: '/admin/#',
+      routerLink: '/admin/even',
     },
   ];
 
