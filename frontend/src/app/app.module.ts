@@ -69,6 +69,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ActivityComponent } from './adminPage/components/activity/activity.component';
 import { CardInSearchTreatComponent } from './page/components/card-in-search-treat/card-in-search-treat.component';
 import { TelDirective } from './tel.directive';
+import { DonationService } from './services/donation.service';
 @NgModule({
   declarations: [
     AppComponent,
