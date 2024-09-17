@@ -66,6 +66,7 @@ exports.getAllAnimals = async (req, res) => {
           status: animal.status,
           image_url: animal.image_url,
           diagnosis: healthRecord ? healthRecord.diagnosis : "none",
+          animal_id : animal.animal_id
         };
       })
     );

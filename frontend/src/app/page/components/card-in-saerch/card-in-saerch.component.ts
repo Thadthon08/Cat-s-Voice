@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router ,NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AnimalService } from '../../../services/animal.service';
-
+import { HealthRecordService } from '../../../services/healthrecord.service';
 @Component({
   selector: 'app-card-in-saerch',
   templateUrl: './card-in-saerch.component.html',
@@ -15,7 +15,8 @@ export class CardInSaerchComponent implements OnInit {
   currentUrl: string = '';
   constructor(    
               private animalService: AnimalService,
-              private router: Router
+              private router: Router,
+              private helthRecordService : HealthRecordService,
   ) {}
 
   @Input() currentType: string = '';
@@ -31,11 +32,17 @@ export class CardInSaerchComponent implements OnInit {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
-          this.currentUrl = this.router.url;
           this.loadAnimals();
     });
       this.currentUrl = this.router.url;
       this.loadAnimals();
+      // if(this.currentUrl = '/find-home'){
+          
+      // }else{
+      //   this.loadAnimalsInHelthRecord()
+      // }
+      
+      
   }
   
 
@@ -43,6 +50,17 @@ export class CardInSaerchComponent implements OnInit {
   ngOnChanges(): void {
     this.loadAnimals();
   }
+ 
+  // loadAnimalsInHelthRecord(){
+  //   this.helthRecordService.getHealthRecords().subscribe(
+  //     (data) => {
+  //       this.animals = data;
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching animals:', error);
+  //     }
+  //   );
+  // }
 
   loadAnimals() {
     this.animalService.getAnimals().subscribe(
