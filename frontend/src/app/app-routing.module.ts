@@ -26,6 +26,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
+      { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'find_home', component: FindHomeComponentU },
