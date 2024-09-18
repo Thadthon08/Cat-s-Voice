@@ -37,7 +37,7 @@ import {
 })
 export class ActivityAddDataComponent implements OnInit {
   activityForm: FormGroup;
-  
+  activitys: any[] = [];
   selectedFile: File | null = null;
   image: string = '';
   buttonState: string = 'default';
@@ -53,7 +53,7 @@ export class ActivityAddDataComponent implements OnInit {
       details: ['', Validators.required],
       date: [''],
       location: ['', Validators.required],
-      time: ['', Validators.required],
+      time: [''],
       image: [''],
       notes: ['', Validators.required],
     });
@@ -64,7 +64,7 @@ export class ActivityAddDataComponent implements OnInit {
 
   onSubmit() {
     if (this.activityForm.valid) {
-      this.activityForm.patchValue({ image_url: this.image });
+      this.activityForm.patchValue({ image: this.image });
 
       this.activityService.addactivity(this.activityForm.value).subscribe(
         (res) => {
@@ -114,7 +114,7 @@ export class ActivityAddDataComponent implements OnInit {
     this.buttonState = 'default';
   }
 
-  cancel() {
+  onCancel() {
     this.location.back();
   }
 }
