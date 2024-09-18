@@ -72,6 +72,7 @@ import { TelDirective } from './tel.directive';
 import {} from './page/adopter/adopter.component';
 import { AdoptionComponent } from './adminPage/components/adoption/adoption.component';
 import { AdoptionManagementComponent } from './adminPage/components/adoption-management/adoption-management.component';
+import { ActivityService } from './services/activity.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -152,6 +153,7 @@ import { AdoptionManagementComponent } from './adminPage/components/adoption-man
     NewsService,
     HealthRecordService,
     ConfirmationService,
+    ActivityService,
   ],
   bootstrap: [AppComponent],
 })
