@@ -35,7 +35,7 @@ import {
     ]),
   ],
 })
-export class AddDataComponent implements OnInit {
+export class ActivityAddDataComponent implements OnInit {
   activityForm: FormGroup;
   
   selectedFile: File | null = null;

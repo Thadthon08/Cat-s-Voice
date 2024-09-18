@@ -17,7 +17,7 @@ import { RecoveryAddDataComponent } from './components/recovery-add-data/recover
 import { ActivityComponent } from './components/activity/activity.component';
 import { AdoptionComponent } from './components/adoption/adoption.component';
 import { AdoptionManagementComponent } from './components/adoption-management/adoption-management.component';
-import { AddDataActivityComponent } from './components/add-data-activity/add-data-activity.component';
+import { ActivityAddDataComponent } from './components/add-data-activity/add-data-activity.component';
 
 const adminRoutes: Routes = [
   {
@@ -36,14 +36,14 @@ const adminRoutes: Routes = [
       { path: 'adoption', component: AdoptionComponent },
       { path: 'even', component: ActivityComponent },
       { path: 'adoption/:id', component: AdoptionManagementComponent },
+      { path: 'even/add-data', component: ActivityAddDataComponent },
+      
     ],
   },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(adminRoutes)],
-  declarations: [
-    AddDataActivityComponent
-  ],
+
 })
 export class AdminModule {}
