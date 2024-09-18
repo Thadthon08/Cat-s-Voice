@@ -51,7 +51,7 @@ export class ActivityComponent implements OnInit  {
   }
 
   navigateToAddData() {
-    this.router.navigate(['/admin/activity/add-data']);
+    this.router.navigate(['/admin/even/add-data']);
   }
 
   onAnimalCardClick(id: number) {
