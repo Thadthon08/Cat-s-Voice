@@ -145,7 +145,7 @@ const ActivitySchema = new mongoose.Schema({
 
 const Activity = mongoose.model('Activity', ActivitySchema);
 
-module.exports = Activity;
+
 
 
 module.exports = {
@@ -155,4 +155,5 @@ module.exports = {
   HealthRecord,
   Adoption,
   Donation,
+  Activity,
 };

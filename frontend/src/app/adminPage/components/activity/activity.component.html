@@ -3,10 +3,10 @@
       กิจกรรม
     </h2>
     <div class="row p-4">
-      <div class="col-md-3" *ngFor="let animal of animals">
+      <div class="col-md-3" *ngFor="let activity of activitys">
         <app-animal-card
-          [animal]="animal"
-          (click)="onAnimalCardClick(animal._id)"
+          [animal]="activity"
+          (click)="onAnimalCardClick(activity._id)"
         ></app-animal-card>
       </div>
     </div>
