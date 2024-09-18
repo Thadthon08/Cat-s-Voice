@@ -1,10 +1,26 @@
 const Adoption = require("../models/schema.js").Adoption;
+const Animal = require("../models/schema.js").Animal;
 const mongoose = require('mongoose');
+
 
 // Create a new adoption record
 exports.createAdoption = async (req, res) => {
   try {
-    const {animal_id, adopter_name, adopter_email, adopter_phone, adopter_salary, adoption_reason, adoption_date, status } = req.body;
+    const {
+      animal_id,
+      adopter_name,
+      adopter_email,
+      adopter_phone,
+      adopter_salary,
+      adoption_reason,
+      adoption_date,
+      status,
+    } = req.body;
+
+    const animal = await Animal.findById(animal_id);
+    if (!animal) {
+      return res.status(404).json({ message: "Animal not found" });
+    }
 
     const newAdoption = new Adoption({
       animal_id,
@@ -14,10 +30,15 @@ exports.createAdoption = async (req, res) => {
       adopter_salary,
       adoption_reason,
       adoption_date,
-      status
+      status,
     });
 
     await newAdoption.save();
+
+    // Update the status of the associated animal to "pending"
+    animal.status = "pending";
+    await animal.save();
+
     res.status(201).json(newAdoption);
   } catch (error) {
     res.status(400).json({ message: error.message });
