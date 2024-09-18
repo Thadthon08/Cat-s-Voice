@@ -69,6 +69,9 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ActivityComponent } from './adminPage/components/activity/activity.component';
 import { CardInSearchTreatComponent } from './page/components/card-in-search-treat/card-in-search-treat.component';
 import { TelDirective } from './tel.directive';
+import {} from './page/adopter/adopter.component';
+import { AdoptionComponent } from './adminPage/components/adoption/adoption.component';
+import { AdoptionManagementComponent } from './adminPage/components/adoption-management/adoption-management.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -117,6 +120,8 @@ import { TelDirective } from './tel.directive';
     ActivityComponent,
     CardInSearchTreatComponent,
     TelDirective,
+    AdoptionComponent,
+    AdoptionManagementComponent,
   ],
   imports: [
     BrowserModule,

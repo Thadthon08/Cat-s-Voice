@@ -15,7 +15,8 @@ import { RecoveryManagementComponent } from './components/recovery-management/re
 import { EditRecoveryComponent } from './components/edit-recovery/edit-recovery.component';
 import { RecoveryAddDataComponent } from './components/recovery-add-data/recovery-add-data.component';
 import { ActivityComponent } from './components/activity/activity.component';
-
+import { AdoptionComponent } from './components/adoption/adoption.component';
+import { AdoptionManagementComponent } from './components/adoption-management/adoption-management.component';
 
 const adminRoutes: Routes = [
   {
@@ -31,13 +32,14 @@ const adminRoutes: Routes = [
       { path: 'recovering/add-data', component: RecoveryAddDataComponent },
       { path: 'recovering/:id', component: RecoveryManagementComponent },
       { path: 'recovering/edit/:id', component: EditRecoveryComponent },
-      { path: 'even', component: ActivityComponent},
+      { path: 'adoption', component: AdoptionComponent },
+      { path: 'even', component: ActivityComponent },
+      { path: 'adoption/:id', component: AdoptionManagementComponent },
     ],
   },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(adminRoutes)],
-
 })
 export class AdminModule {}

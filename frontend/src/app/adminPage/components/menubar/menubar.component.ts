@@ -25,7 +25,8 @@ export class MenubarComponent implements OnInit {
       id: 2,
       item: 'loveProject',
       name: 'โครงการอุ้มรัก',
-      routerLink: '/admin/#',
+      routerLink: '/admin/adoption',
+      queryParams: { status: 'pending' },
     },
     {
       id: 3,
