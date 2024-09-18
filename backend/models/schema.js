@@ -119,7 +119,6 @@ const Adoption = mongoose.model("Adoption", AdoptionSchema);
 
 // Donation Schema
 const DonationSchema = new mongoose.Schema({
-  donation_id: { type: Number, required: true, unique: true },
   donor_name: { type: String, required: true },
   donor_email: { type: String, required: true },
   donor_phone: { type: String, required: true },
