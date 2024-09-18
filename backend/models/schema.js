@@ -132,8 +132,6 @@ const DonationSchema = new mongoose.Schema({
 const Donation = mongoose.model("Donation", DonationSchema);
 
 // Activity Schema
-const mongoose = require('mongoose');
-
 const ActivitySchema = new mongoose.Schema({
   name: { type: String, required: true },
   details: { type: String, required: true },
