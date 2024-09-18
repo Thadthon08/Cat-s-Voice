@@ -1,0 +1,43 @@
+.heading {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .heading::before,
+  .heading::after {
+    content: "";
+    flex: 1;
+    border-bottom: 10px solid rgb(247, 200, 85);
+  }
+  
+  .heading::before {
+    margin-right: 0.5em;
+  }
+  
+  .heading::after {
+    margin-left: 0.5em;
+  }
+  .p-field {
+    margin-bottom: 1rem;
+  }
+  .p-button {
+    width: 100%;
+  }
+  .btn-org {
+    background-color: #fa8124;
+    color: white;
+    font-weight: bold;
+  }
+  .btn-org:hover,
+  .btn-org:active {
+    background-color: #ea7922;
+    color: white;
+  }
+  
+  .shadow-custom {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+      rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  }
+  
