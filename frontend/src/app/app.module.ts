@@ -73,6 +73,8 @@ import {} from './page/adopter/adopter.component';
 import { AdoptionComponent } from './adminPage/components/adoption/adoption.component';
 import { AdoptionManagementComponent } from './adminPage/components/adoption-management/adoption-management.component';
 import { ActivityService } from './services/activity.service';
+import { ActivityAddDataComponent  } from './adminPage/components/add-data-activity/add-data-activity.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,6 +125,7 @@ import { ActivityService } from './services/activity.service';
     TelDirective,
     AdoptionComponent,
     AdoptionManagementComponent,
+    ActivityAddDataComponent,
   ],
   imports: [
     BrowserModule,
