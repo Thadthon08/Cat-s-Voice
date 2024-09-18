@@ -112,7 +112,7 @@ const AdoptionSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-AdminSchema.plugin(AutoIncrement, { inc_field: "adoption_id" });
+AdoptionSchema.plugin(AutoIncrement, { inc_field: "adoption_id" });
 
 const Adoption = mongoose.model("Adoption", AdoptionSchema);
 
