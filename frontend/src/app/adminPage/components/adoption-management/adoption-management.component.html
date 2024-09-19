@@ -1,41 +1,54 @@
 <p-toast position="top-right"></p-toast>
 <p-confirmDialog></p-confirmDialog>
+
 <div class="container p-5">
   <div class="p-3">
     <h2 class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom">
-      หาบ้านให้น้อง
+      จัดการคำขอรับเลี้ยงสัตว์
     </h2>
     <div class="row gap-5 justify-content-center">
+      <!-- ส่วนแสดงรูปภาพสัตว์ -->
       <div class="col-lg-6 px-3 text-center">
         <div class="image-container bg-white shadow-custom p-1 rounded-0">
           <img
-            [src]="data.image_url"
-            [alt]="data.name"
-            title="Image of {{ data.name }}"
+            [src]="data.animal_id?.image_url"
+            [alt]="data.animal_id?.name"
+            title="รูปภาพของ {{ data.animal_id?.name }}"
             class="img-fluid rounded-0 mx-auto d-block image-frame"
           />
         </div>
       </div>
+
+      <!-- ส่วนแสดงรายละเอียดของการขอรับเลี้ยง -->
       <div class="col-lg-4 lh-1 text-brown">
         <div class="bg-white p-4 shadow-custom">
-          <h2 class="fw-medium">{{ data.name }}</h2>
-          <p><span>เพศ:</span> {{ data.gender }}</p>
-          <p><span>อายุ:</span> {{ data.age }}</p>
-          <p><span>ลักษณะ:</span> {{ data.color }}</p>
-          <p><span>นิสัย:</span> {{ data.personality }}</p>
-          <p><span>อาการ/โรค:</span> {{ data.symptoms }}</p>
+          <h2 class="fw-medium">{{ data.animal_id?.name }}</h2>
+          <p><span>ชื่อผู้ขอรับเลี้ยง:</span> {{ data.adopter_name }}</p>
+          <p><span>อีเมลผู้ขอรับเลี้ยง:</span> {{ data.adopter_email }}</p>
+          <p><span>เบอร์โทรศัพท์:</span> {{ data.adopter_phone }}</p>
           <p>
-            <span>สถานะ:</span> <span class="status">{{ data.status }}</span>
+            <span>รายได้ต่อเดือน:</span> {{ data.adopter_salary | currency }}
           </p>
+          <p><span>เหตุผลในการขอรับเลี้ยง:</span> {{ data.adoption_reason }}</p>
+          <p>
+            <span>วันที่ส่งคำขอ:</span>
+            {{ data.adoption_date | date : "dd/MM/yyyy" }}
+          </p>
+          <p>
+            <span>สถานะคำขอ:</span>
+            <span class="status">{{ data.status }}</span>
+          </p>
+
+          <!-- ปุ่มอนุมัติและปฏิเสธ -->
           <div class="row mt-3">
             <div class="col-md-6 mt-2 md:mt-0">
-              <button class="btn btn-primary w-100" (click)="confirmDelete()">
-                ปฏิเสธ
+              <button class="btn btn-primary w-100" (click)="confirmDeny()">
+                ปฏิเสธคำขอ
               </button>
             </div>
             <div class="col-md-6 mt-2 md:mt-0">
               <button class="btn btn-org w-100" (click)="navigateToEditData()">
-                อนุมัติ
+                อนุมัติคำขอ
               </button>
             </div>
           </div>

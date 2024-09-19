@@ -59,7 +59,6 @@ const AnimalSchema = new mongoose.Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-AnimalSchema.plugin(AutoIncrement, { inc_field: "animal_id" });
 AnimalSchema.pre("findOneAndDelete", async function (next) {
   try {
     const animalId = this.getQuery()._id;
@@ -95,7 +94,7 @@ const AdoptionSchema = new mongoose.Schema({
   animal_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Animal",
-    required: true, 
+    required: true,
   },
   adopter_name: { type: String, required: true },
   adopter_email: { type: String, required: true },
@@ -115,7 +114,6 @@ const AdoptionSchema = new mongoose.Schema({
 AdoptionSchema.plugin(AutoIncrement, { inc_field: "adoption_id" });
 
 const Adoption = mongoose.model("Adoption", AdoptionSchema);
-
 
 // Donation Schema
 const DonationSchema = new mongoose.Schema({
@@ -143,10 +141,7 @@ const ActivitySchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now },
 });
 
-const Activity = mongoose.model('Activity', ActivitySchema);
-
-
-
+const Activity = mongoose.model("Activity", ActivitySchema);
 
 module.exports = {
   Admin,
