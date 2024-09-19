@@ -2,21 +2,29 @@
     <h2 class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom">
       กิจกรรม
     </h2>
-    <div class="row p-4">
+    <!-- <div class="row p-4">
       <div class="col-md-3" *ngFor="let activity of activitys">
         <app-animal-card
           [animal]="activity"
           (click)="onAnimalCardClick(activity._id)"
         ></app-animal-card>
       </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-3" *ngFor="let activity of activitys">
+        <div (click)="onActivitysCardClick(activity._id)">
+          <app-activity-card [activity]="activity"></app-activity-card>
+        </div>
+      </div>
     </div>
   
-    <p-paginator
+    <!-- <p-paginator
       [rows]="rows"
       [totalRecords]="totalRecords"
       [rowsPerPageOptions]="[8, 16, 24]"
       (onPageChange)="paginate($event)"
-    ></p-paginator>
+    ></p-paginator> -->
   
     <div class="text-center mt-4">
       <button class="btn btn-warning shadow-lg" (click)="navigateToAddData()">
