@@ -17,4 +17,8 @@ export class AdopterService {
   getAdoptionByAnimalId(animal_id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/adoption/${animal_id}`);
   }
+
+  updateAdoptionStatus(adoption_id: string, status: string): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${adoption_id}/status`, { status });
+  }
 }
