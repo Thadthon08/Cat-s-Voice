@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { activity } from '../activity.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,21 @@ import { Observable } from 'rxjs';
 export class ActivityService {
   private baseUrl = 'http://localhost:5000/api/activities';
 
+  // activitys:  activity = [
+    
+  // ] ;
+  
+
   constructor(private http: HttpClient) {}
+
+  // getActivitys(){
+  //   return this.activitys
+  // }
 
   addactivity(data: FormData): Observable<any> {
     return this.http.post(this.baseUrl, data);
   }
+
 
   getActivity(
     status?: string,
@@ -28,6 +39,10 @@ export class ActivityService {
     }
 
     return this.http.get<any>(this.baseUrl, { params });
+  }
+
+  getActivitys(): Observable<any> {
+    return this.http.get<any>(this.baseUrl);
   }
 
   getActivityById(id: string): Observable<any> {

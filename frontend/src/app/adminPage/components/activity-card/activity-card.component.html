@@ -1,0 +1,18 @@
+<div
+  class="card mb-4 shadow-lg"
+  [@pulse]="activitytionState"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  @bounceIn
+>
+  <div class="image-container">
+    <img
+      [src]="activity.image"
+      class="card-img-top img-fluid"
+      [alt]="activity.name"
+    />
+  </div>
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ activity.name }}</h5>
+  </div>
+</div>

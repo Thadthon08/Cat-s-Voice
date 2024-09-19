@@ -18,6 +18,7 @@ import { ActivityComponent } from './components/activity/activity.component';
 import { AdoptionComponent } from './components/adoption/adoption.component';
 import { AdoptionManagementComponent } from './components/adoption-management/adoption-management.component';
 import { ActivityAddDataComponent } from './components/add-data-activity/add-data-activity.component';
+import { ActivityCardComponent } from './components/activity-card/activity-card.component';
 
 const adminRoutes: Routes = [
   {
@@ -44,6 +45,7 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(adminRoutes)],
+ 
 
 })
 export class AdminModule {}

@@ -74,6 +74,7 @@ import { AdoptionComponent } from './adminPage/components/adoption/adoption.comp
 import { AdoptionManagementComponent } from './adminPage/components/adoption-management/adoption-management.component';
 import { ActivityService } from './services/activity.service';
 import { ActivityAddDataComponent  } from './adminPage/components/add-data-activity/add-data-activity.component';
+import { ActivityCardComponent } from './adminPage/components/activity-card/activity-card.component';
 
 @NgModule({
   declarations: [
@@ -126,6 +127,7 @@ import { ActivityAddDataComponent  } from './adminPage/components/add-data-activ
     AdoptionComponent,
     AdoptionManagementComponent,
     ActivityAddDataComponent,
+    ActivityCardComponent,
   ],
   imports: [
     BrowserModule,
