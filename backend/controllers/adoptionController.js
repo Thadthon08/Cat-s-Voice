@@ -1,7 +1,6 @@
 const Adoption = require("../models/schema.js").Adoption;
 const Animal = require("../models/schema.js").Animal;
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
 
 // Create a new adoption record
 exports.createAdoption = async (req, res) => {
@@ -62,7 +61,7 @@ exports.getAdoptionById = async (req, res) => {
     const adoption = await Adoption.findById(req.params.id);
 
     if (!adoption) {
-      return res.status(404).json({ message: 'Adoption record not found' });
+      return res.status(404).json({ message: "Adoption record not found" });
     }
 
     res.status(200).json(adoption);
@@ -70,22 +69,45 @@ exports.getAdoptionById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// exports.getAdoptionByAnimalId = async (req, res) => {
+//   try {
+//     const { animal_id } = req.params; // ดึง animal_id จาก req.params
+//     // ตรวจสอบว่า animal_id เป็น ObjectId ที่ถูกต้องหรือไม่
+//     if (!mongoose.Types.ObjectId.isValid(animal_id)) {
+//       return res.status(400).json({ message: 'Invalid animal_id format' });
+//     }
+
+//     // ค้นหา adoption โดยใช้ animal_id
+//     const adoption = await Adoption.findOne({
+//       animal_id: new mongoose.Types.ObjectId(animal_id)
+//     });
+
+//     if (!adoption) {
+//       return res.status(404).json({ message: 'Adoption record not found' });
+//     }
+
+//     res.status(200).json(adoption);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+// Delete an adoption record by ID
 
 exports.getAdoptionByAnimalId = async (req, res) => {
   try {
-    const { animal_id } = req.params; // ดึง animal_id จาก req.params
-    // ตรวจสอบว่า animal_id เป็น ObjectId ที่ถูกต้องหรือไม่
-    if (!mongoose.Types.ObjectId.isValid(animal_id)) {
-      return res.status(400).json({ message: 'Invalid animal_id format' });
-    }
+    const { animal_id } = req.params;
 
-    // ค้นหา adoption โดยใช้ animal_id
-    const adoption = await Adoption.findOne({ 
-      animal_id: new mongoose.Types.ObjectId(animal_id)
-    });
+    if (!mongoose.Types.ObjectId.isValid(animal_id)) {
+      return res.status(400).json({ message: "Invalid animal_id format" });
+    }
+    const adoption = await Adoption.findOne({
+      animal_id: new mongoose.Types.ObjectId(animal_id),
+    }).populate("animal_id", "name image_url");
 
     if (!adoption) {
-      return res.status(404).json({ message: 'Adoption record not found' });
+      return res.status(404).json({ message: "Adoption record not found" });
     }
 
     res.status(200).json(adoption);
@@ -94,17 +116,16 @@ exports.getAdoptionByAnimalId = async (req, res) => {
   }
 };
 
-// Delete an adoption record by ID
 exports.deleteAdoptionById = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await Adoption.deleteOne({ adoption_id: id });
 
     if (result.deletedCount === 0) {
-      return res.status(404).json({ message: 'Adoption record not found' });
+      return res.status(404).json({ message: "Adoption record not found" });
     }
 
-    res.status(200).json({ message: 'Adoption record deleted successfully' });
+    res.status(200).json({ message: "Adoption record deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -25,8 +25,8 @@ export class RecoveryComponent implements OnInit {
         this.animals = data.map((record: any) => {
           return {
             _id: record._id,
-            name: record.animal_id.name,
-            image_url: record.animal_id.image_url,
+            name: record.animal_id?.name,
+            image_url: record.animal_id?.image_url,
           };
         });
       },
