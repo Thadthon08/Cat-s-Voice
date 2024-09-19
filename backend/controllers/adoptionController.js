@@ -93,8 +93,6 @@ exports.getAdoptionById = async (req, res) => {
 //   }
 // };
 
-// Delete an adoption record by ID
-
 exports.getAdoptionByAnimalId = async (req, res) => {
   try {
     const { animal_id } = req.params;
@@ -116,6 +114,56 @@ exports.getAdoptionByAnimalId = async (req, res) => {
   }
 };
 
+// Update status an adoption record by ID
+exports.updateAdoptionStatus = async (req, res) => {
+  try {
+    const { id } = req.params; // รับ ID ของ Adoption
+    const { status } = req.body; // รับสถานะใหม่จาก body
+
+    // ตรวจสอบว่าค่าสถานะเป็นค่าที่อนุญาตหรือไม่ (completed หรือ cancelled)
+    if (!["completed", "cancelled"].includes(status)) {
+      return res.status(400).json({ message: "Invalid status value" });
+    }
+
+    // ค้นหา adoption ตาม ID
+    const adoption = await Adoption.findById(id);
+
+    if (!adoption) {
+      return res.status(404).json({ message: "Adoption record not found" });
+    }
+
+    // ค้นหาสัตว์ที่เชื่อมโยงกับ adoption
+    const animal = await Animal.findById(adoption.animal_id);
+
+    if (!animal) {
+      return res.status(404).json({ message: "Animal record not found" });
+    }
+
+    // อัปเดตสถานะของการขอรับเลี้ยง
+    adoption.status = status;
+    await adoption.save();
+
+    // อัปเดตสถานะของสัตว์ตามสถานะของ adoption
+    if (status === "completed") {
+      animal.status = "adopted"; // หาก adoption ถูก completed สถานะของสัตว์จะเปลี่ยนเป็น adopted
+    } else if (status === "cancelled") {
+      animal.status = "available"; // หาก adoption ถูก cancelled สถานะของสัตว์จะเปลี่ยนเป็น available
+    }
+
+    await animal.save(); // บันทึกการเปลี่ยนแปลงสถานะของสัตว์
+
+    res.status(200).json({
+      message: "Adoption status updated successfully",
+      adoption,
+      animal_status: animal.status, // ส่งสถานะใหม่ของสัตว์กลับไปด้วย
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+// Delete an adoption record by ID
 exports.deleteAdoptionById = async (req, res) => {
   try {
     const { id } = req.params;

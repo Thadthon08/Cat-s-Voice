@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AdopterService } from '../../../services/adopter.service';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-adoption-management',
@@ -28,19 +29,19 @@ export class AdoptionManagementComponent implements OnInit {
   }
 
   // ฟังก์ชันยืนยันการลบสัตว์
-  confirmDeny() {
+  confirmAccept() {
     this.confirmationService.confirm({
-      message: 'Are you sure you want to delete this animal?',
-      header: 'Confirm Delete',
+      message: 'Are you sure you want to approve this adoption?',
+      header: 'Confirm  Approval',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.deny();
+        this.accept();
       },
       reject: () => {
         this.messageService.add({
           severity: 'info',
           summary: 'Cancelled',
-          detail: 'Deletion cancelled',
+          detail: 'Adoption approval has been cancelled.',
           life: 3000,
         });
       },
@@ -64,8 +65,57 @@ export class AdoptionManagementComponent implements OnInit {
     this.router.navigate(['/admin/findhome/edit-data/', this.animalId]);
   }
 
-  // ฟังก์ชันลบสัตว์
+  accept() {
+    if (this.data && this.data._id) {
+      this.adopterService
+        .updateAdoptionStatus(this.data._id, 'completed')
+        .subscribe(
+          (response) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Adoption has been approved successfully!',
+              life: 3000,
+            });
+            this.router.navigate(['/admin/findhome']); // นำทางไปยังหน้าหลัก
+          },
+          (error) => {
+            console.error('Error approving adoption:', error);
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Failed to approve adoption.',
+              life: 3000,
+            });
+          }
+        );
+    }
+  }
+
   deny() {
-    console.log('deny animal');
+    if (this.data && this.data._id) {
+      this.adopterService
+        .updateAdoptionStatus(this.data._id, 'cancelled')
+        .subscribe(
+          (response) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Adoption has been denied successfully!',
+              life: 3000,
+            });
+            this.router.navigate(['/admin/findhome']); // นำทางไปยังหน้าหลัก
+          },
+          (error) => {
+            console.error('Error denying adoption:', error);
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'Failed to deny adoption.',
+              life: 3000,
+            });
+          }
+        );
+    }
   }
 }
