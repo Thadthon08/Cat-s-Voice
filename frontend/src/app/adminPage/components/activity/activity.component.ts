@@ -53,8 +53,8 @@ export class ActivityComponent implements OnInit  {
         this.activitys = data.map((activity: any) => {
           return {
             _id: activity._id,
-            name: activity.animal_id.name,
-            image_url: activity.animal_id.image_url,
+            name: activity.name,
+            image: activity.image,
           };
         });
       },
