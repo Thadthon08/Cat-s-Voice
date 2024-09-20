@@ -163,6 +163,7 @@ import { animalReducer } from './state/animal.reducer';
     HealthRecordService,
     ConfirmationService,
     ActivityService,
+    DonationService
   ],
   bootstrap: [AppComponent],
 })

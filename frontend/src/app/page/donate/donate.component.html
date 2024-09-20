@@ -14,27 +14,27 @@
         <label class="col-md-4 col-form-label fs-5">บริจาครายเดือน</label>
         <div class="row-md-8">
           <p-radioButton
-            name="donate_method"
+            name="donation_method"
             value="3 เดือน"
-            formControlName="donate_method"
+            formControlName="donation_method"
             id="g1"
             class="mx-2"
           />
           <label for="g1"> 3 เดือน </label>
   
           <p-radioButton
-            name="donate_method"
+            name="donation_method"
             value="6 เดือน"
-            formControlName="donate_method"
+            formControlName="donation_method"
             id="g2"
             class="mx-2"
           />
           <label for="g2"> 6 เดือน </label>
             
           <p-radioButton
-          name="donate_method"
+          name="donation_method"
           value="12 เดือน"
-          formControlName="donate_method"
+          formControlName="donation_method"
           id="g3"
           class="mx-2"
         />
@@ -47,9 +47,9 @@
       <label class="col-md-4 col-form-label fs-5">บริจาคครั้งเดียว</label>
             <div class="row-md-8">
                 <p-radioButton
-                    name="donate_method"
+                    name="donation_method"
                     value="บริจาคครั้งเดียว"
-                    formControlName="donate_method"
+                    formControlName="donation_method"
                     id="g1"
                     class="mx-2"
                 />
@@ -150,7 +150,7 @@
     type="text"
     pInputText
     class="form-control"
-    formControlName="name"
+    formControlName="donor_firstname"
     placeholder="ชื่อ"
   />
 </div>
@@ -161,7 +161,7 @@
     type="text"
     pInputText
     class="form-control"
-    formControlName="name"
+    formControlName="donor_lastname"
     placeholder="สกุล"
   />
 </div>
@@ -174,7 +174,7 @@
           type="text"
           pInputText
           class="form-control"
-          formControlName="phone"
+          formControlName="donor_phone"
           placeholder="เบอร์โทร"
         />
     </div>
@@ -185,7 +185,7 @@
           type="text"
           pInputText
           class="form-control"
-          formControlName="email"
+          formControlName="donor_email"
           placeholder="อีเมล"
         />
     </div>
