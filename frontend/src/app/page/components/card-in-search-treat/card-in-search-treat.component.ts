@@ -21,10 +21,9 @@ export class CardInSearchTreatComponent implements OnInit {
               private helthRecordService : HealthRecordService,
   ) {}
 
-  @Input() currentType: string = '';
-  @Input() currentSex!: number;
-  @Input() currentAge!: number;
-  @Input() search!: boolean;
+//  ใน  app-card-in-saerch.component.ts  และ  app-card-in-search-treat.component.ts
+
+
   @Input() title : string = '';
   treatment: string | undefined = '';
  

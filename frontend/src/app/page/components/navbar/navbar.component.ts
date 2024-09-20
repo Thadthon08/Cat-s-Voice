@@ -25,35 +25,36 @@ export class NavbarComponent implements OnInit {
     { id: 7, item: 'news', name: 'กิจกรรม', routerLink: '/news' },
   ];
 
-  currentChoice: string = 'home';
+  currentChoice: string = 'home'; 
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-       this.router.events.pipe(
+  
+    this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       const currentUrl = this.router.url;
       const foundItem = this.navbar.find(item => currentUrl.startsWith(item.routerLink));
       if (foundItem) {
-        this.currentChoice = foundItem.item;
+        this.currentChoice = foundItem.item; 
       }
     });
   }
 
-  setActive(choice: string): void {
-    this.currentChoice = choice;
+ 
+  setActive(choice: string, routerLink: string): void {
+    this.currentChoice = choice; 
+    this.router.navigate([routerLink]); 
   }
 
+ 
   getActive(choice: string): string {
-    const currentUrl = this.router.url;
-    const activeItem = this.navbar.find(item => currentUrl.startsWith(item.routerLink));
-    return activeItem && activeItem.item === choice ? 'active' : 'not';
+    return this.currentChoice === choice ? 'active' : ''; 
   }
 
+  
   hasMenuItem(itemName: string): boolean {
     return this.navbar.some((item) => item.item === itemName);
   }
-
-
 }

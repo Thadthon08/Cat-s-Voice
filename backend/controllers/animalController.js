@@ -206,3 +206,28 @@ exports.deleteAnimal = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// ey test
+exports.getAnimalBy = async (req, res) => {
+  try {
+    // สร้างเงื่อนไขการค้นหา
+    const query = {};
+
+    if (req.params.species) {
+      query.species = req.params.species;
+    }
+
+    if (req.params.gender) {
+      query.gender = req.params.gender;
+    }
+
+    // ใช้ find แทน findOne เพื่อคืนค่าเป็น array
+    const animals = await Animal.find(query);
+
+    if (animals.length === 0) return res.status(404).json({ message: "Animals not found" });
+
+    res.status(200).json(animals); // คืนค่าผลลัพธ์เป็น array
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
