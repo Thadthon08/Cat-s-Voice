@@ -1,43 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { DonationService } from '../../services/donation.service';
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
   styleUrls: ['./donate.component.css']
 })
 export class DonateComponent implements OnInit {
-  animalId: string | null = null;
+  // animalId: string | null = null;
   isModalOpen = false;
 
   donationForm: FormGroup;
-  fullnameForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
-    this.fullnameForm = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-    });
+
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute , private donationService:DonationService) {
+
 
     this.donationForm = this.fb.group({
-      name: ['', Validators.required],
+      donor_firstname: ['', Validators.required],
+      donor_lastname: ['', Validators.required],
+      donor_email: ['', [Validators.required, Validators.email]],
+      donor_phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      donation_date:[''],
       donation_amount: [null, Validators.required],
-      phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
-      email: ['', [Validators.required, Validators.email]],
-      donate_method: ['', Validators.required],
+      donation_method: ['', Validators.required],
       additional_message: [''],
     });
 
-    // Subscribe to changes in fullnameForm and update donationForm
-    this.fullnameForm.valueChanges.subscribe(values => {
-      const fullName = `${values.firstname} ${values.lastname}`;
-      this.donationForm.patchValue({ name: fullName });
-    });
+
   }
 
   onSubmit() {
     if (this.donationForm.valid) {
+      const currentDate = new Date().toISOString().substring(0, 10); // รูปแบบ YYYY-MM-DD
+      this.donationForm.patchValue({
+        donation_date: currentDate
+      });
+      const formData = this.donationForm.value
+      this.donationService.addDonation(formData).subscribe(
+        (response) => {
+          console.log('Donate added successfully', response);
+        },
+        (error) => {
+          console.error('Error donating', error);
+        }
+      );
+      this.isModalOpen = true;
       console.log('Form Submitted!', this.donationForm.value);
     } else {
       console.log('Form is not valid', this.donationForm.value);
@@ -50,7 +59,7 @@ export class DonateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.animalId = this.route.snapshot.paramMap.get('id');
+    // this.animalId = this.route.snapshot.paramMap.get('id');
   }
 
   closeModal(): void {

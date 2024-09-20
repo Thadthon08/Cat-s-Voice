@@ -17,9 +17,9 @@ import { setSearchStatus } from '../../../state/animal.actions';
 export class CardInSaerchComponent implements OnInit, OnDestroy {
 
   animals: any[] = [];
-  loading: boolean = false; // ตัวแปรสถานะการโหลด
+  loading: boolean = false; 
 
-  // Other variables
+
   specie$: Observable<number>;
   ageRange$: Observable<number>;
   gender$: Observable<string>;
@@ -97,7 +97,7 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
   
       let request$;
       
-      // ตรวจสอบค่าตัวแปรที่มีอยู่
+    
       if (specie !== null && specie !== 0 && typeof specie !== 'undefined' && gender && typeof gender !== 'undefined') {
           request$ = this.animalService.getAnimalBySpecieGender(specie, gender);
       } else if (specie !== null && specie !== 0 && typeof specie !== 'undefined') {
@@ -106,16 +106,16 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
           request$ = this.animalService.getAnimalByGender(gender);
       }
   
-      // ถ้ามี request$ ให้ดำเนินการค้นหา
+      
       if (request$) {
-          this.loading = true; // เริ่มโหลด
+          this.loading = true; 
           request$.pipe(
               timeout(5000), 
               catchError((error) => {
                   console.error('Error fetching animals:', error);
-                  this.loading = false; // เสร็จสิ้นการโหลด
-                  this.animals = []; // ล้างข้อมูลเมื่อเกิดข้อผิดพลาด
-                  return of([]); // ส่งค่าเป็น array ว่างเพื่อให้โค้ดยังทำงานต่อ
+                  this.loading = false; 
+                  this.animals = []; 
+                  return of([]); 
               })
           ).subscribe(
               (data) => {
@@ -129,7 +129,7 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
                       console.warn("No animals found or data is not an array.");
                       this.animals = [];
                   }
-                  this.loading = false; // เสร็จสิ้นการโหลด
+                  this.loading = false; 
               }
           );
       }

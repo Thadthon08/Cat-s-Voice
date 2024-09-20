@@ -117,11 +117,13 @@ const Adoption = mongoose.model("Adoption", AdoptionSchema);
 
 // Donation Schema
 const DonationSchema = new mongoose.Schema({
-  donor_name: { type: String, required: true },
+  donor_firstname: { type: String, required: true },
+  donor_lastname: { type: String, required: true },
   donor_email: { type: String, required: true },
   donor_phone: { type: String, required: true },
   donation_date: { type: Date, required: true },
-  donation_slip: { type: String },
+  donation_amount: { type: String, required: true },
+  donation_method: { type: String, required: true },
   additional_message: { type: String },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },

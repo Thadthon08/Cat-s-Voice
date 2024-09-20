@@ -34,10 +34,7 @@ export class AdopterFormComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    // ดึง animalId จาก param ของ URL
     this.animalId = this.route.snapshot.paramMap.get('id');
-  
-    // ตั้งค่า animal_id ในฟอร์มหลังจากได้รับ animalId
     if (this.animalId) {
       this.adopterForm.patchValue({
         animal_id: this.animalId
