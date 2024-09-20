@@ -76,6 +76,9 @@ import { ActivityService } from './services/activity.service';
 import { ActivityAddDataComponent  } from './adminPage/components/add-data-activity/add-data-activity.component';
 import { ActivityCardComponent } from './adminPage/components/activity-card/activity-card.component';
 
+import { DonationService } from './services/donation.service';
+import { StoreModule } from '@ngrx/store';
+import { animalReducer } from './state/animal.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -149,6 +152,7 @@ import { ActivityCardComponent } from './adminPage/components/activity-card/acti
     ReactiveFormsModule,
     ConfirmDialogModule,
     PaginatorModule,
+    StoreModule.forRoot({ animal: animalReducer }),
   ],
   providers: [
     provideClientHydration(),

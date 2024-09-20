@@ -12,5 +12,8 @@ router.post("/", animalController.createAnimal);
 router.put("/:id", animalController.updateAnimal);
 router.delete("/:id", animalController.deleteAnimal);
 router.post("/upload", upload.single("image"), uploadAnimalImage);
-
+// ey test
+router.get("/species/:species", animalController.getAnimalBy);
+router.get("/gender/:gender", animalController.getAnimalBy);
+router.get("/species/:species/gender/:gender", animalController.getAnimalBy);
 module.exports = router;

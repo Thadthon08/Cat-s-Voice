@@ -1,16 +1,23 @@
-<div >
-  <div *ngIf="animals.length > 0; else noAnimals">
-    <div class="card-animals">
-      <div *ngFor="let animal of animals" (click)="selectAnimal(animal._id)"> 
-        <img [src]="animal.image_url" class="show-animal">
-        <div class="card-box-select">{{animal.name}}</div>
+<div *ngIf="loading">
+  <p>Loading animals...</p>
+</div>
+
+<div *ngIf="!loading">
+
+<div>
+  <ng-container *ngIf="animals">
+    <!-- แสดงรายการสัตว์เมื่อมีข้อมูลสัตว์ -->
+    <div *ngIf="animals.length > 0; else noAnimals">
+      <div class="card-animals">
+        <div *ngFor="let animal of animals" (click)="selectAnimal(animal._id)"> 
+          <img [src]="animal.image_url" class="show-animal">
+          <div class="card-box-select">{{animal.name}}</div>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 
-
-
-
+  <!-- แสดงเมื่อไม่มีข้อมูลสัตว์ (อาเรย์ว่างเปล่า) -->
   <ng-template #noAnimals>
     <div class="box">
       <div class="box-search">
@@ -21,4 +28,5 @@
       </div>
     </div>
   </ng-template>
+</div>
 </div>
