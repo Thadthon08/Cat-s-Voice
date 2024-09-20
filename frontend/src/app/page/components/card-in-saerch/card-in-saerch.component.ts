@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, takeUntil, switchMap, take, tap, catchError, timeout } from 'rxjs/operators';
 import { AnimalService } from '../../../services/animal.service';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, combineLatest, forkJoin, of } from 'rxjs';
+import { Observable, Subject, combineLatest, of } from 'rxjs';
 import { AppState } from '../../../../app/state/app.state';
 import { selectSpecie, selectAgeRange, selectGender, selectSearchStatus } from '../../../../app/state/animal.selectors';
 import { SearchStatus } from '../../../../app/state/search-status.enum';

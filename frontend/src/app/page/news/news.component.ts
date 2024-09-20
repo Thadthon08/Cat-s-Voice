@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
 import { Router ,NavigationEnd } from '@angular/router';
-
+import { ActivityService } from '../../services/activity.service';
+import { timeout } from 'rxjs/operators';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -9,9 +10,9 @@ import { Router ,NavigationEnd } from '@angular/router';
 })
 export class NewsComponent implements OnInit{
   news: any[] = []; 
-  newsID!: number;
 
-  constructor(private newService: NewsService, private router: Router) {}
+  loading: boolean = false; 
+  constructor(private newService: ActivityService, private router: Router) {}
 
   ngOnInit(): void {
       this.loadNews();
@@ -24,8 +25,23 @@ export class NewsComponent implements OnInit{
   }
 
   loadNews() {
-      this.news = this.newService.getAllNews();
-
+    this.newService.getActivitys().pipe(
+      timeout(5000) 
+    ).subscribe(
+      (data) => {
+        this.news = data;
+        console.log(this.news)
+        this.loading = false;
+      },
+      (error) => {
+        if (error.name === 'TimeoutError') {
+          console.error('Request timed out');
+        } else {
+          console.error('Error fetching animals:', error);
+        }
+        this.loading = false; 
+      }
+    );
   }
 
   selectNews(id: number) {
