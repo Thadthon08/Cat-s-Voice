@@ -4,14 +4,14 @@
     <h2 class="heading ">กิจกรรม</h2>
   </div>
 <div class="container">
-    <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="news-image">
+  <img [src]="news.image" class="news-image" (click)="openModal(news.image, news.name)"> 
     <div class="text-container">
-        <div class="news-name">เมอซี่</div>
-        <p>เพศ: เพศเมีย</p>
-        <p>อายุ: 2 ปี, 1 เดือน 27 วัน</p>
-        <p>ลักษณะ: พันธุ์ไทยผสม ลายเสือ มีสีดำ ขาว น้ำตาลเข้มผสมกัน ฉลาด เก่ง สวย เท่ห์ และแข็งแรง</p>
-        <p>นิสัย: น่ารัก ขี้เล่น ขี้อ้อน ร่าเริง</p>
-        <p>อาการ/โรค: ถูกชนจนต้องตัดขา เหลือ 3 ขา</p>
+        <div class="news-name">{{news.name}}</div>
+        <p>Details: <span>{{news.details}}</span></p>
+        <p>Date: <span>{{news.date | date:'longDate'}}</span></p>
+        <p>Time: <span>{{news.time}}</span></p>
+        <p>Location: <span>{{news.location}}</span></p>
+        <p>Notes: <span>{{news.notes}}</span></p>
         <div>
 </div>  
 
@@ -22,7 +22,7 @@
 
 </div>
 
-<div class="container2">
+<!-- <div class="container2">
     <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
 
     <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
@@ -36,7 +36,7 @@
     <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
 
     <img src="https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg" class="animals-image" (click)="openModal('https://www.thevoicefoundation.org/src/views/login/foundation/images/20240828094448_0.jpg', 'Caption for Image 1')">
-</div>
+</div> -->
   
 
   <div class="modal" [ngClass]="{'show-modal': isModalOpen}">

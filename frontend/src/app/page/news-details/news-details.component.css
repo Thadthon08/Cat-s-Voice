@@ -10,12 +10,20 @@
 .news-image {
     max-width: 400px;
     min-width: 200px;
-    height: auto;
+    height: 300px;
 }
 
 .text-container {
-    max-width: 400px;
-    padding-left: 20px;
+  max-width: 400px;
+  padding-left: 20px;
+}
+
+.text-container > p {
+  font-weight:400 ; 
+}
+
+.text-container p span {
+  font-weight:300 ; 
 }
 
 .news-name {
@@ -64,18 +72,6 @@
     width: 100%;
     padding: 10px;
     gap: 5px; 
-  }
-  
-  .animals-image {
-    padding-bottom: 50px;
-    width: 200px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .animals-image:hover {
-    transform: scale(1.1); 
   }
   
 

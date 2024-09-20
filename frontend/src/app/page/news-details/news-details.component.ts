@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FindHomeService } from '../../services/find-home.service';
-
+import { ActivityService } from '../../services/activity.service';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-news-details',
@@ -11,31 +12,48 @@ import { FindHomeService } from '../../services/find-home.service';
 export class NewsDetailsComponent  {
 
   @Input() title :string = '';
-  animalId: string | null = null;
-  animals: any[] = []; 
+  activityId!: string | null ;
+  news : any = {}; 
   isModalOpen = false;
   modalImage = '';
   modalCaption = '';
-  show: boolean = true;
-  
+
+  loading: boolean = false; 
 
 
 
 
   constructor(
-    private findHomeService: FindHomeService, 
+    private newService: ActivityService,
     private route: ActivatedRoute, 
     private router: Router
   ) {}
 
 
   ngOnInit(): void {
-    this.animalId = this.route.snapshot.paramMap.get('id');
-    this.route.queryParams.subscribe(params => {
-      this.show = params['show'] === 'false' ? false : true; 
+    this.activityId = this.route.snapshot.paramMap.get('id');
+    this.loadNews();
 
-    });
-
+  }
+  
+  loadNews() {
+    this.newService.getActivityById(this.activityId ?? 'defaultId').pipe(
+      timeout(5000) 
+    ).subscribe(
+      (data) => {
+        this.news = data;
+        // console.log(this.news)
+        this.loading = false;
+      },
+      (error) => {
+        if (error.name === 'TimeoutError') {
+          console.error('Request timed out');
+        } else {
+          console.error('Error fetching animals:', error);
+        }
+        this.loading = false; 
+      }
+    );
   }
   
   openModal(imageSrc: string, caption: string): void {
@@ -50,8 +68,6 @@ export class NewsDetailsComponent  {
   }
 
   Click(): void {
-    this.show = !this.show;
-    this.router.navigate(['/adopter',this.animalId], { queryParams: { show: !this.show.toString() } }); 
- 
+
   }
 }
