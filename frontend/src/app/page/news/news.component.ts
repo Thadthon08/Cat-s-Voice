@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../services/news.service';
-import { Router ,NavigationEnd } from '@angular/router';
+import { Router  } from '@angular/router';
 import { ActivityService } from '../../services/activity.service';
 import { timeout } from 'rxjs/operators';
 @Component({
@@ -18,19 +17,13 @@ export class NewsComponent implements OnInit{
       this.loadNews();
   }
   
-
-
-  ngOnChanges(): void {
-    this.loadNews();
-  }
-
   loadNews() {
+    this.loading = true;
     this.newService.getActivitys().pipe(
       timeout(5000) 
     ).subscribe(
       (data) => {
         this.news = data;
-        console.log(this.news)
         this.loading = false;
       },
       (error) => {
