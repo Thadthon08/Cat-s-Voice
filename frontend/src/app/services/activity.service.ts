@@ -53,7 +53,7 @@ export class ActivityService {
     return this.http.put(`${this.baseUrl}/${id}`, data);
   }
 
-  delActivitById(id: string): Observable<any> {
+  deleteActivityById(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
