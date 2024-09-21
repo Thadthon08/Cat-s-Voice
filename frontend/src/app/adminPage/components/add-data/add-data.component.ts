@@ -58,7 +58,6 @@ export class AddDataComponent implements OnInit {
       size: ['', Validators.required],
       color: [''],
       personality: [''],
-      symptoms: [''],
       status: ['available'],
       added_by_admin_id: [1],
       image_url: [''],

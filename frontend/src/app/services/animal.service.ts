@@ -1,18 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Animal } from '../interface/IAnimal';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnimalService {
-  private baseUrl = 'http://localhost:5000/api/animals'; // URL หลักของ API
+  private baseUrl = 'http://localhost:5000/api/animals';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
+
+  private getHeaders(): HttpHeaders {
+    const user = localStorage.getItem('user');
+    const token = user ? JSON.parse(user).token : null;
+
+    if (!token) {
+      throw new Error('No token found in localStorage');
+    }
+
+    if (this.authService.isTokenExpired()) {
+      console.log('Token has expired');
+      this.authService.logout();
+      throw new Error('Token has expired');
+    }
+
+    return new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+  }
 
   addAnimal(data: FormData): Observable<any> {
-    return this.http.post(this.baseUrl, data);
+    const headers = this.getHeaders();
+    return this.http.post(this.baseUrl, data, { headers });
   }
 
   // getAnimals(status?: string): Observable<any> {
@@ -50,13 +70,14 @@ export class AnimalService {
   }
 
   editAnimalById(id: string, data: FormData): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${id}`, data);
+    const headers = this.getHeaders();
+    return this.http.put(`${this.baseUrl}/${id}`, data, { headers });
   }
 
   delAnimalById(id: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+    const headers = this.getHeaders();
+    return this.http.delete(`${this.baseUrl}/${id}`, { headers });
   }
-
 
   getAnimalBySpecie(species: number | null): Observable<any> {
     return this.http.get(`${this.baseUrl}/species/${species}`);
@@ -66,7 +87,10 @@ export class AnimalService {
     return this.http.get(`${this.baseUrl}/gender/${gender}`);
   }
 
-  getAnimalBySpecieGender(species: number | null,gender: string | null): Observable<any> {
+  getAnimalBySpecieGender(
+    species: number | null,
+    gender: string | null
+  ): Observable<any> {
     return this.http.get(`${this.baseUrl}/species/${species}/gender/${gender}`);
   }
 }

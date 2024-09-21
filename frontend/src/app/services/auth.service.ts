@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router'; // ใช้ Router สำหรับการรีไดเรกต์
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://localhost:5000/api/auth'; // URL ของ API สำหรับ Authentication
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {} // Inject Router
 
   login(loginData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, loginData).pipe(
@@ -36,7 +37,14 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    return !!user.token && !this.isTokenExpired();
+
+    if (!!user.token && !this.isTokenExpired()) {
+      return true;
+    } else {
+      this.logout();
+      this.router.navigate(['/login']);
+      return false;
+    }
   }
 
   isTokenExpired(): boolean {
@@ -68,5 +76,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 }
