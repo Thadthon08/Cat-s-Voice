@@ -79,6 +79,7 @@ import { ActivityManagementComponent} from './adminPage/components/activity-mana
 import { DonationService } from './services/donation.service';
 import { StoreModule } from '@ngrx/store';
 import { animalReducer } from './state/animal.reducer';
+import { ActivityEditComponent } from './adminPage/components/activity-edit/activity-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -132,6 +133,7 @@ import { animalReducer } from './state/animal.reducer';
     ActivityAddDataComponent,
     ActivityCardComponent,
     ActivityManagementComponent,
+    ActivityEditComponent,
   ],
   imports: [
     BrowserModule,
