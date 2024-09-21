@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AdopterService } from '../../../services/adopter.service';
-import { log } from 'node:console';
 
 @Component({
   selector: 'app-adoption-management',
@@ -28,11 +27,10 @@ export class AdoptionManagementComponent implements OnInit {
     }
   }
 
-  // ฟังก์ชันยืนยันการลบสัตว์
   confirmAccept() {
     this.confirmationService.confirm({
       message: 'Are you sure you want to approve this adoption?',
-      header: 'Confirm  Approval',
+      header: 'Confirm Approval',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.accept();
@@ -48,11 +46,10 @@ export class AdoptionManagementComponent implements OnInit {
     });
   }
 
-  // โหลดข้อมูลการรับเลี้ยงแทนข้อมูลสัตว์
   loadAdoptionData(id: string) {
     this.adopterService.getAdoptionByAnimalId(id).subscribe(
       (response) => {
-        this.data = response; // เซ็ตข้อมูลที่ได้จากการรับเลี้ยง
+        this.data = response;
       },
       (error) => {
         console.error('Error fetching adoption data:', error);
@@ -60,62 +57,55 @@ export class AdoptionManagementComponent implements OnInit {
     );
   }
 
-  // นำทางไปยังหน้าแก้ไขข้อมูลสัตว์
   navigateToEditData() {
     this.router.navigate(['/admin/findhome/edit-data/', this.animalId]);
   }
 
   accept() {
-    if (this.data && this.data._id) {
-      this.adopterService
-        .updateAdoptionStatus(this.data._id, 'completed')
-        .subscribe(
-          (response) => {
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Success',
-              detail: 'Adoption has been approved successfully!',
-              life: 3000,
-            });
-            this.router.navigate(['/admin/findhome']); // นำทางไปยังหน้าหลัก
-          },
-          (error) => {
-            console.error('Error approving adoption:', error);
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Error',
-              detail: 'Failed to approve adoption.',
-              life: 3000,
-            });
-          }
-        );
-    }
+    this.adopterService
+      .updateAdoptionStatus(this.data._id, 'completed')
+      .subscribe(
+        (response) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Adoption has been approved successfully!',
+            life: 3000,
+          });
+          setTimeout(() => this.router.navigate(['/admin/findhome']), 3000);
+        },
+        (error) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to approve adoption.',
+            life: 3000,
+          });
+        }
+      );
   }
 
-  deny() {
-    if (this.data && this.data._id) {
-      this.adopterService
-        .updateAdoptionStatus(this.data._id, 'cancelled')
-        .subscribe(
-          (response) => {
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Success',
-              detail: 'Adoption has been denied successfully!',
-              life: 3000,
-            });
-            this.router.navigate(['/admin/findhome']); // นำทางไปยังหน้าหลัก
-          },
-          (error) => {
-            console.error('Error denying adoption:', error);
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Error',
-              detail: 'Failed to deny adoption.',
-              life: 3000,
-            });
-          }
-        );
-    }
+  denyRequest() {
+    this.adopterService
+      .updateAdoptionStatus(this.data._id, 'cancelled')
+      .subscribe(
+        (response) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Adoption has been denied successfully!',
+            life: 3000,
+          });
+          setTimeout(() => this.router.navigate(['/admin/findhome']), 3000);
+        },
+        (error) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to deny adoption.',
+            life: 3000,
+          });
+        }
+      );
   }
 }

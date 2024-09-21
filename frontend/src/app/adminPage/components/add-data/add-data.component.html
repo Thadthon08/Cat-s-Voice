@@ -30,7 +30,12 @@
           "
           class="text-danger"
         >
-          ชื่อต้องไม่เว้นว่าง
+          <span *ngIf="animalForm.get('name')?.errors?.['required']">
+            ชื่อต้องไม่เว้นว่าง
+          </span>
+          <span *ngIf="animalForm.get('name')?.errors?.['minlength']">
+            ชื่อต้องยาวอย่างน้อย 3 ตัวอักษร
+          </span>
         </div>
       </div>
     </div>
@@ -94,7 +99,15 @@
           "
           class="text-danger"
         >
-          อายุต้องไม่เว้นว่างและเป็นตัวเลข
+          <span *ngIf="animalForm.get('age')?.errors?.['required']">
+            อายุห้ามเว้นว่าง
+          </span>
+          <span *ngIf="animalForm.get('age')?.errors?.['min']">
+            อายุอย่างน้อยต้องมากกว่า 0 ปี
+          </span>
+          <span *ngIf="animalForm.get('age')?.errors?.['max']">
+            อายุต้องน้อยกว่า 20 ปี
+          </span>
         </div>
       </div>
     </div>
@@ -145,6 +158,15 @@
           class="form-control"
           formControlName="personality"
         />
+        <div
+          *ngIf="
+            animalForm.get('personality')?.invalid &&
+            animalForm.get('personality')?.touched
+          "
+          class="text-danger"
+        >
+          นิสัยต้องมีความยาวระหว่าง 1 - 100 ตัวอักษร
+        </div>
       </div>
     </div>
 

@@ -2,15 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimalService } from '../../../services/animal.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-animal-management',
   templateUrl: './animal-management.component.html',
   styleUrls: ['./animal-management.component.css'],
+  animations: [
+    trigger('fadeIn', [
+      state('void', style({ opacity: 0, transform: 'translateY(-20px)' })),
+      state('*', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition(':enter', animate('800ms ease-out')),
+    ]),
+    trigger('buttonHover', [
+      state('default', style({ transform: 'scale(1)' })),
+      state('hover', style({ transform: 'scale(1.05)' })),
+      transition('default <=> hover', animate('300ms ease-in-out')),
+    ]),
+  ],
 })
 export class AnimalManagementComponent implements OnInit {
   animalId: string | null = null;
   data: any = {};
+  buttonState: string = 'default'; // สำหรับอนิเมชันปุ่ม
 
   constructor(
     private router: Router,
@@ -86,5 +106,13 @@ export class AnimalManagementComponent implements OnInit {
     } else {
       console.error('Animal ID is null');
     }
+  }
+
+  onMouseEnter() {
+    this.buttonState = 'hover';
+  }
+
+  onMouseLeave() {
+    this.buttonState = 'default';
   }
 }
