@@ -1,3 +1,4 @@
+import { log } from 'node:console';
 import { Component, OnInit } from '@angular/core';
 
 interface NavbarItem {
@@ -45,4 +46,9 @@ export class MenubarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  logout() {
+    localStorage.removeItem('user');
+    location.reload();
+  }
 }
