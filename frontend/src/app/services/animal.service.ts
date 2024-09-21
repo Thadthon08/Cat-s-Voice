@@ -57,7 +57,9 @@ export class AnimalService {
     if (status) {
       params = params.set('status', status);
     }
-    return this.http.get<any>(this.baseUrl, { params });
+
+    const headers = this.getHeaders();
+    return this.http.get<any>(this.baseUrl, { params, headers });
   }
 
   getAnimalsWithoutHealthRecord(): Observable<any> {
