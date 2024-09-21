@@ -67,14 +67,14 @@ export class AddDataComponent implements OnInit {
         ],
       ],
       status: ['available'],
-      added_by_admin_id: [null, Validators.required], // กำหนดว่า admin_id ต้องกรอก
+      added_by_admin_id: [null, Validators.required],
       image_url: [''],
     });
   }
 
   ngOnInit(): void {
     this.loadSpeciesOptions();
-    this.loadAdminIdFromLocalStorage(); // ดึง admin_id จาก localStorage
+    this.loadAdminIdFromLocalStorage();
   }
 
   loadSpeciesOptions() {
@@ -92,12 +92,12 @@ export class AddDataComponent implements OnInit {
   }
 
   loadAdminIdFromLocalStorage() {
-    const user = localStorage.getItem('user'); // ดึงข้อมูล user จาก localStorage
+    const user = localStorage.getItem('user');
     if (user) {
-      const userData = JSON.parse(user); // แปลงข้อมูลจาก JSON string เป็น Object
-      this.admin_id = userData.admin_id || null; // ดึง admin_id จากข้อมูล user
+      const userData = JSON.parse(user);
+      this.admin_id = userData.admin_id || null;
       if (this.admin_id) {
-        this.animalForm.patchValue({ added_by_admin_id: this.admin_id }); // ตั้งค่า admin_id ลงในฟอร์ม
+        this.animalForm.patchValue({ added_by_admin_id: this.admin_id });
       }
     }
   }

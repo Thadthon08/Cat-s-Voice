@@ -66,7 +66,7 @@ exports.getAllAnimals = async (req, res) => {
           status: animal.status,
           image_url: animal.image_url,
           diagnosis: healthRecord ? healthRecord.diagnosis : "none",
-          animal_id : animal.animal_id
+          animal_id: animal.animal_id,
         };
       })
     );
@@ -95,7 +95,9 @@ exports.getAnimalById = async (req, res) => {
 
 exports.getAnimalsWithoutHealthRecord = async (req, res) => {
   try {
-    const animals = await Animal.find();
+    const animals = await Animal.find({
+      status: { $in: ["available", "pending"] },
+    });
 
     const animalsWithoutHealthRecord = await Promise.all(
       animals.map(async (animal) => {
@@ -207,10 +209,9 @@ exports.deleteAnimal = async (req, res) => {
   }
 };
 
-
 // exports.getAnimalBySpecieGenderAge = async (req, res) => {
 //   try {
-    
+
 //     const query = {};
 
 //     if (req.params.species) {
@@ -225,7 +226,6 @@ exports.deleteAnimal = async (req, res) => {
 //       const range = req.params.age.split('-');
 //       query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
 //     }
-
 
 //     const animals = await Animal.find(query);
 
@@ -250,20 +250,20 @@ exports.getAnimalBySpecieGenderAge = async (req, res) => {
     }
 
     if (req.params.age) {
-      const range = req.params.age.split('-');
+      const range = req.params.age.split("-");
       query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
     }
 
     const animals = await Animal.find(query);
 
-    if (animals.length === 0) return res.status(404).json({ message: "ไม่พบข้อมูลสัตว์" });
+    if (animals.length === 0)
+      return res.status(404).json({ message: "ไม่พบข้อมูลสัตว์" });
 
     res.status(200).json(animals);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 // exports.getAnimalBySpecieGenderAge = async (req, res) => {
 //   try {

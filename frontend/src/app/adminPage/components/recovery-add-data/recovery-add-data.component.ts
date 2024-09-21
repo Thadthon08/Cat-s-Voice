@@ -52,8 +52,8 @@ export class RecoveryAddDataComponent implements OnInit {
     this.animalForm = this.fb.group({
       animal_id: ['', Validators.required],
       checkup_date: [''],
-      diagnosis: [''],
-      treatment: [''],
+      diagnosis: ['', Validators.required],
+      treatment: ['', Validators.required],
       notes: [''],
     });
   }
