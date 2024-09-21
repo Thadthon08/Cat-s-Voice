@@ -8,9 +8,9 @@ import { Router } from '@angular/router'; // ใช้ Router สำหรับ
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api/auth'; // URL ของ API สำหรับ Authentication
+  private apiUrl = 'http://localhost:5000/api/auth'; 
 
-  constructor(private http: HttpClient, private router: Router) {} // Inject Router
+  constructor(private http: HttpClient, private router: Router) {} 
 
   login(loginData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, loginData).pipe(
