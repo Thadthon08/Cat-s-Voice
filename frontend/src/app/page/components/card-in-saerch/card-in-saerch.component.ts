@@ -110,7 +110,7 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
       if (request$) {
           this.loading = true; 
           request$.pipe(
-              timeout(5000), 
+              timeout(3000), 
               catchError((error) => {
                   console.error('Error fetching animals:', error);
                   this.loading = false; 
