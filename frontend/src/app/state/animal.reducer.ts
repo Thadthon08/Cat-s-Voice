@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { initialState } from './animal.state';
+import { initialAnimalState } from './animal.state';
 import * as AnimalActions from './animal.actions';
 
 export const animalReducer = createReducer(
-  initialState,
+  initialAnimalState,
   on(AnimalActions.setSpecie, (state, { specie }) => ({ ...state, selectSpecie: specie })),
   on(AnimalActions.setAgeRange, (state, { ageRange }) => ({ ...state, selectAgeRange: ageRange })),
   on(AnimalActions.setGender, (state, { gender }) => ({ ...state, selectGender: gender })),

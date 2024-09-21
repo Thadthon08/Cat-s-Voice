@@ -1,37 +1,79 @@
+<div class="alert-container">
+  <div
+  *ngIf="donationForm?.get('donation_method')?.invalid && isValid"
+  class="alert alert-danger"
+>
+  โปรดเลือกวิธีการบริจาคเพื่อดำเนินการต่อ
+</div>
+<div
+*ngIf="donationForm?.get('donation_amount')?.invalid && isValid"
+class="alert alert-danger"
+>
+โปรดเลือกจำนวนเงินบริจาคก่อนดำเนินการต่อ
+</div>
+  <div
+    *ngIf="donationForm?.get('donor_firstname')?.invalid && isValid"
+    class="alert alert-danger"
+  >
+    กรุณากรอกชื่อของคุณเพื่อให้เราสามารถติดต่อคุณได้
+  </div>
+  <div
+    *ngIf="donationForm?.get('donor_lastname')?.invalid && isValid"
+    class="alert alert-danger"
+  >
+    กรุณากรอกนามสกุลของคุณเพื่อความครบถ้วน
+  </div>
+  <div
+    *ngIf="donationForm?.get('donor_email')?.invalid && isValid"
+    class="alert alert-danger"
+  >
+    โปรดกรอกอีเมลเพื่อให้เราสามารถติดต่อคุณได้
+  </div>
+  <div
+  *ngIf="donationForm?.get('donor_email')?.invalid && isValid"
+  class="alert alert-danger"
+>
+  โปรดกรอกอีเมลที่ถูกต้อง เพื่อให้เราสามารถยืนยันข้อมูลการบริจาคกับคุณ
+</div>
+
+
+
+</div>
+
+
 <app-navbar></app-navbar>
-<div class=" mt-5 mx-5">
-    <h2 class="heading ">ร่วมบริจาค</h2>
+<div class="mt-5 mx-5">
+  <h2 class="heading">ร่วมบริจาค</h2>
 </div>
 <div class="container my-5">
-    <form
-      [formGroup]="donationForm"
-      (ngSubmit)="onSubmit()"
-      class="p-fluid p-formgrid p-grid"
-      style="max-width: 600px; margin: auto "
-    >
-
+  <form
+    [formGroup]="donationForm"
+    (ngSubmit)="onSubmit()"
+    class="p-fluid p-formgrid p-grid"
+    style="max-width: 600px; margin: auto"
+  >
     <div class="row mb-3">
-        <label class="col-md-4 col-form-label fs-5">บริจาครายเดือน</label>
-        <div class="row-md-8">
-          <p-radioButton
-            name="donation_method"
-            value="3 เดือน"
-            formControlName="donation_method"
-            id="g1"
-            class="mx-2"
-          />
-          <label for="g1"> 3 เดือน </label>
-  
-          <p-radioButton
-            name="donation_method"
-            value="6 เดือน"
-            formControlName="donation_method"
-            id="g2"
-            class="mx-2"
-          />
-          <label for="g2"> 6 เดือน </label>
-            
-          <p-radioButton
+      <label class="col-md-4 col-form-label fs-5">บริจาครายเดือน</label>
+      <div class="row-md-8">
+        <p-radioButton
+          name="donation_method"
+          value="3 เดือน"
+          formControlName="donation_method"
+          id="g1"
+          class="mx-2"
+        />
+        <label for="g1"> 3 เดือน </label>
+
+        <p-radioButton
+          name="donation_method"
+          value="6 เดือน"
+          formControlName="donation_method"
+          id="g2"
+          class="mx-2"
+        />
+        <label for="g2"> 6 เดือน </label>
+
+        <p-radioButton
           name="donation_method"
           value="12 เดือน"
           formControlName="donation_method"
@@ -39,31 +81,29 @@
           class="mx-2"
         />
         <label for="g2"> 12 เดือน </label>
-         
-        </div>
       </div>
+    </div>
 
-      <div class="row mb-3">
-      <label class="col-md-4 col-form-label fs-5">บริจาคครั้งเดียว</label>
-            <div class="row-md-8">
-                <p-radioButton
-                    name="donation_method"
-                    value="บริจาคครั้งเดียว"
-                    formControlName="donation_method"
-                    id="g1"
-                    class="mx-2"
-                />
-                <label for="g1">บริจาคครั้งเดียว</label>
-        </div>
-      </div>
-
-      <hr class="my-4">
-
-      
     <div class="row mb-3">
-        <label class="col-md-4 col-form-label fs-5">เลือกการบริจาค</label>
-        <div class=" ">
-            <div class="my-2" >
+      <label class="col-md-4 col-form-label fs-5">บริจาคครั้งเดียว</label>
+      <div class="row-md-8">
+        <p-radioButton
+          name="donation_method"
+          value="บริจาคครั้งเดียว"
+          formControlName="donation_method"
+          id="g1"
+          class="mx-2"
+        />
+        <label for="g1">บริจาคครั้งเดียว</label>
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <div class="row mb-3">
+      <label class="col-md-4 col-form-label fs-5">เลือกการบริจาค</label>
+      <div class=" ">
+        <div class="my-2">
           <p-radioButton
             name="donation_amount"
             value="300 บาท ค่าอาหาร / เดือน"
@@ -72,103 +112,91 @@
             class="mx-2"
           />
           <label for="g1"> 300 บาท ค่าอาหาร / เดือน </label>
-         </div>
-         <div  class="my-2">
+        </div>
+        <div class="my-2">
           <p-radioButton
             name="donation_amount"
             value="600 บาท ค่าอาหาร / เดือน"
             formControlName="donation_amount"
             id="g2"
             class="mx-2"
-
           />
           <label for="g2"> 600 บาท ค่าอาหาร / เดือน </label>
         </div>
-        <div  class="my-2">
+        <div class="my-2">
           <p-radioButton
-          name="donation_amount"
-          value="1000 บาท ค่าอาหาร / เดือน"
-          formControlName="donation_amount"
-          id="g3"
-          class="mx-2"
-        />
-        <label for="g2"> 1000 บาท ค่าดูแลทุกอย่าง / เดือน </label>
-         </div> 
-
-         <div class="my-2 d-flex align-items-center">
-            <p-radioButton
-              name="donation_amount"
-              formControlName="donation_amount"
-              id="g3"
-              class="mx-2"
-            />
-            <label for="g3" class="mx-2">ระบุจำนวนเงิน</label>
-            <div class=" w-20">
-              <input
-                id="salary"
-                type="number"
-                pInputText
-                class="form-control"
-                formControlName="donation_amount"
-                
-              />
-            </div>
-            <label for="g3" class="mx-2">บาท</label>
-          
-           </div> 
-
-           <div class="my-2  d-flex align-items-center ">
-            
-            <label for="g3" class="mx-2">จ่ายเพื่อ</label>
-            <div class="w-20">
-                
-              <input
-                id="additional_message"
-                type="text"
-                pInputText
-                class="form-control"
-                formControlName="additional_message"
-              />
-            </div>
-            
-          
-           </div> 
-
+            name="donation_amount"
+            value="1000 บาท ค่าอาหาร / เดือน"
+            formControlName="donation_amount"
+            id="g3"
+            class="mx-2"
+          />
+          <label for="g2"> 1000 บาท ค่าดูแลทุกอย่าง / เดือน </label>
         </div>
-        
+
+        <div class="my-2 d-flex align-items-center">
+          <p-radioButton
+            name="donation_amount"
+            formControlName="donation_amount"
+            id="g3"
+            class="mx-2"
+          />
+          <label for="g3" class="mx-2">ระบุจำนวนเงิน</label>
+          <div class="w-20">
+            <input
+              id="salary"
+              type="number"
+              pInputText
+              class="form-control"
+              formControlName="donation_amount"
+            />
+          </div>
+          <label for="g3" class="mx-2">บาท</label>
+        </div>
+
+        <div class="my-2 d-flex align-items-center">
+          <label for="g3" class="mx-2">จ่ายเพื่อ</label>
+          <div class="w-20">
+            <input
+              id="additional_message"
+              type="text"
+              pInputText
+              class="form-control"
+              formControlName="additional_message"
+            />
+          </div>
+        </div>
       </div>
-<br/>
-<br/>
+    </div>
 
+    <br />
+    <br />
 
-<label for="name" class="col-md-4 col-form-label fs-5">ผู้บริจาค</label>
-<div class="d-flex flex-wrap my-2 justify-content-center " >
-    
-     <div class="flex-md-grow-1 mx-2 mt-2">
-  <input
-    id="firstname"
-    type="text"
-    pInputText
-    class="form-control"
-    formControlName="donor_firstname"
-    placeholder="ชื่อ"
-  />
-</div>
+    <label for="name" class="col-md-4 col-form-label fs-5">ผู้บริจาค</label>
+    <div class="d-flex flex-wrap my-2 justify-content-center">
+      <div class="flex-md-grow-1 mx-2 mt-2">
+        <input
+          id="donor_firstname"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="donor_firstname"
+          placeholder="ชื่อ"
+        />
+      </div>
 
-<div class="flex-md-grow-1 mx-2 mt-2">
-  <input
-    id="lastname"
-    type="text"
-    pInputText
-    class="form-control"
-    formControlName="donor_lastname"
-    placeholder="สกุล"
-  />
-</div>
+      <div class="flex-md-grow-1 mx-2 mt-2">
+        <input
+          id="donor_lastname"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="donor_lastname"
+          placeholder="สกุล"
+        />
+      </div>
 
-
-  
-    <div class="flex-md-grow-1 mx-2 mt-2">
+      <div class="flex-md-grow-1 mx-2 mt-2">
         <input
           id="phone"
           type="text"
@@ -177,9 +205,9 @@
           formControlName="donor_phone"
           placeholder="เบอร์โทร"
         />
-    </div>
-  
-    <div class="flex-md-grow-1  mx-2 mt-2">
+      </div>
+
+      <div class="flex-md-grow-1 mx-2 mt-2">
         <input
           id="email"
           type="text"
@@ -188,50 +216,59 @@
           formControlName="donor_email"
           placeholder="อีเมล"
         />
+      </div>
+    </div>
+
+    <div class="text-center m-5">
+      <label class="fw-bold">นโนบายคืนเงิน</label>
+      <div>การขอคืนเงิน ทางมูลนิธิขอ สงวนสิทธิ์ในการคืนเงินทุกกรณี</div>
+    </div>
+
+    <label class="container text-center">
+      <input type="checkbox" formControlName="acceptCheckbox" />
+      <span class="checkmark"> ยอมรับ</span>
+    </label>
+    <p *ngIf="showWarning" style="color: red; text-align: center;">
+      โปรดยอมรับเงื่อนไขก่อนดำเนินการต่อ
+    </p>
+
+    <div class="row mt-5 d-flex justify-content-center align-items-center">
+      <div class="col-auto">
+        <button
+          pButton
+          type="submit"
+          label="ร่วมบริจาค"
+          class="btn btn-org"
+          style="width: 200px"
+        ></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div
+  class="alert modal fade"
+  role="alert"
+  [ngClass]="{ 'show-modal': isModalOpen }"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <span class="close" aria-hidden="true" (click)="closeModal()"
+        >&times;</span
+      >
+      <div class="modal-body">
+        ขอบคุณที่แสดงความสนใจในการอุปการะสัตว์เลี้ยงกับเรา
+        เราจะติดต่อกลับไปเพื่อแจ้งข้อมูลเพิ่มเติมและขั้นตอนถัดไปในเร็วๆ นี้ครับ
+      </div>
+
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">
+        Close
+      </button>
     </div>
   </div>
+</div>
 
-  <div class="text-center m-5">
-    <label class="fw-bold">นโนบายคืนเงิน</label>
-    <div>
-          การขอคืนเงิน ทางมูลนิธิขอ
-          สงวนสิทธิ์ในการคืนเงินทุกกรณี
-    </div>
-   
-  </div>
-
-  <label class="container text-center"> 
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"> ยอมรับ</span>
-  </label>
-  
-
-  <div class="row mt-5 d-flex justify-content-center align-items-center">
-    <div class="col-auto">
-      <button
-        pButton
-        type="submit"
-        label="ร่วมบริจาค"
-        class="btn btn-org "
-        style="width: 200px;"
-      ></button>
-    </div>
-  </div>
-  
-    </form>
-  </div>
-  
-
-
-   <div class="modal fade" [ngClass]="{'show-modal': isModalOpen}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-            <span class="close" aria-hidden="true" (click)="closeModal()">&times;</span>
-        <div class="modal-body">
-          ขอบคุณที่แสดงความสนใจในการอุปการะสัตว์เลี้ยงกับเรา เราจะติดต่อกลับไปเพื่อแจ้งข้อมูลเพิ่มเติมและขั้นตอนถัดไปในเร็วๆ นี้ครับ
-        </div>
-
-          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-    </div>
-  </div>
-  

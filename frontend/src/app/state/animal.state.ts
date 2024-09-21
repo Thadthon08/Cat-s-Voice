@@ -7,10 +7,9 @@ export interface AnimalState {
   searchStatus: SearchStatus; 
 }
 
-export const initialState: AnimalState = {
-  selectSpecie: 0, // ค่าเริ่มต้น
-  selectAgeRange: '0-1', // ค่าเริ่มต้น
-  selectGender: '', // ค่าเริ่มต้น
+export const initialAnimalState: AnimalState = {
+  selectSpecie: 0, 
+  selectAgeRange: '0-1', 
+  selectGender: '', 
   searchStatus: SearchStatus.Initial,
-
 };

@@ -4,4 +4,4 @@ export enum SearchStatus {
     Searching = 'searching',
     Success = 'success', 
     Error = 'error', 
-  }
+}
