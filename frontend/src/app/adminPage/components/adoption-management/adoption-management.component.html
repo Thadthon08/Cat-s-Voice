@@ -7,7 +7,6 @@
       จัดการคำขอรับเลี้ยงสัตว์
     </h2>
     <div class="row gap-5 justify-content-center">
-      <!-- ส่วนแสดงรูปภาพสัตว์ -->
       <div class="col-lg-6 px-3 text-center">
         <div class="image-container bg-white shadow-custom p-1 rounded-0">
           <img
@@ -19,7 +18,6 @@
         </div>
       </div>
 
-      <!-- ส่วนแสดงรายละเอียดของการขอรับเลี้ยง -->
       <div class="col-lg-4 lh-1 text-brown">
         <div class="bg-white p-4 shadow-custom">
           <h2 class="fw-medium">{{ data.animal_id?.name }}</h2>
@@ -39,10 +37,9 @@
             <span class="status">{{ data.status }}</span>
           </p>
 
-          <!-- ปุ่มอนุมัติและปฏิเสธ -->
           <div class="row mt-3">
             <div class="col-md-6 mt-2 md:mt-0">
-              <button class="btn btn-primary w-100" (click)="deny()">
+              <button class="btn btn-primary w-100" (click)="denyRequest()">
                 ปฏิเสธคำขอ
               </button>
             </div>

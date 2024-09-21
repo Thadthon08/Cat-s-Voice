@@ -42,6 +42,7 @@ export class AddDataComponent implements OnInit {
   selectedFile: File | null = null;
   image_url: string = '';
   buttonState: string = 'default';
+  admin_id: number | null = null; // เก็บค่า admin_id
 
   constructor(
     private fb: FormBuilder,
@@ -51,21 +52,29 @@ export class AddDataComponent implements OnInit {
     private location: Location
   ) {
     this.animalForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       gender: ['', Validators.required],
-      species: ['', Validators.required],
-      age: [null, Validators.required],
+      species: [null, Validators.required],
+      age: [null, [Validators.required, Validators.min(1), Validators.max(20)]],
       size: ['', Validators.required],
       color: [''],
-      personality: [''],
+      personality: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(100),
+        ],
+      ],
       status: ['available'],
-      added_by_admin_id: [1],
+      added_by_admin_id: [null, Validators.required], // กำหนดว่า admin_id ต้องกรอก
       image_url: [''],
     });
   }
 
   ngOnInit(): void {
     this.loadSpeciesOptions();
+    this.loadAdminIdFromLocalStorage(); // ดึง admin_id จาก localStorage
   }
 
   loadSpeciesOptions() {
@@ -80,6 +89,17 @@ export class AddDataComponent implements OnInit {
         console.error('Error fetching species options:', error);
       }
     );
+  }
+
+  loadAdminIdFromLocalStorage() {
+    const user = localStorage.getItem('user'); // ดึงข้อมูล user จาก localStorage
+    if (user) {
+      const userData = JSON.parse(user); // แปลงข้อมูลจาก JSON string เป็น Object
+      this.admin_id = userData.admin_id || null; // ดึง admin_id จากข้อมูล user
+      if (this.admin_id) {
+        this.animalForm.patchValue({ added_by_admin_id: this.admin_id }); // ตั้งค่า admin_id ลงในฟอร์ม
+      }
+    }
   }
 
   onSubmit() {
@@ -126,6 +146,7 @@ export class AddDataComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
   onMouseEnter() {
     this.buttonState = 'hover';
   }
