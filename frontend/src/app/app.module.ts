@@ -75,7 +75,7 @@ import { AdoptionManagementComponent } from './adminPage/components/adoption-man
 import { ActivityService } from './services/activity.service';
 import { ActivityAddDataComponent  } from './adminPage/components/add-data-activity/add-data-activity.component';
 import { ActivityCardComponent } from './adminPage/components/activity-card/activity-card.component';
-
+import { ActivityManagementComponent} from './adminPage/components/activity-management/activity-management.component';
 import { DonationService } from './services/donation.service';
 import { StoreModule } from '@ngrx/store';
 import { animalReducer } from './state/animal.reducer';
@@ -131,6 +131,7 @@ import { animalReducer } from './state/animal.reducer';
     AdoptionManagementComponent,
     ActivityAddDataComponent,
     ActivityCardComponent,
+    ActivityManagementComponent,
   ],
   imports: [
     BrowserModule,

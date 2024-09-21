@@ -19,6 +19,7 @@ import { AdoptionComponent } from './components/adoption/adoption.component';
 import { AdoptionManagementComponent } from './components/adoption-management/adoption-management.component';
 import { ActivityAddDataComponent } from './components/add-data-activity/add-data-activity.component';
 import { ActivityCardComponent } from './components/activity-card/activity-card.component';
+import { ActivityManagementComponent } from './components/activity-management/activity-management.component';
 
 const adminRoutes: Routes = [
   {
@@ -38,6 +39,8 @@ const adminRoutes: Routes = [
       { path: 'even', component: ActivityComponent },
       { path: 'adoption/:id', component: AdoptionManagementComponent },
       { path: 'even/add-data', component: ActivityAddDataComponent },
+      { path: 'even/:id', component: ActivityManagementComponent },
+      
       
     ],
   },
@@ -45,7 +48,5 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(adminRoutes)],
- 
-
 })
 export class AdminModule {}
