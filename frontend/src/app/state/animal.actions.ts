@@ -13,7 +13,7 @@ export const setSpecie = createAction(
 
 export const setAgeRange = createAction(
   '[Animal] Set Age Range',
-  props<{ ageRange: number }>()
+  props<{ ageRange: string }>()
 );
 
 export const setGender = createAction(

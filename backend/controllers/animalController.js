@@ -207,10 +207,38 @@ exports.deleteAnimal = async (req, res) => {
   }
 };
 
-// ey test
-exports.getAnimalBy = async (req, res) => {
+
+// exports.getAnimalBySpecieGenderAge = async (req, res) => {
+//   try {
+    
+//     const query = {};
+
+//     if (req.params.species) {
+//       query.species = req.params.species;
+//     }
+
+//     if (req.params.gender) {
+//       query.gender = req.params.gender;
+//     }
+
+//     if (req.params.age) {
+//       const range = req.params.age.split('-');
+//       query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
+//     }
+
+
+//     const animals = await Animal.find(query);
+
+//     if (animals.length === 0) return res.status(404).json({ message: "Animals not found" });
+
+//     res.status(200).json(animals); // คืนค่าผลลัพธ์เป็น array
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+exports.getAnimalBySpecieGenderAge = async (req, res) => {
   try {
-    // สร้างเงื่อนไขการค้นหา
     const query = {};
 
     if (req.params.species) {
@@ -221,13 +249,45 @@ exports.getAnimalBy = async (req, res) => {
       query.gender = req.params.gender;
     }
 
-    // ใช้ find แทน findOne เพื่อคืนค่าเป็น array
+    if (req.params.age) {
+      const range = req.params.age.split('-');
+      query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
+    }
+
     const animals = await Animal.find(query);
 
-    if (animals.length === 0) return res.status(404).json({ message: "Animals not found" });
+    if (animals.length === 0) return res.status(404).json({ message: "ไม่พบข้อมูลสัตว์" });
 
-    res.status(200).json(animals); // คืนค่าผลลัพธ์เป็น array
+    res.status(200).json(animals);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+// exports.getAnimalBySpecieGenderAge = async (req, res) => {
+//   try {
+//     const query = {};
+
+//     if (req.query.species) {
+//       query.species = req.query.species;
+//     }
+
+//     if (req.query.gender) {
+//       query.gender = req.query.gender;
+//     }
+
+//     if (req.query.age) {
+//       const range = req.query.age.split('-');
+//       query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
+//     }
+
+//     const animals = await Animal.find(query);
+
+//     if (animals.length === 0) return res.status(404).json({ message: "ไม่พบข้อมูลสัตว์" });
+
+//     res.status(200).json(animals);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };

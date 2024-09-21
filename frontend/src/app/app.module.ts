@@ -52,7 +52,6 @@ import { AumrakComponent } from './page/aumrak/aumrak.component';
 import { AumrakDetailsComponent } from './page/aumrak-details/aumrak-details.component';
 import { SterilizationProgramComponent } from './page/sterilization-program/sterilization-program.component';
 import { NewsComponent } from './page/news/news.component';
-import { NewsService } from './services/news.service';
 import { NewsDetailsComponent } from './page/news-details/news-details.component';
 import { EditAnimalComponent } from './adminPage/components/edit-animal/edit-animal.component';
 import { FormEditAnimalComponent } from './adminPage/components/form-edit-animal/form-edit-animal.component';
@@ -75,7 +74,7 @@ import { AdoptionManagementComponent } from './adminPage/components/adoption-man
 import { ActivityService } from './services/activity.service';
 import { ActivityAddDataComponent  } from './adminPage/components/add-data-activity/add-data-activity.component';
 import { ActivityCardComponent } from './adminPage/components/activity-card/activity-card.component';
-
+import { AnimalNoAuthService } from './services/animal-no-auth.service';
 import { DonationService } from './services/donation.service';
 import { StoreModule } from '@ngrx/store';
 import { animalReducer } from './state/animal.reducer';
@@ -153,17 +152,18 @@ import { animalReducer } from './state/animal.reducer';
     ConfirmDialogModule,
     PaginatorModule,
     StoreModule.forRoot({ animal: animalReducer }),
+   
   ],
   providers: [
     provideClientHydration(),
     MessageService,
     FindHomeService,
     AnimalService,
-    NewsService,
     HealthRecordService,
     ConfirmationService,
     ActivityService,
-    DonationService
+    DonationService,
+    AnimalNoAuthService
   ],
   bootstrap: [AppComponent],
 })

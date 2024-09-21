@@ -23,7 +23,7 @@ export class BoxSaerchComponent implements OnInit {
   currentUrl: string = '';
 
   specie$: Observable<number>;
-  ageRange$: Observable<number>;
+  ageRange$: Observable<string>;
   gender$: Observable<string>;
   searchStatus$: Observable<SearchStatus>; 
 
@@ -72,7 +72,7 @@ export class BoxSaerchComponent implements OnInit {
 
   selectAgeRange(event: Event): void {
     const target = event.target as HTMLSelectElement;
-    const ageRange = parseInt(target.value, 10);
+    const ageRange = target.value;
     this.store.dispatch(setAgeRange({ ageRange }));
   }
 

@@ -80,18 +80,6 @@ export class AnimalService {
     return this.http.delete(`${this.baseUrl}/${id}`, { headers });
   }
 
-  getAnimalBySpecie(species: number | null): Observable<any> {
-    return this.http.get(`${this.baseUrl}/species/${species}`);
-  }
 
-  getAnimalByGender(gender: string | null): Observable<any> {
-    return this.http.get(`${this.baseUrl}/gender/${gender}`);
-  }
-
-  getAnimalBySpecieGender(
-    species: number | null,
-    gender: string | null
-  ): Observable<any> {
-    return this.http.get(`${this.baseUrl}/species/${species}/gender/${gender}`);
-  }
 }
+
