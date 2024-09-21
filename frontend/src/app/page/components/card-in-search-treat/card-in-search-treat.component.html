@@ -1,3 +1,9 @@
+<div *ngIf="loading" class="text-center">
+  <p>Loading animals...</p>
+</div>
+
+
+<div *ngIf="!loading">
 <div >
   
     <div *ngIf="animals.length > 0; else noAnimals">
@@ -21,3 +27,4 @@
       </div>
     </ng-template>
   </div>
+</div>

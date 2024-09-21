@@ -1,29 +1,28 @@
 <div>
-    <app-navbar></app-navbar>
-    <app-banner src="https://www.thevoicefoundation.org/src/asset/img/slides/20231219022249_0.jpg"></app-banner>
-    <div class="box-container">
-      <app-header-content-search 
-      header="โครงการทำหมัน" 
+  <app-navbar></app-navbar>
+  <app-banner
+    src="https://www.thevoicefoundation.org/src/asset/img/slides/20231219022249_0.jpg"
+  ></app-banner>
+  <div class="box-container">
+    <app-header-content-search
+      header="โครงการทำหมัน"
       color="#ffc107"
       fontColor="black"
-      [content]="content">
+      [content]="content"
+    >
     </app-header-content-search>
-    </div>
-
-    <div class="row my-5 d-flex justify-content-center align-items-center">
-        <div class="col-auto fs-5">
-          <button
-            class="btn btn-org rounded-pill px-4 py-2 fs-5 fw-400"
-            (click)="Click()"
-          >
-            กดบริจาค
-          </button>
-        </div>
-        
-      </div>
-      
-      <app-card-in-search-treat ></app-card-in-search-treat>
-
   </div>
 
-  
+  <div class="row w-100 my-5 d-flex justify-content-center align-items-center">
+    <div class="col-auto fs-5">
+      <button
+        class="btn btn-org rounded-pill px-4 py-2 fs-5 fw-400"
+        (click)="Click()"
+      >
+        กดบริจาค
+      </button>
+    </div>
+  </div>
+
+  <app-card-in-search-treat></app-card-in-search-treat>
+</div>

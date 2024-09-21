@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router ,NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, timeout } from 'rxjs/operators';
 import { HealthRecordService } from '../../../services/healthrecord.service';
 
 
@@ -16,6 +16,7 @@ export class CardInSearchTreatComponent implements OnInit {
   animals: any[] = []; 
   animalID!: number;
   currentUrl: string = '';
+  loading: boolean = false; 
   constructor(    
               private router: Router,
               private helthRecordService : HealthRecordService,
@@ -49,10 +50,13 @@ export class CardInSearchTreatComponent implements OnInit {
   }
  
   loadAnimalsInHelthRecord(){
-    this.helthRecordService.getHealthRecords().subscribe(
+    this.loading = true; 
+    this.helthRecordService.getHealthRecords().pipe(
+      timeout(5000) 
+    ).subscribe(
       (data) => {
         this.animals = data;
-        console.log(this.animals);
+        this.loading = false;
       },
       (error) => {
         console.error('Error fetching animals:', error);
@@ -62,7 +66,6 @@ export class CardInSearchTreatComponent implements OnInit {
 
 
   selectAnimal(id: number , treatment:string | undefined) {
-    
     this.router.navigate([this.currentUrl, id],{ queryParams: { treatment: this.treatment = treatment} });
   }
   

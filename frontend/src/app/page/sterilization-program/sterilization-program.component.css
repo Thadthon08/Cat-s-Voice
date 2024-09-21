@@ -1,45 +1,4 @@
-.card-animals {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    grid-gap: 10px; 
-    width: 90%;
-    height:auto;
-    align-items: center;
-    justify-items: center;
-    margin: auto;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.card-animals > div {
-    transition: transform 0.3s ease; 
-}
-
-.card-animals > div:hover {
-    transform: scale(0.9); 
-}
-
-.show-animal {
-  width: auto !important;
-  height: 306px !important;
-  cursor: pointer;
-}
-
-
-  .card-box-select {
-    width: 100%;
-    height: 5vh;
-    background-color: #E9D090;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-    padding: 0;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    cursor: pointer;
-  }
-
-  @media (min-width: 701px) and (max-width: 1400px)  {
+@media (min-width: 701px) and (max-width: 1400px)  {
     .card-animals {
         grid-template-columns: repeat(3, 1fr); 
         justify-content: center;
@@ -75,22 +34,22 @@
     align-items: center;
     padding: 8em;
     font-size: large;
-    transition: width 3s; /* ยังคงใช้ transition เหมือนเดิม */
+    transition: width 3s; 
     transition-delay: 1s;
   }
   
-  .box-alert:hover { /* เมื่อ hover เมาส์ไปที่ element */
-    width: 50%; /* เปลี่ยนความกว้างเป็น 50% */
+  .box-alert:hover { 
+    width: 50%; 
   }
 
   .btn-org {
-    background-color: #2caced;
+    background-color: #ffc107;
     color: white;
     font-weight: bold;
   }
   .btn-org:hover,
   .btn-org:active {
-    background-color: #1f98d4;
+    background-color: #ffca2c;
     color: white;
   }
 
