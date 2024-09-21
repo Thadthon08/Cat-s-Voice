@@ -54,7 +54,7 @@
       <div>เริ่มช่วงอายุ (ปี)</div>
       <div>
         <select class="form-select" aria-label="Default select" id="currentAge" (change)="selectAgeRange($event)">
-          <option *ngFor="let age of getAllAge()" [value]="age.id">
+          <option *ngFor="let age of getAllAge()" [value]="age.age">
             {{ age.rang_age }}
           </option>
         </select>

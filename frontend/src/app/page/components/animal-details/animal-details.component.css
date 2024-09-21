@@ -73,7 +73,7 @@
 
 @media (min-width: 701px) and (max-width: 1400px)  {
     .animal-image {
-        width: 100%;
+        width: 50%;
         height: auto; 
     }
    

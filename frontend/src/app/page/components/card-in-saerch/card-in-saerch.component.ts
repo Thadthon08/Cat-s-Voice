@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter, takeUntil, switchMap, take, tap, catchError, timeout } from 'rxjs/operators';
-import { AnimalService } from '../../../services/animal.service';
+import { AnimalNoAuthService } from '../../../services/animal-no-auth.service';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, combineLatest, of } from 'rxjs';
 import { AppState } from '../../../../app/state/app.state';
@@ -21,14 +21,14 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
 
 
   specie$: Observable<number>;
-  ageRange$: Observable<number>;
+  ageRange$: Observable<string>;
   gender$: Observable<string>;
   searchStatus$: Observable<SearchStatus>;
 
   private destroy$ = new Subject<void>();
 
   constructor(
-    private animalService: AnimalService,
+    private animalService: AnimalNoAuthService,
     private router: Router,
     private store: Store<AppState>,
   ) { 
@@ -50,7 +50,7 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
       takeUntil(this.destroy$),
       tap(search => console.log(search)), 
       switchMap(search => {
-        if (search === SearchStatus.Searching) { 
+        if (search === SearchStatus.Searching ) { 
           return combineLatest([this.specie$, this.ageRange$, this.gender$]).pipe(
             take(1),
             tap(() => this.store.dispatch(setSearchStatus({ status: SearchStatus.Initial })))
@@ -92,18 +92,18 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
   
   }
     
-    searchAnimals(specie: number | null, ageRange: number | null, gender: string | null) {
+    searchAnimals(specie: number | null, ageRange: string | null, gender: string | null) {
       console.log("Searching with specie:", specie, "ageRange:", ageRange, "gender:", gender);
   
       let request$;
       
     
-      if (specie !== null && specie !== 0 && typeof specie !== 'undefined' && gender && typeof gender !== 'undefined') {
-          request$ = this.animalService.getAnimalBySpecieGender(specie, gender);
+      if (specie !== null && specie !== 0 && typeof specie !== 'undefined' && gender && typeof gender !== 'undefined'  ) {
+          request$ = this.animalService.getAnimalBySpecieGenderAge(specie, gender,ageRange);
       } else if (specie !== null && specie !== 0 && typeof specie !== 'undefined') {
-          request$ = this.animalService.getAnimalBySpecie(specie);
+          request$ = this.animalService.getAnimalBySpecieAge(specie,ageRange);
       } else if (gender && typeof gender !== 'undefined') {
-          request$ = this.animalService.getAnimalByGender(gender);
+          request$ = this.animalService.getAnimalByGenderAge(gender,ageRange);
       }
   
       
