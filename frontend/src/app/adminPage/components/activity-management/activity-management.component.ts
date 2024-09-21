@@ -58,7 +58,7 @@ export class ActivityManagementComponent implements OnInit {
   }
 
   navigateToEditData() {
-    this.router.navigate(['/admin/even/edit-data/', this.activityId]);
+    this.router.navigate(['/admin/even/edit/', this.activityId]);
   }
 
   deleteActivity() {

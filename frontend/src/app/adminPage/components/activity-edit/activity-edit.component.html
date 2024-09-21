@@ -1,0 +1,133 @@
+<p-toast position="top-right"></p-toast>
+<div class="container p-5">
+  <h2 class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom">
+    กิจกรรม
+  </h2>
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <app-form-edit-recovery
+        [data]="activityForm.value"
+      ></app-form-edit-recovery>
+    </div>
+    <div class="col-md-5">
+      <div class="bg-white p-4 rounded-1 shadow-custom mt-3">
+        <form
+          [formGroup]="activityForm"
+          (ngSubmit)="onSubmit()"
+          class="p-fluid p-formgrid p-grid"
+          style="max-width: 100%; margin: auto"
+        >
+          <div class="row mb-3">
+            <label for="name" class="col-md-4 col-form-label">ชื่อ</label>
+            <div class="col-md-8">
+              <input
+                id="name"
+                type="text"
+                pInputText
+                class="form-control"
+                formControlName="name"
+                required
+                aria-label="Name"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="age" class="col-md-4 col-form-label">รายละเอียด</label>
+            <div class="col-md-8">
+              <input
+                id="details"
+                type="text"
+                pInputText
+                class="form-control"
+                formControlName="details"
+                aria-label="Details"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="size" class="col-md-4 col-form-label">สถานที่</label>
+            <div class="col-md-8">
+              <input
+                id="location"
+                type="text"
+                pInputText
+                class="form-control"
+                formControlName="location"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="diagnosis" class="col-md-4 col-form-label"
+              >เวลา</label
+            >
+            <div class="col-md-8">
+              <input
+                id="time"
+                type="time"
+                pInputText
+                class="form-control"
+                formControlName="time"
+                aria-label="time"
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="notes" class="col-md-4 col-form-label">หมายเหตุ</label>
+            <div class="col-md-8">
+              <textarea
+                id="notes"
+                pInputTextarea
+                class="form-control"
+                formControlName="notes"
+                rows="3"
+                aria-label="Notes"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="checkup_date" class="col-md-4 col-form-label"
+              >วันที่</label
+            >
+            <div class="col-md-8">
+              <input
+                id="date"
+                type="date"
+                pInputText
+                class="form-control"
+                formControlName="date"
+                aria-label="date"
+              />
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-6 mt-2 md:mt-0">
+              <button
+                pButton
+                type="button"
+                label="ยกเลิก"
+                class="btn btn-secondary w-100"
+                (click)="cancel()"
+              ></button>
+            </div>
+            <div class="col-md-6 mt-2 md:mt-0">
+              <button
+                pButton
+                type="submit"
+                label="เพิ่มข้อมูล"
+                class="btn btn-org w-100"
+              ></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
