@@ -52,7 +52,7 @@ export class CardInSearchTreatComponent implements OnInit {
   loadAnimalsInHelthRecord(){
     this.loading = true; 
     this.helthRecordService.getHealthRecords().pipe(
-      timeout(5000) 
+      timeout(3000) 
     ).subscribe(
       (data) => {
         this.animals = data;

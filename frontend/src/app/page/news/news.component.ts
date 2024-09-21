@@ -20,7 +20,7 @@ export class NewsComponent implements OnInit{
   loadNews() {
     this.loading = true;
     this.newService.getActivitys().pipe(
-      timeout(5000) 
+      timeout(3000) 
     ).subscribe(
       (data) => {
         this.news = data;
