@@ -42,7 +42,7 @@ export class AuthService {
       return true;
     } else {
       this.logout();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/admin/login']);
       return false;
     }
   }
@@ -76,6 +76,6 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('user');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/admin/login']);
   }
 }
