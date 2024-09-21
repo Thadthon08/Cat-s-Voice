@@ -13,7 +13,8 @@ router.post("/", authenticateJWT, animalController.createAnimal);
 router.put("/:id", authenticateJWT, animalController.updateAnimal);
 router.delete("/:id", authenticateJWT, animalController.deleteAnimal);
 router.post("/upload", upload.single("image"), uploadAnimalImage);
-// ey test
+//เส้นทาง API สำหรับการค้นหาสัตว์
+router.get("/age/:age", animalController.getAnimalBySpecieGenderAge);
 router.get("/species/:species/age/:age", animalController.getAnimalBySpecieGenderAge);
 router.get("/gender/:gender/age/:age", animalController.getAnimalBySpecieGenderAge);
 router.get("/species/:species/gender/:gender/age/:age", animalController.getAnimalBySpecieGenderAge);

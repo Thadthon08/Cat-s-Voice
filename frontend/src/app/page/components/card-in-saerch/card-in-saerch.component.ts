@@ -99,12 +99,15 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
       
     
       if (specie !== null && specie !== 0 && typeof specie !== 'undefined' && gender && typeof gender !== 'undefined'  ) {
-          request$ = this.animalService.getAnimalBySpecieGenderAge(specie, gender,ageRange);
-      } else if (specie !== null && specie !== 0 && typeof specie !== 'undefined') {
-          request$ = this.animalService.getAnimalBySpecieAge(specie,ageRange);
-      } else if (gender && typeof gender !== 'undefined') {
-          request$ = this.animalService.getAnimalByGenderAge(gender,ageRange);
-      }
+        request$ = this.animalService.getAnimalBySpecieGenderAge(specie, gender, ageRange);
+    } else if (specie !== null && specie !== 0 && typeof specie !== 'undefined') {
+        request$ = this.animalService.getAnimalBySpecieAge(specie, ageRange);
+    } else if (gender && typeof gender !== 'undefined') {
+        request$ = this.animalService.getAnimalByGenderAge(gender, ageRange);
+    } else if (ageRange !== null && typeof ageRange !== 'undefined') {
+        request$ = this.animalService.getAnimalByAge(ageRange);
+    }
+    
   
       
       if (request$) {

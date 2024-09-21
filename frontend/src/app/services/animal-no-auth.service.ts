@@ -29,6 +29,10 @@ export class AnimalNoAuthService {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
+  getAnimalByAge(age: string | null): Observable<any> {
+    return this.http.get(`${this.apiUrl}/age/${age}`);
+  }
+  
   getAnimalBySpecieAge(species: number | null , age: string | null): Observable<any> {
     return this.http.get(`${this.apiUrl}/species/${species}/age/${age}`);
   }
