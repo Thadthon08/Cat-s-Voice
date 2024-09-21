@@ -38,9 +38,19 @@ exports.createHealthRecord = async (req, res) => {
 //Get
 exports.getAllHealthRecords = async (req, res) => {
   try {
+    // ดึงข้อมูล HealthRecord และ populate ข้อมูลสัตว์ที่เกี่ยวข้อง
     const healthRecords = await HealthRecord.find().populate("animal_id");
 
-    res.json(healthRecords);
+    // กรองเฉพาะสัตว์ที่มี status เป็น available หรือ pending
+    const filteredHealthRecords = healthRecords.filter((record) => {
+      return (
+        record.animal_id &&
+        (record.animal_id.status === "available" ||
+          record.animal_id.status === "pending")
+      );
+    });
+
+    res.json(filteredHealthRecords);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

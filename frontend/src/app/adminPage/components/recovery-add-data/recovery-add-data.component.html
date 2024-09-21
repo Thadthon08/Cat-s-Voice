@@ -1,4 +1,5 @@
 <p-toast position="top-right"></p-toast>
+
 <div class="container p-5">
   <h2
     class="bg-white rounded-pill py-3 px-4 mb-5 text-center shadow-custom"
@@ -25,7 +26,8 @@
         ></p-dropdown>
         <div
           *ngIf="
-            animalForm.get('name')?.invalid && animalForm.get('name')?.touched
+            animalForm.get('animal_id')?.invalid &&
+            animalForm.get('animal_id')?.touched
           "
           class="text-danger"
         >
@@ -44,6 +46,15 @@
           class="form-control"
           formControlName="diagnosis"
         />
+        <div
+          *ngIf="
+            animalForm.get('diagnosis')?.invalid &&
+            animalForm.get('diagnosis')?.touched
+          "
+          class="text-danger"
+        >
+          กรุณากรอกข้อมูลอาการ/โรค
+        </div>
       </div>
     </div>
 
@@ -57,6 +68,15 @@
           class="form-control"
           formControlName="treatment"
         />
+        <div
+          *ngIf="
+            animalForm.get('treatment')?.invalid &&
+            animalForm.get('treatment')?.touched
+          "
+          class="text-danger"
+        >
+          กรุณากรอกข้อมูลการรักษา
+        </div>
       </div>
     </div>
 
