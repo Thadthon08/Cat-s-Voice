@@ -80,6 +80,7 @@ import { DonationService } from './services/donation.service';
 import { StoreModule } from '@ngrx/store';
 import { animalReducer } from './state/animal.reducer';
 import { ActivityEditComponent } from './adminPage/components/activity-edit/activity-edit.component';
+import {FormEditActivityComponent} from './adminPage/components/form-edit-activity/form-edit-activity.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,6 +135,8 @@ import { ActivityEditComponent } from './adminPage/components/activity-edit/acti
     ActivityCardComponent,
     ActivityManagementComponent,
     ActivityEditComponent,
+    FormEditActivityComponent,
+    
   ],
   imports: [
     BrowserModule,

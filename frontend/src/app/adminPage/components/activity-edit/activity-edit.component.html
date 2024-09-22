@@ -5,9 +5,9 @@
   </h2>
   <div class="row justify-content-center">
     <div class="col-md-7">
-      <app-form-edit-recovery
+      <app-form-edit-activity
         [data]="activityForm.value"
-      ></app-form-edit-recovery>
+      ></app-form-edit-activity>
     </div>
     <div class="col-md-5">
       <div class="bg-white p-4 rounded-1 shadow-custom mt-3">
@@ -27,8 +27,6 @@
                 class="form-control"
                 formControlName="name"
                 required
-                aria-label="Name"
-                readonly
               />
             </div>
           </div>
@@ -43,7 +41,7 @@
                 class="form-control"
                 formControlName="details"
                 aria-label="Details"
-                readonly
+                
               />
             </div>
           </div>
@@ -57,7 +55,7 @@
                 pInputText
                 class="form-control"
                 formControlName="location"
-                readonly
+                
               />
             </div>
           </div>

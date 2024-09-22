@@ -21,6 +21,7 @@ import { ActivityAddDataComponent } from './components/add-data-activity/add-dat
 import { ActivityCardComponent } from './components/activity-card/activity-card.component';
 import { ActivityManagementComponent } from './components/activity-management/activity-management.component';
 import { ActivityEditComponent } from './components/activity-edit/activity-edit.component';
+import { FormEditActivityComponent } from './components/form-edit-activity/form-edit-activity.component';
 
 const adminRoutes: Routes = [
   {
