@@ -1,0 +1,50 @@
+<div class="container d-flex flex-column align-items-center gap-2">
+    <div class="image-container bg-white shadow-custom p-1 rounded-0">
+      <img
+        *ngIf="activityForm.get('image')?.value"
+        [src]="activityForm.get('image')?.value"
+        alt="Animal Image"
+        class="img-fluid rounded-0 mx-auto d-block image-frame"
+      />
+    </div>
+  
+    <div class="col-12 bg-white p-4 mt-3 shadow-custom text-brown">
+      <div class="d-flex flex-column gap-2">
+        <div class="d-flex align-items-center mb-1">
+          <span class="fw-bold me-2">Name:</span>
+          <span class="text-dark">
+            {{ activityForm.get("name")?.value }}
+          </span>
+        </div>
+        <div class="d-flex align-items-center mb-1">
+          <span class="fw-bold text-brown me-2">details:</span>
+          <span class="text-dark">{{ activityForm.get("details")?.value }}</span>
+        </div>
+        <div class="d-flex align-items-center mb-1">
+          <span class="fw-bold text-brown me-2">date:</span>
+          <span class="text-dark">
+            {{ activityForm.get("date")?.value }}
+          </span>
+        </div>
+        <div class="d-flex align-items-center mb-1">
+          <span class="fw-bold text-brown me-2">location:</span>
+          <span class="text-dark">
+            {{ activityForm.get("location")?.value }}
+          </span>
+        </div>
+        <div class="d-flex align-items-center mb-1">
+          <span class="fw-bold text-brown me-2">time:</span>
+          <span class="text-dark">
+            {{ activityForm.get("time")?.value }}
+          </span>
+        </div>
+        <div class="d-flex align-items-center mb-1">
+          <span class="fw-bold text-brown me-2">notes:</span>
+          <span class="text-dark">
+            {{ activityForm.get("notes")?.value }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
