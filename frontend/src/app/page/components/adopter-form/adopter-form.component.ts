@@ -11,7 +11,7 @@ import { AdopterService } from '../../../services/adopter.service';
 export class AdopterFormComponent implements OnInit{
   animalId: string | null = null;
   animals: any[] = []; 
-  isModalOpen = false;
+  isModalOpen: boolean = false;
   modalImage = '';
   modalCaption = '';
   adopterForm: FormGroup;
@@ -48,27 +48,29 @@ export class AdopterFormComponent implements OnInit{
 
 
   onSubmit() {
+    console.log( this.adopterForm.get('adopter_phone') )
     if (this.adopterForm.valid) {
       const currentDate = new Date().toISOString().substring(0, 10); // รูปแบบ YYYY-MM-DD
       this.adopterForm.patchValue({
         adoption_date: currentDate
       });
       const formData = this.adopterForm.value; 
-      console.log('Form Data:', formData); 
-      
       this.animalService.addAdopter(formData).subscribe(
         (response) => {
-          console.log('Adopter added successfully', response);
+          this.isModalOpen = true;
+          setTimeout(() => {
+            window.location.reload();
+            }, 4000);
         },
         (error) => {
           console.error('Error adding adopter', error);
         }
       );
-      this.isModalOpen = true;
+      
     } else {
       this.isValid = true;
       setTimeout(() => {
-        this.isValid = false;
+      this.isValid = false;
       }, 4000);
     }
     
