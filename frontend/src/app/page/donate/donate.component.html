@@ -37,6 +37,9 @@ class="alert alert-danger"
 </div>
 
 
+<div *ngIf="isModalOpen" class="alert alert-success">
+  ขอบคุณที่สนับสนุน! <br/>เราจะติดต่อกลับไปเพื่อแจ้งข้อมูลเพิ่มเติมและขั้นตอนถัดไปในเร็วๆ นี้ครับ
+</div>
 
 </div>
 
@@ -204,6 +207,7 @@ class="alert alert-danger"
           class="form-control"
           formControlName="donor_phone"
           placeholder="เบอร์โทร"
+          TelDirective
         />
       </div>
 

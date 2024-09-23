@@ -43,6 +43,7 @@
         <label for="phone" class="col-md-4 col-form-label">เบอร์โทร</label>
         <div class="col-md-8">
           <input
+            
             id="phone"
             type="text"
             pInputText
@@ -123,21 +124,21 @@
     >
       กรุณากรอกเบอร์โทรของคุณเพื่อให้เราสามารถติดต่อคุณได้
     </div>
-    <div
-      *ngIf="adopterForm?.get('donor_email')?.invalid && isValid"
-      class="alert alert-danger"
-    >
-      โปรดกรอกอีเมลเพื่อให้เราสามารถติดต่อคุณได้
-    </div>
+   
     <div
     *ngIf="adopterForm?.get('adopter_email')?.invalid && isValid"
     class="alert alert-danger"
   >
     โปรดกรอกอีเมลที่ถูกต้อง เพื่อให้เราสามารถยืนยันข้อมูลการรับอุปการะกับคุณ
   </div>
+
+    <div *ngIf="isModalOpen" class="alert alert-success">
+      ขอบคุณที่แสดงความสนใจในการอุปการะสัตว์เลี้ยงกับเรา เราจะติดต่อกลับไปเพื่อแจ้งข้อมูลเพิ่มเติมและขั้นตอนถัดไปในเร็วๆ นี้ครับ
+    </div>
+  </div>
   
 
-   <div class="modal fade" [ngClass]="{'show-modal': isModalOpen}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <!-- <div class="modal fade" [ngClass]="{'show-modal': isModalOpen}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
             <span class="close" aria-hidden="true" (click)="closeModal()">&times;</span>
@@ -147,5 +148,5 @@
 
           <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
     </div>
-  </div>
+  </div> -->
   

@@ -7,20 +7,13 @@ import { NgControl } from '@angular/forms';
 export class TelDirective {
   constructor(public ngControl: NgControl) {}
 
-  @HostListener('ngModelChange', ['$event'])
-  onModelChange(event: string) {
-    if (event) {
-      this.onInputChange(event, false);
-    }
-  }
-
-  @HostListener('keydown.backspace', ['$event'])
-  keydownBackspace(event: KeyboardEvent) {
+  @HostListener('input', ['$event'])
+  onInput(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
-    this.onInputChange(inputValue, true);
+    this.onInputChange(inputValue);
   }
 
-  onInputChange(value: string, backspace: boolean) {
+  onInputChange(value: string) {
     let formattedValue = value.replace(/\D/g, ''); // Remove all non-digit characters
 
     if (formattedValue.length === 0) {
