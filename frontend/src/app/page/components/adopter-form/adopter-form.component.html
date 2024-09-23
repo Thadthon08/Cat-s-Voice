@@ -1,3 +1,8 @@
+
+
+
+
+
 <div class="container my-5">
     
     <form
@@ -99,6 +104,38 @@
   </div>
   
 
+  <div class="alert-container">
+    <div
+    *ngIf="adopterForm?.get('adopter_name')?.invalid && isValid"
+    class="alert alert-danger"
+  >
+    โปรดกรอก ชื่อ-นามสกุล เพื่อดำเนินการต่อ
+  </div>
+  <div
+  *ngIf="adopterForm?.get('adopter_salary')?.invalid && isValid"
+  class="alert alert-danger"
+  >
+  โปรดกรอกจำนวนเงินเดือนก่อนดำเนินการต่อ
+  </div>
+    <div
+      *ngIf="adopterForm?.get('adopter_phone')?.invalid && isValid"
+      class="alert alert-danger"
+    >
+      กรุณากรอกเบอร์โทรของคุณเพื่อให้เราสามารถติดต่อคุณได้
+    </div>
+    <div
+      *ngIf="adopterForm?.get('donor_email')?.invalid && isValid"
+      class="alert alert-danger"
+    >
+      โปรดกรอกอีเมลเพื่อให้เราสามารถติดต่อคุณได้
+    </div>
+    <div
+    *ngIf="adopterForm?.get('adopter_email')?.invalid && isValid"
+    class="alert alert-danger"
+  >
+    โปรดกรอกอีเมลที่ถูกต้อง เพื่อให้เราสามารถยืนยันข้อมูลการรับอุปการะกับคุณ
+  </div>
+  
 
    <div class="modal fade" [ngClass]="{'show-modal': isModalOpen}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

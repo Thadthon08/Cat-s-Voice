@@ -101,7 +101,7 @@ const AdoptionSchema = new mongoose.Schema({
   adopter_phone: { type: String, required: true },
   adopter_salary: { type: Number },
   adoption_reason: { type: String },
-  adoption_date: { type: Date, default: Date.now },
+  adoption_date: { type: Date, required: true },
   status: {
     type: String,
     enum: ["completed", "pending", "cancelled"],
