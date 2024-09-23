@@ -235,6 +235,8 @@ class="alert alert-danger"
     <p *ngIf="showWarning" style="color: red; text-align: center;">
       โปรดยอมรับเงื่อนไขก่อนดำเนินการต่อ
     </p>
+    
+
 
     <div class="row mt-5 d-flex justify-content-center align-items-center">
       <div class="col-auto">
@@ -250,29 +252,4 @@ class="alert alert-danger"
   </form>
 </div>
 
-<div
-  class="alert modal fade"
-  role="alert"
-  [ngClass]="{ 'show-modal': isModalOpen }"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <span class="close" aria-hidden="true" (click)="closeModal()"
-        >&times;</span
-      >
-      <div class="modal-body">
-        ขอบคุณที่แสดงความสนใจในการอุปการะสัตว์เลี้ยงกับเรา
-        เราจะติดต่อกลับไปเพื่อแจ้งข้อมูลเพิ่มเติมและขั้นตอนถัดไปในเร็วๆ นี้ครับ
-      </div>
-
-      <button type="button" class="btn btn-secondary" (click)="closeModal()">
-        Close
-      </button>
-    </div>
-  </div>
-</div>
 
