@@ -12,8 +12,8 @@ export class DonateComponent implements OnInit {
   isModalOpen: boolean = false;
   isValid: boolean = false;
   donationForm: FormGroup;
-  isChecked = false; 
-  showWarning = false; 
+  isChecked: boolean = false; 
+  showWarning: boolean = false; 
 
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private donationService: DonationService) {
 
@@ -34,14 +34,13 @@ export class DonateComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log(this.donationForm.value)
+    if (!this.donationForm.get('acceptCheckbox')?.value) {
+      this.showWarning = true; 
+    } else {
+      this.showWarning = false; 
+    }
     if (this.donationForm.valid) {
-
-      if (!this.donationForm.get('acceptCheckbox')?.value) {
-        this.showWarning = true; 
-      } else {
-        this.showWarning = false; 
-  
         const currentDate = new Date().toISOString().substring(0, 10); // รูปแบบ YYYY-MM-DD
         this.donationForm.patchValue({
           donation_date: currentDate
@@ -51,12 +50,17 @@ export class DonateComponent implements OnInit {
         this.donationService.addDonation(formData).subscribe(
           (response) => {
             this.isModalOpen = true;
+
+            setTimeout(() => {
+              this.router.navigate(['/'])
+            }, 2000);
+
             },
           (error) => {
             console.error('Error donating', error);
           }
         );
-              }
+            
     } else {
          this.isValid = true;
       setTimeout(() => {
@@ -74,12 +78,4 @@ export class DonateComponent implements OnInit {
 
   }
 
-  closeModal(): void {
-    this.isModalOpen = false;
-    setTimeout(() => {
-
-      this.router.navigate(['/'])
-
-    }, 2000);
-  }
 }
