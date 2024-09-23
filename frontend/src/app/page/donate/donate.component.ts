@@ -50,9 +50,11 @@ export class DonateComponent implements OnInit {
         this.donationService.addDonation(formData).subscribe(
           (response) => {
             this.isModalOpen = true;
+
             setTimeout(() => {
               this.router.navigate(['/'])
             }, 2000);
+
             },
           (error) => {
             console.error('Error donating', error);

@@ -61,6 +61,7 @@ export class AdopterFormComponent implements OnInit{
           setTimeout(() => {
             window.location.reload();
             }, 3000);
+
         },
         (error) => {
           console.error('Error adding adopter', error);
