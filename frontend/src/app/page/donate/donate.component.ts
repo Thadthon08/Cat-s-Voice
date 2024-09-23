@@ -9,11 +9,11 @@ import { DonationService } from '../../services/donation.service';
 })
 export class DonateComponent implements OnInit {
 
-  isModalOpen = false;
+  isModalOpen: boolean = false;
   isValid: boolean = false;
   donationForm: FormGroup;
-  isChecked = false; // สถานะของเช็คบ็อกซ์
-  showWarning = false; // แสดงข้อความเตือน
+  isChecked = false; 
+  showWarning = false; 
 
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private donationService: DonationService) {
 
@@ -47,13 +47,11 @@ export class DonateComponent implements OnInit {
           donation_date: currentDate
         });
   
-        // ส่งข้อมูลฟอร์ม
         const formData = this.donationForm.value;
         this.donationService.addDonation(formData).subscribe(
           (response) => {
             this.isModalOpen = true;
-            // console.log('Donate added successfully', response);
-          },
+            },
           (error) => {
             console.error('Error donating', error);
           }
