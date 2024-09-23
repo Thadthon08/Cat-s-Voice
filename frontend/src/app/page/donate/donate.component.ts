@@ -58,12 +58,9 @@ export class DonateComponent implements OnInit {
             console.error('Error donating', error);
           }
         );
-  
-        // console.log('Form Submitted!', this.donationForm.value);
-      }
+              }
     } else {
-      // console.log('Form is not valid', this.donationForm.value);
-      this.isValid = true;
+         this.isValid = true;
       setTimeout(() => {
         this.isValid = false;
       }, 3000);

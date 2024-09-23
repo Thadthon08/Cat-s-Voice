@@ -15,6 +15,7 @@ export class AdopterFormComponent implements OnInit{
   modalImage = '';
   modalCaption = '';
   adopterForm: FormGroup;
+  isValid: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +30,7 @@ export class AdopterFormComponent implements OnInit{
       adopter_phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
       adopter_salary: [null, Validators.required],
       adoption_reason: [''],
+      adoption_date:[''],
       status: ['pending'],
     });
   }
@@ -47,8 +49,12 @@ export class AdopterFormComponent implements OnInit{
 
   onSubmit() {
     if (this.adopterForm.valid) {
-      const formData = this.adopterForm.value; // รับค่าจากฟอร์ม
-      console.log('Form Data:', formData); // แสดงข้อมูลที่ส่ง
+      const currentDate = new Date().toISOString().substring(0, 10); // รูปแบบ YYYY-MM-DD
+      this.adopterForm.patchValue({
+        adoption_date: currentDate
+      });
+      const formData = this.adopterForm.value; 
+      console.log('Form Data:', formData); 
       
       this.animalService.addAdopter(formData).subscribe(
         (response) => {
@@ -60,8 +66,10 @@ export class AdopterFormComponent implements OnInit{
       );
       this.isModalOpen = true;
     } else {
-      console.log('Form is not valid');
-      console.log(this.adopterForm.controls);
+      this.isValid = true;
+      setTimeout(() => {
+        this.isValid = false;
+      }, 4000);
     }
     
     
