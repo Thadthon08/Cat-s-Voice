@@ -105,8 +105,6 @@ export class CardInSearchTreatComponent implements OnInit , OnDestroy {
 
 //รอเปลี่ยน URL
   searchAnimalsInHelthRecord(specie: number | null, ageRange: string | null, gender: string | null) {
-    console.log("Searching with specie:", specie, "ageRange:", ageRange, "gender:", gender);
-
     let request$;
     
   
@@ -134,7 +132,6 @@ export class CardInSearchTreatComponent implements OnInit , OnDestroy {
             })
         ).subscribe(
             (data) => {
-                console.log("Response from API:", data);
                 if (data && data.animals && Array.isArray(data.animals)) {
                     this.animals = data.animals; // ใช้ data.animals
                 } else if (data && Array.isArray(data)) {

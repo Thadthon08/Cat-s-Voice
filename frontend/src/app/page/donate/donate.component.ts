@@ -34,7 +34,7 @@ export class DonateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.donationForm.value)
+
     if (!this.donationForm.get('acceptCheckbox')?.value) {
       this.showWarning = true; 
     } else {

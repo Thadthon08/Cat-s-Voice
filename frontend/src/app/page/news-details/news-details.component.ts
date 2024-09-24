@@ -42,7 +42,6 @@ export class NewsDetailsComponent  {
     ).subscribe(
       (data) => {
         this.news = data;
-        // console.log(this.news)
         this.loading = false;
       },
       (error) => {

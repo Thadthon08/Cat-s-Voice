@@ -14,7 +14,6 @@ router.delete(
   HealthRecordController.deleteHealthRecord
 );
 
-
 router.get("/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
 router.get("/species/:species/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
 router.get("/gender/:gender/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);

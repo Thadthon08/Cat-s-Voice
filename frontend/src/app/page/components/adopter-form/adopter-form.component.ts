@@ -48,7 +48,7 @@ export class AdopterFormComponent implements OnInit{
 
 
   onSubmit() {
-    console.log( this.adopterForm.get('adopter_phone') )
+
     if (this.adopterForm.valid) {
       const currentDate = new Date().toISOString().substring(0, 10); // รูปแบบ YYYY-MM-DD
       this.adopterForm.patchValue({
