@@ -14,4 +14,7 @@ router.delete(
   HealthRecordController.deleteHealthRecord
 );
 
+//เส้นทาง API สำหรับการค้นหาสัตว์
+router.get("/age/:age", HealthRecordController.getFilteredAnimalDetails);
+
 module.exports = router;
