@@ -111,30 +111,43 @@ exports.deleteHealthRecord = async (req, res) => {
   }
 };
 
-exports.getBySpecieGenderAge = async (req, res) => {
+exports.getFilteredAnimalDetails = async (req, res) => {
+  
   try {
-    const query = {};
+    // ดึงข้อมูล HealthRecord และ populate ข้อมูลสัตว์ที่เกี่ยวข้อง
+    const healthRecords = await HealthRecord.find().populate("animal_id");
 
+    // สร้างเซ็ตเพื่อเก็บ ID ของสัตว์ที่มีอยู่ใน HealthRecord
+    const animalIds = new Set(healthRecords.map(record => record.animal_id._id));
+
+    // สร้างเงื่อนไขการค้นหา
+    const filter = { _id: { $in: Array.from(animalIds) } };
+    
     if (req.params.species) {
-      query.species = req.params.species;
+      filter.species = req.params.species;
     }
 
     if (req.params.gender) {
-      query.gender = req.params.gender;
+      filter.gender = req.params.gender;
     }
 
     if (req.params.age) {
       const range = req.params.age.split("-");
-      query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
+      filter.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
     }
 
-    const animals = await Animal.find(query);
 
-    if (animals.length === 0)
-      return res.status(404).json({ message: "ไม่พบข้อมูลสัตว์" });
+    // ดึงข้อมูลสัตว์ที่มี ID อยู่ใน HealthRecord ตามเงื่อนไขที่กำหนด
+    const animals = await Animal.find(filter);
 
-    res.status(200).json(animals);
+    // กรองข้อมูลเพื่อให้ได้เฉพาะอายุ เพศ และประเภท
+    const animalDetails = animals.map(animal => ({
+      ...animal.toObject() // ใช้ toObject() เพื่อแปลง Mongoose Document เป็น JavaScript Object
+    }));
+
+    res.json(animalDetails);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
