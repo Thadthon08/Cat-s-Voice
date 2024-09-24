@@ -88,6 +88,7 @@ export class CardInSearchTreatComponent implements OnInit , OnDestroy {
       timeout(5000) 
     ).subscribe(
       (data) => {
+        console.log(data)
         this.animals = data;
         this.loading = false;
       },
