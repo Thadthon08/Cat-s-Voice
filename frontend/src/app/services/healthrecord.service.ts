@@ -51,4 +51,26 @@ export class HealthRecordService {
     const headers = this.getHeaders();
     return this.http.delete(`${this.apiUrl}/${id}`, { headers });
   }
+
+
+  getAnimalByAge(age: string | null): Observable<any> {
+    return this.http.get(`${this.apiUrl}/age/${age}`);
+  }
+  
+  getAnimalBySpecieAge(species: number | null , age: string | null): Observable<any> {
+    return this.http.get(`${this.apiUrl}/species/${species}/age/${age}`);
+  }
+  
+  getAnimalByGenderAge(gender: string | null , age : string | null): Observable<any> {
+    return this.http.get(`${this.apiUrl}/gender/${gender}/age/${age}`);
+  }
+  
+  getAnimalBySpecieGenderAge(
+    species: number | null,
+    gender: string | null,
+    age : string | null
+  ): Observable<any> {
+    return this.http.get(`${this.apiUrl}/species/${species}/gender/${gender}/age/${age}`);
+  }
+  
 }
