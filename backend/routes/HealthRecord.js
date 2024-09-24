@@ -14,7 +14,7 @@ router.delete(
   HealthRecordController.deleteHealthRecord
 );
 
-//เส้นทาง API สำหรับการค้นหาสัตว์จาก  HealthRecords
+
 router.get("/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
 router.get("/species/:species/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
 router.get("/gender/:gender/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
