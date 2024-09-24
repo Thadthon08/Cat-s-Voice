@@ -21,5 +21,6 @@ router.get("/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
 router.get("/age/:age/species/:species", HealthRecordController.getFilteredAnimalDetails);
 router.get("/age/:age/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
 router.get("/species/:species/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
+router.get("/age/:age/species/:species/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
 
 module.exports = router;
