@@ -111,43 +111,49 @@ exports.deleteHealthRecord = async (req, res) => {
   }
 };
 
-exports.getFilteredAnimalDetails = async (req, res) => {
-  
+
+
+exports.getFilteredHealthRecordsByAnimal = async (req, res) => {
   try {
-    // ดึงข้อมูล HealthRecord และ populate ข้อมูลสัตว์ที่เกี่ยวข้อง
-    const healthRecords = await HealthRecord.find().populate("animal_id");
+    const query = {};
 
-    // สร้างเซ็ตเพื่อเก็บ ID ของสัตว์ที่มีอยู่ใน HealthRecord
-    const animalIds = new Set(healthRecords.map(record => record.animal_id._id));
-
-    // สร้างเงื่อนไขการค้นหา
-    const filter = { _id: { $in: Array.from(animalIds) } };
-    
+    // สร้างเงื่อนไขการค้นหาจาก species, gender และ age
     if (req.params.species) {
-      filter.species = req.params.species;
+      query.species = req.params.species;
     }
 
     if (req.params.gender) {
-      filter.gender = req.params.gender;
+      query.gender = req.params.gender;
     }
 
     if (req.params.age) {
       const range = req.params.age.split("-");
-      filter.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
+      query.age = { $gte: parseInt(range[0]), $lte: parseInt(range[1]) };
     }
 
+    // ค้นหาสัตว์ตามเงื่อนไขที่ได้จาก query
+    const animals = await Animal.find(query);
 
-    // ดึงข้อมูลสัตว์ที่มี ID อยู่ใน HealthRecord ตามเงื่อนไขที่กำหนด
-    const animals = await Animal.find(filter);
+    if (animals.length === 0) {
+      return res.status(404).json({ message: "ไม่พบข้อมูลสัตว์" });
+    }
 
-    // กรองข้อมูลเพื่อให้ได้เฉพาะอายุ เพศ และประเภท
-    const animalDetails = animals.map(animal => ({
-      ...animal.toObject() // ใช้ toObject() เพื่อแปลง Mongoose Document เป็น JavaScript Object
-    }));
+    // ดึงข้อมูล HealthRecord โดยใช้ populate ข้อมูลสัตว์
+    const healthRecords = await HealthRecord.find({
+      animal_id: { $in: animals.map((animal) => animal._id) }
+    }).populate("animal_id");
 
-    res.json(animalDetails);
+    // กรองเฉพาะสัตว์ที่มีสถานะ available หรือ pending
+    const filteredHealthRecords = healthRecords.filter((record) => {
+      return (
+        record.animal_id &&
+        (record.animal_id.status === "available" ||
+          record.animal_id.status === "pending")
+      );
+    });
+
+    res.json(filteredHealthRecords);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-

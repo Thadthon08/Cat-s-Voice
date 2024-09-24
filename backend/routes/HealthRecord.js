@@ -14,13 +14,11 @@ router.delete(
   HealthRecordController.deleteHealthRecord
 );
 
-//เส้นทาง API สำหรับการค้นหาสัตว์
-router.get("/age/:age", HealthRecordController.getFilteredAnimalDetails);
-router.get("/species/:species", HealthRecordController.getFilteredAnimalDetails);
-router.get("/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
-router.get("/age/:age/species/:species", HealthRecordController.getFilteredAnimalDetails);
-router.get("/age/:age/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
-router.get("/species/:species/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
-router.get("/age/:age/species/:species/gender/:gender", HealthRecordController.getFilteredAnimalDetails);
+//เส้นทาง API สำหรับการค้นหาสัตว์จาก  HealthRecords
+router.get("/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
+router.get("/species/:species/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
+router.get("/gender/:gender/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
+router.get("/species/:species/gender/:gender/age/:age", HealthRecordController.getFilteredHealthRecordsByAnimal);
+
 
 module.exports = router;

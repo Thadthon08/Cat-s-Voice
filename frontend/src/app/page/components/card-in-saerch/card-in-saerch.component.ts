@@ -38,6 +38,7 @@ export class CardInSaerchComponent implements OnInit, OnDestroy {
     this.searchStatus$ = this.store.select(selectSearchStatus);
   }
 
+   
   ngOnInit(): void {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
